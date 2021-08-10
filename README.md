@@ -1,11 +1,11 @@
 # Tilemap2Tileset
 Split all of your Tilemaps and Images into Tilesets or Tiles
 
-   	    	by: YukkiTimmy
-		version: 1.0
+by: YukkiTimmy
+version: 1.0
 
 
-	   >----Explanation----<
+# >----Explanation----<
 The program itself is pretty self explanatory,
 
 before you can start tiling your image, you need
@@ -21,7 +21,7 @@ every tile as an image or if you want one single tileset
 
 Then just press start!
 
-	      >----Todo----<
+# >----Todo----<
 1. Adding a mirrored mode, that checks if tiles are unique,
    even when they get mirrored in all directions
 
@@ -37,6 +37,6 @@ Then just press start!
 
 I am very thankful for all your feedback and suggestions!
 
-	     >----Licens----<
+# >----Licens----<
 You can use the code at your heart's content, but please mention me
 in the credits or in the part of the code in a comment c:
