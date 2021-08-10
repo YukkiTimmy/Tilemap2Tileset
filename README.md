@@ -35,6 +35,8 @@ Then just press start!
 
 5. Isometric Mode that prints out isometric tiles
 
+6. HTML5/Mac/Linux support
+
 I am very thankful for all your feedback and suggestions!
 
 # >----Licens----<
