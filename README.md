@@ -22,20 +22,20 @@ every tile as an image or if you want one single tileset
 Then just press start!
 
 # >----Todo----<
-1. Adding a mirrored mode, that checks if tiles are unique,
-   even when they get mirrored in all directions
 
-2. A offset setting that lets you choose the start position
+1. A offset setting that lets you choose the start position
 
-3. A spacing setting that lets you choose a spacing between every tile,
+2. A spacing setting that lets you choose a spacing between every tile,
    so that you could have a 1px thick grid
 
-4. A sorting algorithm that prints similar looking images 
+3. A sorting algorithm that prints similar looking images 
    next to each other, so you have a nicer looking tileset
 
-5. Isometric Mode that prints out isometric tiles
+4. Isometric Mode that prints out isometric tiles
 
-6. HTML5/Mac/Linux support
+5. HTML5/Mac/Linux support
+
+6. Overhauling the UI
 
 I am very thankful for all your feedback and suggestions!
 
