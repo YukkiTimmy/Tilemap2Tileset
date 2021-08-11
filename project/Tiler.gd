@@ -1,14 +1,15 @@
 extends Node
 
-var running = true
+var running : bool = true
 
-var tileWidth = 16
-var tileHeight = 16
+var tileWidth : int = 16
+var tileHeight : int = 16
 
-var imgPath = ""
-var outputDir = ""
+var imgPath : String = ""
+var outputDir : String = ""
 
-var seperate = false
+var seperate : bool = false
+var mirrored : bool = false
 
 func tilesetToTile(img) -> void:
 	# getting width and height of the img
@@ -27,9 +28,9 @@ func tilesetToTile(img) -> void:
 
 	# changing text on the gui
 	# information about the tilesize and the amount of tiles
-	get_parent().get_node("Info").text = str("tilesize = " , str(tileWidth) ,  " : "  , str(tileHeight), " | amount of tiles = ", maxTiles)
+	get_parent().get("info").text = str("tilesize = " , str(tileWidth) ,  " : "  , str(tileHeight), " | amount of tiles = ", maxTiles)
 	# turning the start into a stop button
-	get_parent().get_node("StartButton").text = "Stop Tiling"
+	get_parent().get("startButton").text = "Stop Tiling"
 
 	# setting up an empty Array for all tiles in the tilemap
 	var splittedImgs := []
@@ -105,8 +106,11 @@ func tilesetToTile(img) -> void:
 				return
 
 			# saving all the tiles to a .png file
-			i.save_png(str(outputDir, "/", fileName, "_tiled_", tileWidth, "x", tileHeight, "_", imgCount, ".png"))
-
+			if !mirrored:
+				i.save_png(str(outputDir, "/", fileName, "_tiled_", tileWidth, "x", tileHeight, "_", imgCount, ".png"))
+			else:
+								i.save_png(str(outputDir, "/", fileName, "_tiled_mirrored_", tileWidth, "x", tileHeight, "_", imgCount, ".png"))
+			
 			# increasing the number of printed tiles by one
 			imgCount += 1
 
@@ -134,19 +138,22 @@ func tilesetToTile(img) -> void:
 					count += 1
 
 		# saving the image to the output path
-		imgOut.save_png(str(outputDir, "/tiled_", tileWidth, "x", tileHeight, "_", imgPath.get_file()))
-
+		if !mirrored:
+			imgOut.save_png(str(outputDir, "/tiled_", tileWidth, "x", tileHeight, "_", imgPath.get_file()))
+		else:
+			imgOut.save_png(str(outputDir, "/tiled_mirrored_", tileWidth, "x", tileHeight, "_", imgPath.get_file()))
+		
 		# changing the output image in the gui to the new tileset
 		var texture = ImageTexture.new()
 		texture.create_from_image(imgOut, 1)
-		get_parent().get_node("OutputPic").texture = texture
+		get_parent().get("outPic").texture = texture
 
 
 	# changing some text so the users knows that the process is done
-	get_parent().get_node("OutputPic/OutputName").text = str("tiled_", tileWidth, "x", tileHeight, "_", imgPath.get_file())
-	get_parent().get_node("Display").text = "Finished Tiling"
-	get_parent().get_node("Info").text = str("Total tiles printed = ", uniqTiles.size())
-	get_parent().get_node("StartButton").text = "Start Tiling"
+	get_parent().get("outPicPath").text = str("tiled_", tileWidth, "x", tileHeight, "_", imgPath.get_file())
+	get_parent().get("display").text = "Finished Tiling"
+	get_parent().get("info").text = str("Total tiles printed = ", uniqTiles.size())
+	get_parent().get("startButton").text = "Start Tiling"
 
 	# making sure that the main process can start a new process
 	get_parent().running = false
@@ -180,6 +187,9 @@ func _tile_match_exact(tileA : Image, tileB : Image) -> bool:
 	return true
 
 func _tile_match_rotated_clockwise_90(tileA : Image, tileB : Image) -> bool:
+	if mirrored:
+		return false
+		
 	if tileWidth != tileHeight:
 		return false
 	for y in tileHeight:
@@ -189,6 +199,9 @@ func _tile_match_rotated_clockwise_90(tileA : Image, tileB : Image) -> bool:
 	return true
 
 func _tile_match_rotated_clockwise_180(tileA : Image, tileB : Image) -> bool:
+	if mirrored:
+		return false
+		
 	for y in tileHeight:
 		for x in tileWidth:
 			if tileA.get_pixel(x, y) != tileB.get_pixel(tileWidth - 1 - x, tileHeight - 1 - y):
@@ -196,6 +209,9 @@ func _tile_match_rotated_clockwise_180(tileA : Image, tileB : Image) -> bool:
 	return true
 
 func _tile_match_rotated_clockwise_270(tileA : Image, tileB : Image) -> bool:
+	if mirrored:
+		return false
+		
 	if tileWidth != tileHeight:
 		return false
 	for y in tileHeight:
@@ -214,6 +230,9 @@ func _tile_match_transposed(tileA : Image, tileB : Image) -> bool:
 	return true
 
 func _tile_match_transposed_rotated_clockwise_90(tileA : Image, tileB : Image) -> bool:
+	if mirrored:
+		return false
+		
 	for y in tileHeight:
 		for x in tileWidth:
 			if tileA.get_pixel(x, y) != tileB.get_pixel(tileWidth - 1 - x, y):
@@ -221,6 +240,9 @@ func _tile_match_transposed_rotated_clockwise_90(tileA : Image, tileB : Image) -
 	return true
 
 func _tile_match_transposed_rotated_clockwise_180(tileA : Image, tileB : Image) -> bool:
+	if mirrored:
+		return false
+		
 	if tileWidth != tileHeight:
 		return false
 	for y in tileHeight:
@@ -230,6 +252,9 @@ func _tile_match_transposed_rotated_clockwise_180(tileA : Image, tileB : Image) 
 	return true
 
 func _tile_match_transposed_rotated_clockwise_270(tileA : Image, tileB : Image) -> bool:
+	if mirrored:
+		return false
+		
 	for y in tileHeight:
 		for x in tileWidth:
 			if tileA.get_pixel(x, y) != tileB.get_pixel(x, tileHeight - 1 - y):
