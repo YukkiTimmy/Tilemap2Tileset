@@ -9,7 +9,11 @@ var outputDir : String = "choose a folder"
 
 var running : bool = false
 
+var sort_by : String = "red"
+
 var tiler = null
+
+var thread : Thread
 
 
 onready var fileDialog : FileDialog = $FileDialog
@@ -24,13 +28,22 @@ onready var outPicPath : Label = $InputOutput/OutputPic/OutputName
 
 onready var widthBox : SpinBox = $SettingsMenu/Width
 onready var heightBox : SpinBox = $SettingsMenu/Height
+
 onready var printingModeLever : CheckButton = $SettingsMenu/PrintingMode/PrintingModeSwitch
 onready var mirroredModeLever : CheckButton = $SettingsMenu/MirroredMode/MirroredModeSwitch
+onready var sortingModeLever : CheckButton = $SettingsMenu/SortingMode/SortingModeSwitch
+
+onready var redCheck : CheckBox = $SettingsMenu/SortingMode/Red
+onready var greenCheck : CheckBox = $SettingsMenu/SortingMode/Green
+onready var blueCheck : CheckBox = $SettingsMenu/SortingMode/Blue
 
 onready var outputhPath : Label = $Buttons/OutputPath/OutputPathLabel
 onready var startButton : Button = $Buttons/StartButton
 
+onready var bar : TextureProgress = $ProgressBar
+
 onready var anim : AnimationPlayer = $AnimationPlayer
+
 
 func _on_OpenFileButton_pressed() -> void:
 	# opening the FileDialog
@@ -126,9 +139,16 @@ func _on_StartButton_pressed() -> void:
 		
 		instance.seperate = printingModeLever.pressed
 		instance.mirrored = !mirroredModeLever.pressed
+		instance.sorting = sortingModeLever.pressed
+		
+		instance.sort_by = sort_by
 		
 		add_child(instance)
-		instance.tilesetToTile(img)
+		
+		thread = Thread.new()
+		thread.start(instance, "tilesetToTile", img)
+		
+		#instance.tilesetToTile(img)
 		
 		# changing text
 		display.text = "Started tiling"
@@ -146,8 +166,11 @@ func _on_StartButton_pressed() -> void:
 		if tiler != null:
 			tiler.queue_free()
 		running = false
+		
+		bar.value = 0
 		startButton.text = "Start Tiling"
 		display.text = "Tiling has been stopped!"
+		info.text = "---"
 	
 	
 func load_external_tex(path) -> Texture:
@@ -208,4 +231,24 @@ func _on_128x128_pressed():
 	heightBox.value = 128
 
 func _on_PrintingMode_mouse_entered():
-	pass # Replace with function body.
+	print("HI")
+
+
+
+func _on_Red_pressed():
+	redCheck.pressed = true
+	greenCheck.pressed = false
+	blueCheck.pressed = false
+	sort_by = "red"
+
+func _on_Green_pressed():
+	redCheck.pressed = false
+	greenCheck.pressed = true
+	blueCheck.pressed = false
+	sort_by = "green"
+
+func _on_Blue_pressed():
+	redCheck.pressed = false
+	greenCheck.pressed = false
+	blueCheck.pressed = true
+	sort_by = "blue"
