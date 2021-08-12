@@ -29,13 +29,12 @@ Then just press start!
    so that you could have a 1px thick grid
 
 3. A sorting algorithm that prints similar looking images 
-   next to each other, so you have a nicer looking tileset
+   next to each other, so you have a nicer looking tileset (basic implementatin done WIP)
 
 4. Isometric Mode that prints out isometric tiles
 
 5. HTML5/Mac/Linux support
 
-6. Overhauling the UI
 
 I am very thankful for all your feedback and suggestions!
 
