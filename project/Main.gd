@@ -1,10 +1,11 @@
 extends Control
 
-var tileWidth = 16
-var tileHeight = 16
+var tileWidth : int = 16
+var tileHeight : int = 16
 
 var imgPath : String = ""
 var imgLoaded : bool = false 
+var urlLoaded : bool = false
 var outputDir : String = "choose a folder"
 
 var running : bool = false
@@ -17,6 +18,8 @@ var thread : Thread
 
 
 onready var fileDialog : FileDialog = $FileDialog
+onready var urlDialog : Popup = $DownloadPopup
+onready var urlDialogLineEdit : LineEdit = $DownloadPopup/LineEdit
 onready var outFileDialog : FileDialog = $OutPutDialog
 
 onready var display : Label = $CentralText/Display
@@ -26,8 +29,11 @@ onready var inPic : TextureRect = $InputOutput/InputPic
 onready var outPic : TextureRect = $InputOutput/OutputPic
 onready var outPicPath : Label = $InputOutput/OutputPic/OutputName
 
-onready var widthBox : SpinBox = $SettingsMenu/Width
-onready var heightBox : SpinBox = $SettingsMenu/Height
+onready var widthBox : SpinBox = $SettingsMenu/Sizes/Width
+onready var heightBox : SpinBox = $SettingsMenu/Sizes/Height
+
+onready var offsetX : SpinBox = $SettingsMenu/Offset/OffsetX
+onready var offsetY : SpinBox = $SettingsMenu/Offset/OffsetY
 
 onready var printingModeLever : CheckButton = $SettingsMenu/PrintingMode/PrintingModeSwitch
 onready var mirroredModeLever : CheckButton = $SettingsMenu/MirroredMode/MirroredModeSwitch
@@ -44,6 +50,9 @@ onready var bar : TextureProgress = $ProgressBar
 
 onready var anim : AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	$SettingsMenu.visible = false
+	anim.play("pop_out")
 
 func _on_OpenFileButton_pressed() -> void:
 	# opening the FileDialog
@@ -84,6 +93,61 @@ func _on_OutputPath_pressed() -> void:
 	outFileDialog.popup()
 
 
+func _on_LoadURLImage_pressed() -> void:
+	urlDialog.popup()
+
+
+func _on_submit_pressed() -> void:
+	urlDialog.visible = false
+	
+	if urlDialogLineEdit.text != "":
+		var http_request = HTTPRequest.new()
+		add_child(http_request)
+		http_request.connect("request_completed", self, "_http_request_completed")
+		
+		var error = http_request.request(urlDialogLineEdit.text)
+		if error != OK:
+			push_error("An error occurred in the HTTP request.")
+
+
+func _on_CloseSettingsButton2_pressed() -> void:
+	urlDialog.visible = false	
+
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+func _http_request_completed(result, response_code, headers, body):
+	var image = Image.new()
+	
+	imgPath = urlDialogLineEdit.text
+	var error = null
+		
+	if imgPath.ends_with(".png") || imgPath.ends_with(".PNG"):
+		error = image.load_png_from_buffer(body)
+	elif imgPath.ends_with(".jpg") || imgPath.ends_with(".jpeg") || imgPath.ends_with(".JPG") || imgPath.ends_with(".JPEG"):
+		error = image.load_jpg_from_buffer(body)
+	else:
+		return null
+	
+	if error != OK:
+		push_error("Couldn't load the image.")
+
+	var texture = ImageTexture.new()
+	texture.create_from_image(image)
+
+	inPic.texture = texture
+	outPic.texture = null
+	
+
+	# changing some in the ui for 
+	display.text = "Image loaded successfully"
+	info.text = str("Width: ", inPic.texture.get_width(), "px Height: ", inPic.texture.get_height(), "px")
+	inPic.get_node("InputName").text = urlDialogLineEdit.text
+	urlLoaded = true
+	yield(get_tree().create_timer(2),"timeout") 
+	display.text = "You can now start tiling"
+
+
 func _on_OutPutDialog_dir_selected(dir)  -> void:
 	# you must have chosen a directory and the tiling process can't be running
 	if dir != null && running == false:
@@ -99,13 +163,13 @@ func _on_OutPutDialog_dir_selected(dir)  -> void:
 		
 func _on_StartButton_pressed() -> void:
 	# checking that a image is loaded, that the process isn't running and that you choose a directory
-	if imgLoaded == true && running == false && outputDir != "choose a folder":
+	if imgLoaded == true && running == false && outputDir != "choose a folder" || urlLoaded == true && running == false && outputDir != "choose a folder":
 		# loading the image
-		var img = load_external_tex(imgPath)
+		var img = inPic.texture
 		
 		# getting width und height of the image
-		var width = int(img.get_width())
-		var height = int(img.get_height())
+		var width = int(img.get_width() - offsetX.value)
+		var height = int(img.get_height() - offsetY.value)
 		
 		# getting the tileWidth and tileHeight from the ui
 		tileWidth = int(widthBox.value)
@@ -115,7 +179,7 @@ func _on_StartButton_pressed() -> void:
 		if width % tileWidth != 0 || height % tileHeight != 0:
 			print(width , " : " , tileWidth, " | ", height, " : ", tileHeight)
 			display.text = "Image- and Tilesizes don't match!"
-			info.text = "Youre Imagessizes must be divisible by your Tilesizes"
+			info.text = "Youre Imagessizes must be divisible by your Tilesizes (check the offsets)"
 			return
 		
 		# setting running to true to stop new processes from happening
@@ -124,8 +188,11 @@ func _on_StartButton_pressed() -> void:
 		# reseting the output image
 		outPic.texture = null
 		
+		var scene = null
+		
 		# loading and instantiating the Tiler
-		var scene = load("res://Tiler.tscn")
+		scene = load("res://Tiler.tscn")
+			
 		var instance =  scene.instance()
 		
 		tiler = instance
@@ -133,6 +200,9 @@ func _on_StartButton_pressed() -> void:
 		# giving the tiler needed information
 		instance.tileWidth = tileWidth
 		instance.tileHeight = tileHeight
+		
+		instance.offsetX = offsetX.value
+		instance.offsetY = offsetY.value
 		
 		instance.outputDir = outputDir
 		instance.imgPath = imgPath
@@ -146,15 +216,14 @@ func _on_StartButton_pressed() -> void:
 		add_child(instance)
 		
 		thread = Thread.new()
+# warning-ignore:return_value_discarded
 		thread.start(instance, "tilesetToTile", img)
-		
-		#instance.tilesetToTile(img)
 		
 		# changing text
 		display.text = "Started tiling"
 	
 	# check if there is a image loaded
-	elif imgLoaded == false && running == false:
+	elif imgLoaded == false && urlLoaded == false && running == false:
 		display.text = "You need to load an image first!"
 	
 	# check if there is a directory choosen
@@ -173,7 +242,7 @@ func _on_StartButton_pressed() -> void:
 		info.text = "---"
 	
 	
-func load_external_tex(path) -> Texture:
+func load_external_tex(path) -> ImageTexture:
 	# credits and thanks to u/golddotasksquestions over on Reddit
 	var tex_file = File.new()
 	tex_file.open(path, File.READ)
@@ -181,8 +250,10 @@ func load_external_tex(path) -> Texture:
 	var img = Image.new()
 	
 	if path.ends_with(".png") || path.ends_with(".PNG"):
+# warning-ignore:unused_variable
 		var data = img.load_png_from_buffer(bytes)
 	elif path.ends_with(".jpg") || path.ends_with(".jpeg") || path.ends_with(".JPG") || path.ends_with(".JPEG"):
+# warning-ignore:unused_variable
 		var data = img.load_jpg_from_buffer(bytes)
 	else:
 		return null
@@ -194,11 +265,11 @@ func load_external_tex(path) -> Texture:
 
 
 func _on_SettingsButton_pressed():
-	anim.play("pop_in")
+	anim.queue("pop_in")
 
 
 func _on_CloseSettingsButton_pressed():
-	anim.play("pop_out")
+	anim.queue("pop_out")
 
 
 func _on_4x4_pressed():
@@ -230,10 +301,6 @@ func _on_128x128_pressed():
 	widthBox.value = 128
 	heightBox.value = 128
 
-func _on_PrintingMode_mouse_entered():
-	print("HI")
-
-
 
 func _on_Red_pressed():
 	redCheck.pressed = true
@@ -252,3 +319,49 @@ func _on_Blue_pressed():
 	greenCheck.pressed = false
 	blueCheck.pressed = true
 	sort_by = "blue"
+
+
+func _on_SaveSettingsButton_pressed() -> void:
+	anim.queue("Saved")
+	var f = File.new()
+	f.open("user://settings.sav", File.WRITE)
+	f.store_var(widthBox.value)
+	f.store_var(heightBox.value)
+	
+	f.store_var(offsetX.value)
+	f.store_var(offsetY.value)
+	
+	f.store_var(sortingModeLever.pressed)
+	f.store_var(redCheck.pressed)
+	f.store_var(greenCheck.pressed)
+	f.store_var(blueCheck.pressed)
+	
+	f.store_var(mirroredModeLever.pressed)
+	
+	f.store_var(printingModeLever.pressed)
+	
+	f.close()
+	print("SAVED")
+
+
+func _on_LoadSettingsButton_pressed() -> void:
+	anim.queue("Loaded")
+	var f = File.new()
+	f.open("user://settings.sav", File.READ)
+	widthBox.value = f.get_var()
+	heightBox.value = f.get_var()
+	
+	offsetX.value = f.get_var()
+	offsetY.value = f.get_var()
+	
+	sortingModeLever.pressed = f.get_var()
+	redCheck.pressed = f.get_var()
+	greenCheck.pressed = f.get_var()
+	blueCheck.pressed = f.get_var()
+	
+	mirroredModeLever.pressed = f.get_var()
+	
+	printingModeLever.pressed = f.get_var()
+	
+	f.close()
+	print("LOADED")

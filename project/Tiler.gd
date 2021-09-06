@@ -14,18 +14,25 @@ var sorting : bool = true
 
 var sort_by : String = "red"
 
-var start_time = 0
-var time_now = 0
+var start_time := 0
+var time_now := 0
 
+var offsetX := 0
+var offsetY := 0
+
+var grid_size := 0
+
+# warning-ignore:unused_argument
 func _process(delta):
 	time_now = OS.get_unix_time()
 	
 func tilesetToTile(img) -> void:
+	print("NEW")
 	start_time = OS.get_unix_time()
-	
+
 	# getting width and height of the img
-	var width = img.get_width()
-	var height = img.get_height()
+	var width = img.get_width() - offsetX
+	var height = img.get_height() - offsetY
 
 	# getting the amount of rows and colums
 	var rows = width / tileWidth
@@ -44,9 +51,26 @@ func tilesetToTile(img) -> void:
 	# turning the start into a stop button
 	get_parent().get("startButton").text = "Stop Tiling"
 
-	# setting up an empty Array for all tiles in the tilemap
-	var splittedImgs := []
+	# preparing a new Array for unique tiles only
+	var uniqTiles := []
+	
+	var first = Image.new()
 
+	# creating a temporary image (width, height, midmap stuff just put it on false,
+	# 							  the RGB Format - I just take the same as the origin image has)
+	first.create(tileWidth, tileHeight, false, data.get_format())
+
+	# copying part of the main image to the temporary img
+	first.blit_rect(data, Rect2(offsetX, offsetY, tileWidth + offsetX, tileHeight + offsetY), Vector2.ZERO)
+	
+	uniqTiles.append(first)
+	
+	# initialising isUniq value to prevent unnecessary comparisons
+	var isUniq : bool = true
+	
+	var counter : int = 0
+	get_parent().get("bar").max_value = maxTiles
+	
 	# saving every single tile into the "splittedImgs" Array
 	for y in cols:
 		for x in rows:
@@ -58,42 +82,24 @@ func tilesetToTile(img) -> void:
 			temp.create(tileWidth, tileHeight, false, data.get_format())
 
 			# copying part of the main image to the temporary img
-			temp.blit_rect(data, Rect2(tileWidth * x, tileHeight * y, tileWidth * x + tileWidth, tileHeight * y + tileHeight), Vector2.ZERO)
-
-			# adding the temporary tile to the array
-			splittedImgs.append(temp)
+			temp.blit_rect(data, Rect2(tileWidth * x + offsetX, tileHeight * y + offsetY, tileWidth * x + tileWidth + offsetX, tileHeight * y + tileHeight + offsetY), Vector2.ZERO)
 			
-	# preparing a new Array for unique tiles only
-	var uniqTiles := []
+			for j in uniqTiles.size():
+				if isUniq:
+					# comparing the new tile to all the unique tiles,
+					# if it isn't in the unique tiles it must be unique it self
+					if compareImage(uniqTiles[j], temp):
+						isUniq = false
 
-	# the first tile must be uniq, because there is no other tile to compare
-	uniqTiles.append(splittedImgs[0])
-
-	# initialising isUniq value to prevent unnecessary comparisons
-	var isUniq : bool = true
-	
-	var counter : int = 0
-	get_parent().get("bar").max_value = maxTiles
-	
-	# loop through all the tiles (skipping the first)
-	for i in range(1,splittedImgs.size()):
-		for j in uniqTiles.size():
 			if isUniq:
-				# comparing the new tile to all the unique tiles,
-				# if it isn't in the unique tiles it must be unique it self
-				if compareImage(uniqTiles[j], splittedImgs[i]):
-					isUniq = false
-
-		if isUniq:
-			# adding the new unique tile to the Array
-			uniqTiles.append(splittedImgs[i])
-		
-		counter += 1
-		get_parent().get("bar").value = counter
-		
-		# reset the value for the next tile
-		isUniq = true
-	
+				# adding the new unique tile to the Array
+				uniqTiles.append(temp)
+				
+			counter += 1
+			get_parent().get("bar").value = counter
+			
+			# reset the value for the next tile
+			isUniq = true
 	
 	# sorting
 	if sorting:
