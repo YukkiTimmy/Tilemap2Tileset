@@ -2,7 +2,7 @@
 Split all of your Tilemaps and Images into Tilesets or Tiles
 
 by: YukkiTimmy
-version: 1.0
+version: 1.4
 
 
 # >----Explanation----<
@@ -23,17 +23,12 @@ Then just press start!
 
 # >----Todo----<
 
-1. A offset setting that lets you choose the start position
-
-2. A spacing setting that lets you choose a spacing between every tile,
+1. A spacing setting that lets you choose a spacing between every tile,
    so that you could have a 1px thick grid
 
-3. A sorting algorithm that prints similar looking images 
-   next to each other, so you have a nicer looking tileset (basic implementatin done WIP)
+2. Isometric Mode that prints out isometric tiles
 
-4. Isometric Mode that prints out isometric tiles
-
-5. HTML5/Mac/Linux support
+3. HTML5 support
 
 
 I am very thankful for all your feedback and suggestions!
