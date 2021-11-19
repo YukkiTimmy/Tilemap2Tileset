@@ -25,7 +25,7 @@ var grid_size := 0
 # warning-ignore:unused_argument
 func _process(delta):
 	time_now = OS.get_unix_time()
-	
+
 func tilesetToTile(img) -> void:
 	print("NEW")
 	start_time = OS.get_unix_time()
@@ -47,64 +47,88 @@ func tilesetToTile(img) -> void:
 	# changing text on the gui
 	# information about the tilesize and the amount of tiles
 	get_parent().get("info").text = str("tilesize = " , str(tileWidth) ,  " : "  , str(tileHeight), " | amount of tiles = ", maxTiles)
-	
+
 	# turning the start into a stop button
 	get_parent().get("startButton").text = "Stop Tiling"
 
 	# preparing a new Array for unique tiles only
 	var uniqTiles := []
-	
-	var first = Image.new()
 
-	# creating a temporary image (width, height, midmap stuff just put it on false,
-	# 							  the RGB Format - I just take the same as the origin image has)
-	first.create(tileWidth, tileHeight, false, data.get_format())
+	# dictionary of hashes to tile index in uniqTiles
+	var tileHashes: Dictionary = {}
 
-	# copying part of the main image to the temporary img
-	first.blit_rect(data, Rect2(offsetX, offsetY, tileWidth + offsetX, tileHeight + offsetY), Vector2.ZERO)
-	
-	uniqTiles.append(first)
-	
-	# initialising isUniq value to prevent unnecessary comparisons
-	var isUniq : bool = true
-	
 	var counter : int = 0
 	get_parent().get("bar").max_value = maxTiles
-	
+
 	# saving every single tile into the "splittedImgs" Array
 	for y in cols:
 		for x in rows:
 			# initialising a temporary Image
-			var temp = Image.new()
+			var tempImage = Image.new()
 
 			# creating a temporary image (width, height, midmap stuff just put it on false,
 			# 							  the RGB Format - I just take the same as the origin image has)
-			temp.create(tileWidth, tileHeight, false, data.get_format())
+			tempImage.create(tileWidth, tileHeight, false, data.get_format())
 
 			# copying part of the main image to the temporary img
-			temp.blit_rect(data, Rect2(tileWidth * x + offsetX, tileHeight * y + offsetY, tileWidth * x + tileWidth + offsetX, tileHeight * y + tileHeight + offsetY), Vector2.ZERO)
-			
-			for j in uniqTiles.size():
-				if isUniq:
-					# comparing the new tile to all the unique tiles,
-					# if it isn't in the unique tiles it must be unique it self
-					if compareImage(uniqTiles[j], temp):
-						isUniq = false
+			tempImage.blit_rect(
+				data,
+				Rect2(
+					tileWidth * x + offsetX,
+					tileHeight * y + offsetY,
+					tileWidth * x + tileWidth + offsetX,
+					tileHeight * y + tileHeight + offsetY),
+				Vector2.ZERO
+			)
 
-			if isUniq:
-				# adding the new unique tile to the Array
-				uniqTiles.append(temp)
-				
 			counter += 1
 			get_parent().get("bar").value = counter
-			
-			# reset the value for the next tile
-			isUniq = true
-	
+
+			# Check if the tile is unique.
+			var imagehash = _imageHash(tempImage)
+			if imagehash in tileHashes:
+				print("Duplicate Found")
+				continue
+
+			# Add all hashes of tile permutations to the list. This is done so
+			# that a hash of any permutation of this tile will be detected in
+			# the code above.
+			var newTileIndex = len(uniqTiles)
+			tileHashes[imagehash] = newTileIndex
+
+			tempImage.flip_x()
+			tileHashes[_imageHash(tempImage)] = newTileIndex
+
+			tempImage.flip_y()
+			tileHashes[_imageHash(tempImage)] = newTileIndex
+
+			tempImage.flip_x()
+			tileHashes[_imageHash(tempImage)] = newTileIndex
+
+			# Rotated 90deg Tile Permutations.
+			var tempRotatedTile = _rotatedTile(tempImage)
+			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+
+			tempRotatedTile.flip_x()
+			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+
+			tempRotatedTile.flip_y()
+			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+
+			tempRotatedTile.flip_x()
+			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+
+			# Reset original tile to normal
+			tempImage.flip_y()
+
+			# adding the new unique tile to the Array
+			uniqTiles.append(tempImage)
+
+
 	# sorting
 	if sorting:
 		uniqTiles = _sorting_tiles(uniqTiles)
-	
+
 
 	# checks if the programm should print out a single or a multiple smaller images
 
@@ -135,15 +159,15 @@ func tilesetToTile(img) -> void:
 
 			# saving all the tiles to a .png file
 			var newFileName : String = "_tiled_"
-		
+
 			if !mirrored:
 				newFileName += "mirrored_"
-			
+
 			if sorting:
 				newFileName += str("sorted_", sort_by, "_")
-				
+
 			i.save_png(str(outputDir, "/", fileName, newFileName, tileWidth, "x", tileHeight, "_", imgCount, ".png"))
-			
+
 			# increasing the number of printed tiles by one
 			imgCount += 1
 
@@ -172,15 +196,15 @@ func tilesetToTile(img) -> void:
 
 		# saving the image to the output path
 		var newFileName : String = "/tiled_"
-		
+
 		if !mirrored:
 			newFileName += "mirrored_"
-		
+
 		if sorting:
 			newFileName += str("sorted_", sort_by, "_")
-		
+
 		imgOut.save_png(str(outputDir, newFileName, tileWidth, "x", tileHeight, "_", imgPath.get_file()))
-		
+
 		# changing the output image in the gui to the new tileset
 		var texture = ImageTexture.new()
 		texture.create_from_image(imgOut, 1)
@@ -198,117 +222,35 @@ func tilesetToTile(img) -> void:
 
 	queue_free()
 
+func _imageHash(image: Image) -> int:
+	var data = image.get_data()
+	return hash(data)
 
-func compareImage(imgUniq : Image, imgNew : Image) -> bool:
-	imgUniq.lock()
-	imgNew.lock()
-	var is_matching = (
-		_tile_match_exact(imgUniq, imgNew) or
-		_tile_match_rotated_clockwise_90(imgUniq, imgNew) or
-		_tile_match_rotated_clockwise_180(imgUniq, imgNew) or
-		_tile_match_rotated_clockwise_270(imgUniq, imgNew) or
-		_tile_match_transposed(imgUniq, imgNew) or
-		_tile_match_transposed_rotated_clockwise_90(imgUniq, imgNew) or
-		_tile_match_transposed_rotated_clockwise_180(imgUniq, imgNew) or
-		_tile_match_transposed_rotated_clockwise_270(imgUniq, imgNew)
-	)
-	imgUniq.unlock()
-	imgNew.unlock()
-	return is_matching
+func _rotatedTile(tile : Image) -> Image:
+	var rotatedTile = Image.new()
+	rotatedTile.create(tileWidth, tileHeight, false, tile.get_format())
 
-
-func _tile_match_exact(tileA : Image, tileB : Image) -> bool:
+	tile.lock()
+	rotatedTile.lock()
 	for y in tileHeight:
 		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(x, y):
-				return false
-	return true
+			rotatedTile.set_pixel(y, x, tile.get_pixel(x,y))
+	tile.unlock()
+	rotatedTile.unlock()
 
-func _tile_match_rotated_clockwise_90(tileA : Image, tileB : Image) -> bool:
-	if mirrored:
-		return false
-		
-	if tileWidth != tileHeight:
-		return false
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(tileHeight - 1 - y, x):
-				return false
-	return true
+	return rotatedTile
 
-func _tile_match_rotated_clockwise_180(tileA : Image, tileB : Image) -> bool:
-	if mirrored:
-		return false
-		
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(tileWidth - 1 - x, tileHeight - 1 - y):
-				return false
-	return true
-
-func _tile_match_rotated_clockwise_270(tileA : Image, tileB : Image) -> bool:
-	if mirrored:
-		return false
-		
-	if tileWidth != tileHeight:
-		return false
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(y, tileWidth - 1 - x):
-				return false
-	return true
-
-func _tile_match_transposed(tileA : Image, tileB : Image) -> bool:
-	if tileWidth != tileHeight:
-		return false
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(y, x):
-				return false
-	return true
-
-func _tile_match_transposed_rotated_clockwise_90(tileA : Image, tileB : Image) -> bool:
-	if mirrored:
-		return false
-		
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(tileWidth - 1 - x, y):
-				return false
-	return true
-
-func _tile_match_transposed_rotated_clockwise_180(tileA : Image, tileB : Image) -> bool:
-	if mirrored:
-		return false
-		
-	if tileWidth != tileHeight:
-		return false
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(tileHeight - 1 - y, tileWidth - 1 - x):
-				return false
-	return true
-
-func _tile_match_transposed_rotated_clockwise_270(tileA : Image, tileB : Image) -> bool:
-	if !mirrored:
-		return false
-		
-	for y in tileHeight:
-		for x in tileWidth:
-			if tileA.get_pixel(x, y) != tileB.get_pixel(x, tileHeight - 1 - y):
-				return false
-	return true
 
 func _sorting_tiles(tiles : Array) -> Array:
 	var rgb_values := []
 	var sorted_tiles := []
-	
+
 	var tileR : int = 0
 	var tileG : int = 0
 	var tileB : int = 0
-	
+
 	var count : int = 0
-	
+
 	for i in tiles:
 		i.lock()
 		for y in tileHeight:
@@ -316,7 +258,7 @@ func _sorting_tiles(tiles : Array) -> Array:
 				tileR += i.get_pixel(x,y).r8
 				tileG += i.get_pixel(x,y).g8
 				tileB += i.get_pixel(x,y).b8
-		
+
 		match sort_by:
 			"red":
 				rgb_values.append(Vector2(tileR,count))
@@ -324,19 +266,19 @@ func _sorting_tiles(tiles : Array) -> Array:
 				rgb_values.append(Vector2(tileG,count))
 			"blue":
 				rgb_values.append(Vector2(tileB,count))
-			
+
 		tileR = 0
 		tileG = 0
 		tileB = 0
-		
+
 		count += 1
-		
+
 	rgb_values.sort()
-	
+
 	for n in tiles.size():
 		sorted_tiles.append(0)
-	
+
 	for i in rgb_values.size():
 		sorted_tiles[i] = tiles[rgb_values[i].y]
-	
+
 	return sorted_tiles
