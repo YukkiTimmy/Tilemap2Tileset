@@ -16,6 +16,8 @@ var tiler = null
 
 var thread : Thread
 
+var onPic : bool = false
+var _dragging : bool = false
 
 onready var fileDialog : FileDialog = $FileDialog
 onready var urlDialog : Popup = $DownloadPopup
@@ -25,7 +27,8 @@ onready var outFileDialog : FileDialog = $OutPutDialog
 onready var display : Label = $CentralText/Display
 onready var info : Label = $CentralText/Info
 
-onready var inPic : TextureRect = $InputOutput/InputPic
+#onready var inPic : TextureRect = $InputOutput/InputPicTexture
+onready var inPic : Sprite = $InputOutput/InputPic
 onready var outPic : TextureRect = $InputOutput/OutputPic
 onready var outPicPath : Label = $InputOutput/OutputPic/OutputName
 
@@ -50,10 +53,60 @@ onready var bar : TextureProgress = $ProgressBar
 
 onready var anim : AnimationPlayer = $AnimationPlayer
 
+var dragStart = Vector2.ZERO
+
 func _ready() -> void:
 	$SettingsMenu.visible = false
 	anim.play("pop_out")
+	
+	get_tree().connect("files_dropped", self, "_on_files_dropped")
 
+
+func _on_files_dropped(files, screen):
+	if files[0] != null && running == false:
+		# loading the input picture++
+		var InputPicImg = load_external_tex(files[0])
+		
+		# Backup Check
+		if InputPicImg == null:
+			display.text = "File Extensions not supported! :("
+			outPic.texture = null
+			return
+			
+		# setting the input picture to the file
+		inPic.texture = InputPicImg
+		outPic.texture = null
+		
+		
+		# setting the global var to the local one
+		imgPath = files[0]
+
+		# changing some in the ui for 
+		display.text = "Image loaded successfully"
+		info.text = str("Width: ", inPic.texture.get_width(), "px Height: ", inPic.texture.get_height(), "px")
+		inPic.get_node("InputName").text = files[0].get_file()
+		imgLoaded = true
+		yield(get_tree().create_timer(2),"timeout") 
+		display.text = "You can now start tiling"
+	
+
+func _input(event):
+	var size := Vector2(304,304)
+	var offset := Vector2(inPic.region_rect.position.x, inPic.region_rect.position.y)
+
+	if event is InputEventMouseButton and get_global_mouse_position() < Vector2(416,448) and get_global_mouse_position() > Vector2(96, 128):
+		_dragging = event.pressed
+		
+	elif event is InputEventMouseMotion and _dragging:
+		var motion = Vector2(event.relative.x, event.relative.y)
+		offset.x += -motion.x
+		offset.y += -motion.y
+		inPic.region_rect = Rect2(offset, size)
+	
+	else:
+		_dragging = false
+
+	
 func _on_OpenFileButton_pressed() -> void:
 	# opening the FileDialog
 	fileDialog.popup()

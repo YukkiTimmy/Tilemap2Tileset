@@ -27,7 +27,6 @@ func _process(delta):
 	time_now = OS.get_unix_time()
 
 func tilesetToTile(img) -> void:
-	print("NEW")
 	start_time = OS.get_unix_time()
 
 	# getting width and height of the img
@@ -87,7 +86,6 @@ func tilesetToTile(img) -> void:
 			# Check if the tile is unique.
 			var imagehash = _imageHash(tempImage)
 			if imagehash in tileHashes:
-				print("Duplicate Found")
 				continue
 
 			# Add all hashes of tile permutations to the list. This is done so
@@ -95,31 +93,32 @@ func tilesetToTile(img) -> void:
 			# the code above.
 			var newTileIndex = len(uniqTiles)
 			tileHashes[imagehash] = newTileIndex
+			
+			if !mirrored:
+				tempImage.flip_x()
+				tileHashes[_imageHash(tempImage)] = newTileIndex
 
-			tempImage.flip_x()
-			tileHashes[_imageHash(tempImage)] = newTileIndex
+				tempImage.flip_y()
+				tileHashes[_imageHash(tempImage)] = newTileIndex
 
-			tempImage.flip_y()
-			tileHashes[_imageHash(tempImage)] = newTileIndex
+				tempImage.flip_x()
+				tileHashes[_imageHash(tempImage)] = newTileIndex
 
-			tempImage.flip_x()
-			tileHashes[_imageHash(tempImage)] = newTileIndex
+				# Rotated 90deg Tile Permutations.
+				var tempRotatedTile = _rotatedTile(tempImage)
+				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
 
-			# Rotated 90deg Tile Permutations.
-			var tempRotatedTile = _rotatedTile(tempImage)
-			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+				tempRotatedTile.flip_x()
+				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
 
-			tempRotatedTile.flip_x()
-			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+				tempRotatedTile.flip_y()
+				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
 
-			tempRotatedTile.flip_y()
-			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
+				tempRotatedTile.flip_x()
+				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
 
-			tempRotatedTile.flip_x()
-			tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
-
-			# Reset original tile to normal
-			tempImage.flip_y()
+				# Reset original tile to normal
+				tempImage.flip_y()
 
 			# adding the new unique tile to the Array
 			uniqTiles.append(tempImage)
