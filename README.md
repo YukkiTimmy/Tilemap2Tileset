@@ -2,7 +2,7 @@
 Split all of your Tilemaps and Images into Tilesets or Tiles
 
 by: YukkiTimmy
-version: 1.4
+version: 2.0
 
 
 # >----Explanation----<
