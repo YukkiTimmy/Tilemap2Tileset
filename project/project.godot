@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Tilemap To Tileset UI Overhaul"
+run/main_scene="res://scenes/UI.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/vsync/use_vsync=false
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_clear_color=Color( 0.247059, 0.180392, 0.243137, 1 )
+environment/default_environment="res://default_env.tres"

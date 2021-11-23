@@ -1,0 +1,493 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/fonts/Mukta/Mukta-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Sidebar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Titlebar.gd" type="Script" id=3]
+[ext_resource path="res://assets/imgs/icons/round_delete_white_24dp.png" type="Texture" id=4]
+[ext_resource path="res://assets/imgs/icons/round_file_upload_black_24dp.png" type="Texture" id=5]
+[ext_resource path="res://assets/imgs/icons/round_folder_black_24dp.png" type="Texture" id=6]
+[ext_resource path="res://assets/imgs/icons/round_minimize_white_24dp.png" type="Texture" id=7]
+[ext_resource path="res://assets/imgs/icons/round_http_white_24dp.png" type="Texture" id=8]
+[ext_resource path="res://assets/themes/mainTheme.tres" type="Theme" id=9]
+[ext_resource path="res://assets/imgs/icons/round_close_white_24dp.png" type="Texture" id=10]
+[ext_resource path="res://scripts/main.gd" type="Script" id=11]
+[ext_resource path="res://assets/imgs/icons/round_delete_gray_24dp.png" type="Texture" id=12]
+[ext_resource path="res://assets/imgs/icons/round_backspace_gray_24dp.png" type="Texture" id=13]
+[ext_resource path="res://assets/imgs/icons/round_backspace_white_24dp.png" type="Texture" id=14]
+
+[sub_resource type="ButtonGroup" id=7]
+resource_name = "Color"
+
+[sub_resource type="DynamicFont" id=5]
+size = 17
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.145098, 0.137255, 0.188235, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.192157, 0.180392, 0.247059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sidebar" parent="." instance=ExtResource( 2 )]
+
+[node name="ScrollContainer" parent="Sidebar/TabContainer/Options" index="0"]
+margin_right = -6.00012
+margin_bottom = -98.0001
+
+[node name="Red" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors" index="0"]
+group = SubResource( 7 )
+
+[node name="Blue" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors" index="1"]
+group = SubResource( 7 )
+
+[node name="Green" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors" index="2"]
+group = SubResource( 7 )
+
+[node name="fileDialog" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList" index="7"]
+margin_right = 458.0
+
+[node name="Lowerbar" type="PanelContainer" parent="."]
+margin_left = 1400.0
+margin_top = 847.0
+margin_right = 1872.0
+margin_bottom = 968.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="Lowerbar"]
+margin_right = 472.0
+margin_bottom = 121.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lowerbar"]
+margin_right = 472.0
+margin_bottom = 121.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Lowerbar/VBoxContainer"]
+margin_right = 472.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 472, 25 )
+percent_visible = false
+
+[node name="Spacer" type="Label" parent="Lowerbar/VBoxContainer"]
+margin_top = 29.0
+margin_right = 472.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Lowerbar/VBoxContainer"]
+margin_top = 34.0
+margin_right = 472.0
+margin_bottom = 95.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Lowerbar/VBoxContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 386.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 300, 35 )
+custom_fonts/font = SubResource( 1 )
+text = "Start Tiling"
+
+[node name="InfoText" type="Label" parent="."]
+visible = false
+margin_left = 1369.0
+margin_top = 772.0
+margin_right = 1911.0
+margin_bottom = 815.0
+custom_colors/font_color = Color( 0.92549, 0.411765, 0.941176, 1 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.12549, 0.164706, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 6 )
+text = "Tilesizes and Image Dimensions are not divisible!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoText2" type="Label" parent="."]
+visible = false
+margin_left = 1369.0
+margin_top = 772.0
+margin_right = 1911.0
+margin_bottom = 815.0
+custom_colors/font_color = Color( 0.92549, 0.411765, 0.941176, 1 )
+custom_colors/font_color_shadow = Color( 0.133333, 0.12549, 0.164706, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 6 )
+text = "You need to choose a Save Location!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="Control" parent="."]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 1290.0
+margin_bottom = 968.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body"]
+margin_left = 61.0
+margin_top = 21.0
+margin_right = 1099.0
+margin_bottom = 866.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Body/VBoxContainer"]
+margin_right = 1038.0
+margin_bottom = 39.0
+text = "Image to tile"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Body/VBoxContainer"]
+margin_top = 43.0
+margin_right = 1038.0
+margin_bottom = 47.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Label" parent="Body/VBoxContainer"]
+margin_top = 51.0
+margin_right = 1038.0
+margin_bottom = 90.0
+
+[node name="Panel" type="Panel" parent="Body/VBoxContainer"]
+margin_top = 94.0
+margin_right = 1038.0
+margin_bottom = 344.0
+rect_min_size = Vector2( 1024, 250 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="inputImage" type="Polygon2D" parent="Body/VBoxContainer/Panel"]
+visible = false
+polygon = PoolVector2Array( 1, 11, 1, 239, 2, 243, 4, 246, 7, 248, 11, 249, 1027, 249, 1031, 248, 1034, 246, 1036, 243, 1037, 239, 1037, 15, 1037, 11, 1036, 7, 1034, 4, 1031, 2, 1027, 1, 11, 1, 7, 2, 4, 4, 2, 7 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Body/VBoxContainer/Panel"]
+margin_right = 1024.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Body/VBoxContainer/Panel/CenterContainer"]
+margin_left = 378.0
+margin_top = 84.0
+margin_right = 645.0
+margin_bottom = 165.0
+text = "Drop your Images, browse
+or import via URL"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Uploadicon" type="Sprite" parent="Body/VBoxContainer/Panel/CenterContainer"]
+position = Vector2( 512, 64 )
+scale = Vector2( 1.08333, 0.916667 )
+texture = ExtResource( 5 )
+
+[node name="Folder" type="Sprite" parent="Body/VBoxContainer/Panel/CenterContainer"]
+position = Vector2( 486, 176 )
+scale = Vector2( 0.666667, 0.604167 )
+texture = ExtResource( 6 )
+
+[node name="HTTP" type="Sprite" parent="Body/VBoxContainer/Panel/CenterContainer"]
+position = Vector2( 538, 176 )
+texture = ExtResource( 8 )
+
+[node name="LineEdit" type="LineEdit" parent="Body/VBoxContainer/Panel"]
+margin_left = 299.0
+margin_top = 200.0
+margin_right = 566.0
+margin_bottom = 241.0
+align = 1
+placeholder_text = "URL:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="urlSubmit" type="Button" parent="Body/VBoxContainer/Panel"]
+margin_left = 599.0
+margin_top = 200.0
+margin_right = 710.0
+margin_bottom = 241.0
+text = "submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Label" parent="Body/VBoxContainer"]
+margin_top = 348.0
+margin_right = 1038.0
+margin_bottom = 387.0
+
+[node name="Label2" type="Label" parent="Body/VBoxContainer"]
+margin_top = 391.0
+margin_right = 1038.0
+margin_bottom = 430.0
+text = "Tiled images"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="Body/VBoxContainer"]
+margin_top = 434.0
+margin_right = 1038.0
+margin_bottom = 438.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Label" parent="Body/VBoxContainer"]
+margin_top = 442.0
+margin_right = 1038.0
+margin_bottom = 481.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Body/VBoxContainer"]
+margin_top = 485.0
+margin_right = 1038.0
+margin_bottom = 845.0
+rect_min_size = Vector2( 1024, 360 )
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="TiledImages" type="GridContainer" parent="Body/VBoxContainer/ScrollContainer"]
+margin_right = 1024.0
+rect_min_size = Vector2( 1024, 0 )
+columns = 3
+
+[node name="DeleteTiledImages" type="TextureButton" parent="Body"]
+margin_left = 1065.0
+margin_top = 412.0
+margin_right = 1113.0
+margin_bottom = 460.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemovePreviewImage" type="TextureButton" parent="Body"]
+margin_left = 1065.0
+margin_top = 30.0
+margin_right = 1113.0
+margin_bottom = 78.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 14 )
+texture_hover = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Titlebar" type="Control" parent="."]
+visible = false
+margin_right = 1920.0
+margin_bottom = 41.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Titlebar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -8.0
+color = Color( 0.133333, 0.12549, 0.164706, 1 )
+
+[node name="Close" type="TextureButton" parent="Titlebar"]
+margin_left = 1885.0
+margin_top = 4.0
+margin_right = 1933.0
+margin_bottom = 52.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 10 )
+
+[node name="Minimize" type="TextureButton" parent="Titlebar"]
+margin_left = 1850.0
+margin_top = 4.0
+margin_right = 1898.0
+margin_bottom = 52.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 7 )
+
+[node name="FileDialogButton" type="Control" parent="."]
+margin_left = 189.0
+margin_top = 180.0
+margin_right = 1227.0
+margin_bottom = 370.0
+hint_tooltip = "Drag a Image here or press Leftclick"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opendialog" type="Button" parent="FileDialogButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 7
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opendialog2" type="Button" parent="FileDialogButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 194.0
+margin_right = -748.0
+margin_bottom = 53.0
+mouse_default_cursor_shape = 7
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opendialog3" type="Button" parent="FileDialogButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 710.0
+margin_top = 194.0
+margin_right = -1.0
+margin_bottom = 53.0
+mouse_default_cursor_shape = 7
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogs" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="Dialogs"]
+margin_left = 324.0
+margin_top = 234.0
+margin_right = 1038.0
+margin_bottom = 712.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png", "*.jpeg", "*.jpg" )
+current_dir = "/Dokumente/Game Development/Programme/TilemapToTileset 2.0/project"
+current_path = "/Dokumente/Game Development/Programme/TilemapToTileset 2.0/project/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutputDialog" type="FileDialog" parent="Dialogs"]
+margin_left = 324.0
+margin_top = 234.0
+margin_right = 1038.0
+margin_bottom = 712.0
+window_title = "Open a Directory"
+resizable = true
+mode = 2
+access = 2
+current_dir = "/Dokumente/Game Development/Programme/TilemapToTileset 2.0/project"
+current_path = "/Dokumente/Game Development/Programme/TilemapToTileset 2.0/project/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveDialog" type="FileDialog" parent="Dialogs"]
+margin_left = 324.0
+margin_top = 234.0
+margin_right = 1038.0
+margin_bottom = 712.0
+resizable = true
+access = 2
+filters = PoolStringArray( "*.jpeg", "*.jpg", "*.png" )
+current_dir = "/"
+current_path = "/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingMode" to="." method="_on_SortingMode_toggled"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Red" to="." method="_on_Red_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Blue" to="." method="_on_Blue_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Green" to="." method="_on_Green_pressed"]
+[connection signal="toggled" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/PrintingMode" to="." method="_on_PrintingMode_toggled"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/fileDialog" to="." method="_on_fileDialog_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/4x4" to="." method="_on_4x4_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/8x8" to="." method="_on_8x8_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/16x16" to="." method="_on_16x16_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/32x32" to="." method="_on_32x32_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/64x64" to="." method="_on_64x64_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/128x128" to="." method="_on_128x128_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/SaveAndLoad/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/SaveAndLoad/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Presets/ScrollContainer/OptionList/ColorPalette" to="." method="_on_ColorPalette_pressed"]
+[connection signal="pressed" from="Lowerbar/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="mouse_entered" from="Body/VBoxContainer/Panel" to="." method="_on_Panel_mouse_entered"]
+[connection signal="mouse_exited" from="Body/VBoxContainer/Panel" to="." method="_on_Panel_mouse_exited"]
+[connection signal="pressed" from="Body/VBoxContainer/Panel/urlSubmit" to="." method="_on_urlSubmit_pressed"]
+[connection signal="pressed" from="Body/DeleteTiledImages" to="." method="_on_DeleteTiledImages_pressed"]
+[connection signal="pressed" from="Body/RemovePreviewImage" to="." method="_on_RemovePreviewImage_pressed"]
+[connection signal="gui_input" from="Titlebar" to="Titlebar" method="_on_Titlebar_gui_input"]
+[connection signal="pressed" from="Titlebar/Close" to="Titlebar" method="_on_Close_pressed"]
+[connection signal="pressed" from="Titlebar/Minimize" to="Titlebar" method="_on_Minimize_pressed"]
+[connection signal="pressed" from="FileDialogButton/Opendialog" to="." method="_on_Opendialog_pressed"]
+[connection signal="pressed" from="FileDialogButton/Opendialog2" to="." method="_on_Opendialog_pressed"]
+[connection signal="pressed" from="FileDialogButton/Opendialog3" to="." method="_on_Opendialog_pressed"]
+[connection signal="file_selected" from="Dialogs/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="dir_selected" from="Dialogs/OutputDialog" to="." method="_on_OutputDialog_dir_selected"]
+
+[editable path="Sidebar"]
