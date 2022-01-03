@@ -2,7 +2,7 @@
 Split all of your Tilemaps and Images into Tilesets or Tiles
 
 by: YukkiTimmy
-version: 2.0
+version: 2.1
 
 
 # >----Explanation----<
@@ -27,8 +27,6 @@ Then just press start!
    so that you could have a 1px thick grid
 
 2. Isometric Mode that prints out isometric tiles
-
-3. HTML5 support
 
 
 I am very thankful for all your feedback and suggestions!
