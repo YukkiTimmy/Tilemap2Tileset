@@ -12,6 +12,8 @@ config_version=4
 
 config/name="Tilemap To Tileset UI Overhaul"
 run/main_scene="res://scenes/UI.tscn"
+boot_splash/image="res://assets/imgs/logo_vertical_monochrome_dark.png"
+boot_splash/bg_color=Color( 0.188235, 0.176471, 0.25098, 1 )
 config/icon="res://icon.png"
 
 [display]
@@ -21,6 +23,19 @@ window/size/height=1080
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[input]
+
+zoom_in={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+zoom_out={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [physics]
 

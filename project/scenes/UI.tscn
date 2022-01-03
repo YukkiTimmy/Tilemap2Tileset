@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/fonts/Mukta/Mukta-ExtraBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Sidebar.tscn" type="PackedScene" id=2]
@@ -14,6 +14,22 @@
 [ext_resource path="res://assets/imgs/icons/round_delete_gray_24dp.png" type="Texture" id=12]
 [ext_resource path="res://assets/imgs/icons/round_backspace_gray_24dp.png" type="Texture" id=13]
 [ext_resource path="res://assets/imgs/icons/round_backspace_white_24dp.png" type="Texture" id=14]
+[ext_resource path="res://test assets/tiled.png" type="Texture" id=15]
+[ext_resource path="res://assets/imgs/icons/round_close_gray_24dp.png" type="Texture" id=16]
+[ext_resource path="res://assets/imgs/icons/round_arrow_forward_ios_white_24dp.png" type="Texture" id=17]
+[ext_resource path="res://assets/imgs/icons/round_arrow_forward_ios_gray_24dp.png" type="Texture" id=18]
+[ext_resource path="res://assets/imgs/icons/round_file_download_gray_24dp.png" type="Texture" id=19]
+[ext_resource path="res://assets/imgs/icons/round_file_download_white_24dp.png" type="Texture" id=20]
+[ext_resource path="res://assets/imgs/icons/round_swap_horiz_white_24dp.png" type="Texture" id=21]
+[ext_resource path="res://assets/imgs/icons/round_swap_vert_gray_24dp.png" type="Texture" id=22]
+[ext_resource path="res://assets/imgs/icons/round_swap_horiz_gray_24dp.png" type="Texture" id=23]
+[ext_resource path="res://assets/imgs/icons/round_swap_vert_white_24dp.png" type="Texture" id=24]
+[ext_resource path="res://assets/imgs/icons/round_rotate_right_gray_24dp.png" type="Texture" id=25]
+[ext_resource path="res://assets/imgs/icons/round_rotate_right_white_24dp.png" type="Texture" id=26]
+[ext_resource path="res://assets/imgs/icons/round_rotate_left_gray_24dp.png" type="Texture" id=27]
+[ext_resource path="res://assets/imgs/icons/round_rotate_left_white_24dp.png" type="Texture" id=28]
+[ext_resource path="res://assets/imgs/icons/round_center_focus_strong_white_24dp.png" type="Texture" id=29]
+[ext_resource path="res://assets/imgs/icons/round_center_focus_strong_gray_24dp.png" type="Texture" id=30]
 
 [sub_resource type="ButtonGroup" id=7]
 resource_name = "Color"
@@ -40,13 +56,53 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="DynamicFont" id=12]
+size = 25
+extra_spacing_top = -3
+extra_spacing_bottom = -12
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=13]
+viewport_path = NodePath("Modal/ViewportContainer/Viewport")
+
+[sub_resource type="DynamicFont" id=8]
+size = 23
+extra_spacing_top = -3
+extra_spacing_bottom = -12
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.92549, 0.411765, 0.941176, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.188235, 0.176471, 0.25098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+
+[sub_resource type="Theme" id=9]
+VScrollBar/styles/grabber = SubResource( 10 )
+VScrollBar/styles/grabber_highlight = SubResource( 10 )
+VScrollBar/styles/grabber_pressed = SubResource( 11 )
+VScrollBar/styles/scroll = null
+
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
 theme = ExtResource( 9 )
 script = ExtResource( 11 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 592.0 ]
 }
 
 [node name="background" type="ColorRect" parent="."]
@@ -59,8 +115,10 @@ __meta__ = {
 
 [node name="Sidebar" parent="." instance=ExtResource( 2 )]
 
+[node name="Options" parent="Sidebar/TabContainer" index="0"]
+visible = true
+
 [node name="ScrollContainer" parent="Sidebar/TabContainer/Options" index="0"]
-margin_right = -6.00012
 margin_bottom = -98.0001
 
 [node name="Red" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors" index="0"]
@@ -74,6 +132,13 @@ group = SubResource( 7 )
 
 [node name="fileDialog" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList" index="7"]
 margin_right = 458.0
+
+[node name="location" parent="Sidebar/TabContainer/Options/ScrollContainer/OptionList" index="8"]
+margin_top = 149.0
+margin_bottom = 190.0
+
+[node name="Presets" parent="Sidebar/TabContainer" index="1"]
+visible = false
 
 [node name="Lowerbar" type="PanelContainer" parent="."]
 margin_left = 1400.0
@@ -207,6 +272,7 @@ margin_top = 94.0
 margin_right = 1038.0
 margin_bottom = 344.0
 rect_min_size = Vector2( 1024, 250 )
+mouse_default_cursor_shape = 2
 custom_styles/panel = SubResource( 3 )
 
 [node name="inputImage" type="Polygon2D" parent="Body/VBoxContainer/Panel"]
@@ -247,6 +313,7 @@ position = Vector2( 538, 176 )
 texture = ExtResource( 8 )
 
 [node name="LineEdit" type="LineEdit" parent="Body/VBoxContainer/Panel"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 299.0
 margin_top = 200.0
 margin_right = 566.0
@@ -258,6 +325,7 @@ __meta__ = {
 }
 
 [node name="urlSubmit" type="Button" parent="Body/VBoxContainer/Panel"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 599.0
 margin_top = 200.0
 margin_right = 710.0
@@ -409,8 +477,10 @@ __meta__ = {
 }
 
 [node name="Dialogs" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -460,6 +530,278 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Modal" type="Control" parent="."]
+visible = false
+margin_left = 200.0
+margin_top = 192.0
+margin_right = 1200.0
+margin_bottom = 815.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseBG" type="Button" parent="Modal"]
+margin_left = -200.0
+margin_top = -192.0
+margin_right = 1720.0
+margin_bottom = 888.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Modal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.188235, 0.176471, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Modal"]
+margin_left = 152.0
+margin_top = 24.0
+margin_right = 632.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 12 )
+text = "NAME OF THE IMAGE "
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImageBackground" type="ColorRect" parent="Modal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 143.0
+margin_top = 97.0
+margin_right = -361.0
+margin_bottom = -30.0
+color = Color( 0.14902, 0.137255, 0.188235, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZoomImage" type="TextureRect" parent="Modal"]
+margin_left = 151.0
+margin_top = 105.0
+margin_right = 631.0
+margin_bottom = 585.0
+rect_pivot_offset = Vector2( 240, 240 )
+texture = SubResource( 13 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoBackground" type="ColorRect" parent="Modal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 687.0
+margin_top = 186.0
+margin_right = -97.0
+margin_bottom = -118.0
+color = Color( 0.14902, 0.137255, 0.188235, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoTitle" type="Label" parent="Modal"]
+margin_left = 688.0
+margin_top = 149.0
+margin_right = 904.0
+margin_bottom = 178.0
+custom_fonts/font = SubResource( 8 )
+text = "Information:"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="RichTextLabel" parent="Modal"]
+margin_left = 695.0
+margin_top = 193.0
+margin_right = 895.0
+margin_bottom = 505.0
+theme = SubResource( 9 )
+text = "Tiles printed: 10323
+Tile Size: 16x16
+Time: 500ms
+Mirror: False
+Tiles printed: 10323
+Tile Size: 16x16
+Time: 500ms
+Mirror: False
+Noch mehr text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="closeButton" type="TextureButton" parent="Modal"]
+margin_left = 951.0
+margin_right = 999.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 16 )
+
+[node name="rightButton" type="TextureButton" parent="Modal"]
+margin_left = 927.0
+margin_top = 272.0
+margin_right = 975.0
+margin_bottom = 320.0
+rect_scale = Vector2( 1.5, 1.5 )
+hint_tooltip = "next image"
+texture_normal = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
+
+[node name="leftButton" type="TextureButton" parent="Modal"]
+margin_top = 272.0
+margin_right = 48.0
+margin_bottom = 320.0
+rect_scale = Vector2( 1.5, 1.5 )
+hint_tooltip = "previous image"
+texture_normal = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="download" type="TextureButton" parent="Modal"]
+margin_left = 935.0
+margin_top = 561.0
+margin_right = 983.0
+margin_bottom = 609.0
+hint_tooltip = "download"
+texture_normal = ExtResource( 20 )
+texture_hover = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hflip" type="TextureButton" parent="Modal"]
+margin_left = 687.0
+margin_top = 513.0
+margin_right = 735.0
+margin_bottom = 561.0
+hint_tooltip = "horizontal flip"
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vflip" type="TextureButton" parent="Modal"]
+margin_left = 743.0
+margin_top = 513.0
+margin_right = 791.0
+margin_bottom = 561.0
+hint_tooltip = "vertical flip"
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rotateRight" type="TextureButton" parent="Modal"]
+margin_left = 799.0
+margin_top = 513.0
+margin_right = 847.0
+margin_bottom = 561.0
+hint_tooltip = "90 degree right"
+texture_normal = ExtResource( 26 )
+texture_hover = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roatetLeft" type="TextureButton" parent="Modal"]
+margin_left = 855.0
+margin_top = 513.0
+margin_right = 903.0
+margin_bottom = 561.0
+hint_tooltip = "90 degree left"
+texture_normal = ExtResource( 28 )
+texture_hover = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slider" type="HSlider" parent="Modal"]
+margin_left = 231.0
+margin_top = 600.0
+margin_right = 551.0
+margin_bottom = 616.0
+min_value = 0.25
+max_value = 10.0
+step = 0.1
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Modal"]
+anchor_left = -1.161
+anchor_top = 0.175
+anchor_right = -0.681
+anchor_bottom = 0.945
+margin_left = 4264.0
+margin_top = 2002.97
+margin_right = 4264.0
+margin_bottom = 2003.27
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Modal/ViewportContainer"]
+size = Vector2( 480, 480 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_v_flip = true
+render_target_update_mode = 0
+
+[node name="Image" type="TextureRect" parent="Modal/ViewportContainer/Viewport"]
+margin_right = 480.0
+margin_bottom = 480.0
+rect_pivot_offset = Vector2( 240, 240 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnHover" type="Control" parent="Modal"]
+margin_left = 143.0
+margin_top = 96.0
+margin_right = 639.0
+margin_bottom = 593.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterImage" type="TextureButton" parent="Modal"]
+margin_left = 593.0
+margin_top = 546.0
+margin_right = 641.0
+margin_bottom = 594.0
+rect_scale = Vector2( 0.8, 0.8 )
+hint_tooltip = "Center Image"
+texture_normal = ExtResource( 29 )
+texture_hover = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="toggled" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingMode" to="." method="_on_SortingMode_toggled"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Red" to="." method="_on_Red_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Blue" to="." method="_on_Blue_pressed"]
@@ -472,9 +814,15 @@ __meta__ = {
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/32x32" to="." method="_on_32x32_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/64x64" to="." method="_on_64x64_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/128x128" to="." method="_on_128x128_pressed"]
-[connection signal="pressed" from="Sidebar/TabContainer/Options/SaveAndLoad/Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="Sidebar/TabContainer/Options/SaveAndLoad/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/Save/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Options/Clear" to="." method="_on_Clear_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Presets/ScrollContainer/OptionList/ColorPalette" to="." method="_on_ColorPalette_pressed"]
+[connection signal="pressed" from="Sidebar/TabContainer/Presets/ScrollContainer/OptionList/Filter" to="." method="_on_Filter_pressed"]
+[connection signal="toggled" from="Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGreen" to="." method="_on_GameboyGreen_toggled"]
+[connection signal="toggled" from="Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGrayscale" to="." method="_on_GameboyGrayscale_toggled"]
+[connection signal="toggled" from="Sidebar/TabContainer/Filter/ScrollContainer/OptionList/VirtualBoy" to="." method="_on_VirtualBoy_toggled"]
+[connection signal="toggled" from="Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative" to="." method="_on_Negative_toggled"]
+[connection signal="pressed" from="Sidebar/TabContainer/Filter/Clear" to="." method="_on_Filter_Clear_pressed"]
 [connection signal="pressed" from="Lowerbar/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="mouse_entered" from="Body/VBoxContainer/Panel" to="." method="_on_Panel_mouse_entered"]
 [connection signal="mouse_exited" from="Body/VBoxContainer/Panel" to="." method="_on_Panel_mouse_exited"]
@@ -489,5 +837,17 @@ __meta__ = {
 [connection signal="pressed" from="FileDialogButton/Opendialog3" to="." method="_on_Opendialog_pressed"]
 [connection signal="file_selected" from="Dialogs/FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="dir_selected" from="Dialogs/OutputDialog" to="." method="_on_OutputDialog_dir_selected"]
+[connection signal="pressed" from="Modal/CloseBG" to="." method="_on_closeButton_pressed"]
+[connection signal="pressed" from="Modal/closeButton" to="." method="_on_closeButton_pressed"]
+[connection signal="pressed" from="Modal/rightButton" to="." method="_on_rightButton_pressed"]
+[connection signal="pressed" from="Modal/leftButton" to="." method="_on_leftButton_pressed"]
+[connection signal="pressed" from="Modal/download" to="." method="_on_download_pressed"]
+[connection signal="pressed" from="Modal/Hflip" to="." method="_on_Hflip_pressed"]
+[connection signal="pressed" from="Modal/Vflip" to="." method="_on_Vflip_pressed"]
+[connection signal="pressed" from="Modal/rotateRight" to="." method="_on_rotateRight_pressed"]
+[connection signal="pressed" from="Modal/roatetLeft" to="." method="_on_roatetLeft_pressed"]
+[connection signal="mouse_entered" from="Modal/OnHover" to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="Modal/OnHover" to="." method="_on_Control_mouse_exited"]
+[connection signal="pressed" from="Modal/CenterImage" to="." method="_on_CenterImage_pressed"]
 
 [editable path="Sidebar"]

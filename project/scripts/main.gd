@@ -1,5 +1,8 @@
 extends Control
 
+signal InFocus
+signal loaded
+
 var tileWidth : int = 16
 var tileHeight : int = 16
 
@@ -14,13 +17,29 @@ var running : bool = false
 
 var sort_by : String = "red"
 
+var filter : bool = false
+
+var shader : String = ""
+
+var hflip : bool = false
+var vflip : bool = false
+
 var tiler = null
 
 var thread : Thread
 
 var onPic : bool = false
 var _dragging : bool = false
+var _Modaldragging : bool = false
 
+var onModalPic : bool = false
+
+var loaded_image : Image
+
+var fileName : String = "unknown"
+
+var generatedImages : Array = []
+var currentModalImage : int = 0
 
 # ---onready---
 
@@ -39,6 +58,10 @@ onready var heightBox : SpinBox = $Sidebar/TabContainer/Options/ScrollContainer/
 onready var offsetX : SpinBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/Offset/width
 onready var offsetY : SpinBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/Offset/height
 
+# end offset
+onready var endOffsetX : SpinBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/EndOffset/width
+onready var endOffsetY : SpinBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/EndOffset/height
+
 # Setting Switches
 onready var printingModeLever : CheckButton = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/PrintingMode
 onready var mirroredModeLever : CheckButton = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/MirroredMode
@@ -48,6 +71,8 @@ onready var sortingModeLever : CheckButton = $Sidebar/TabContainer/Options/Scrol
 onready var redCheck : CheckBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Red
 onready var blueCheck : CheckBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Blue
 onready var greenCheck : CheckBox = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Green
+onready var sortingColors = $Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors
+
 
 # start button
 onready var startButton : Button = $Lowerbar/VBoxContainer/HBoxContainer/StartButton
@@ -64,6 +89,171 @@ onready var inputImage : Polygon2D = $Body/VBoxContainer/Panel/inputImage
 # url
 onready var urlLine : LineEdit = $Body/VBoxContainer/Panel/LineEdit
 
+# Modal
+onready var modal : Control = $Modal
+onready var modalImage : TextureRect = $Modal/ViewportContainer/Viewport/Image
+onready var modalLabel: Label = $Modal/Label
+onready var richModalLabel: RichTextLabel = $Modal/Info
+onready var zoomSlider : HSlider = $Modal/Slider
+
+# Presets
+onready var presets : Control = $Sidebar/TabContainer/Presets/ScrollContainer/OptionList/SavedSettings/ScrollContainer/VBoxContainer
+onready var presetLineEdit : LineEdit = $Sidebar/TabContainer/Options/Save/LineEdit
+onready var tabcontainer : TabContainer = $Sidebar/TabContainer
+
+
+
+func _ready() -> void:
+	get_tree().connect("files_dropped", self, "_on_files_dropped")
+	
+	if OS.get_name() == "HTML5" and OS.has_feature('JavaScript'):
+		_define_js()
+	
+	_on_Load()
+	
+func _process(delta: float) -> void:
+	if zoomSlider.value >= 0.25 && zoomSlider.value <=10 && onModalPic:
+		if Input.is_action_just_released("zoom_in"):
+			zoomSlider.value += 0.075
+		
+		elif Input.is_action_just_released("zoom_out"):
+			zoomSlider.value -= 0.075
+	
+	if modal.visible:
+		if Input.is_action_just_pressed("ui_right"):
+			_on_rightButton_pressed()
+		elif Input.is_action_just_pressed("ui_left"):
+			_on_leftButton_pressed()
+	
+		
+	elif zoomSlider.value < 0.25:
+		zoomSlider.value = 0.25
+	
+	elif zoomSlider.value > 10:
+		zoomSlider.value = 10
+	
+	
+	modalImage.rect_scale = Vector2(zoomSlider.value,zoomSlider.value)
+
+
+
+func _notification(notification:int) -> void:
+	if notification == MainLoop.NOTIFICATION_WM_FOCUS_IN:
+		emit_signal("InFocus")
+
+
+
+func _define_js() -> void:
+	# Define JS script
+	JavaScript.eval("""
+	var fileData;
+	var fileType;
+	var fileName;
+	var canceled;
+	function upload_image() {
+		canceled = true;
+		var input = document.createElement('INPUT');
+		input.setAttribute("type", "file");
+		input.setAttribute("accept", "image/png, image/jpeg, image/webp");
+		input.click();
+		input.addEventListener('change', event => {
+			if (event.target.files.length > 0){
+				canceled = false;}
+			var file = event.target.files[0];
+			var reader = new FileReader();
+			fileType = file.type;
+			fileName = file.name;
+			reader.readAsArrayBuffer(file);
+			reader.onloadend = function (evt) {
+				if (evt.target.readyState == FileReader.DONE) {
+					fileData = evt.target.result;
+				}
+			}
+		  });
+	}
+	function download(fileName, byte, type) {
+		var buffer = Uint8Array.from(byte);
+		var blob = new Blob([buffer], { type: type});
+		var link = document.createElement('a');
+		link.href = window.URL.createObjectURL(blob);
+		link.download = fileName;
+		link.click();
+		link.remove()
+	};
+	
+	""", true)
+
+
+func load_image():
+	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+		return
+
+	# Execute JS function
+	JavaScript.eval("upload_image();", true) # Opens prompt for choosing file
+
+	yield(self, "InFocus") # Wait until JS prompt is closed
+
+	yield(get_tree().create_timer(0.5), "timeout") # Give some time for async JS data load
+
+	if JavaScript.eval("canceled;", true): # If File Dialog closed w/o file
+		return
+
+	# Use data from png data
+	var image_data
+	while true:
+		image_data = JavaScript.eval("fileData;", true)
+		if image_data != null:
+			break
+		yield(get_tree().create_timer(1.0), "timeout") # Need more time to load data
+
+	var image_type = JavaScript.eval("fileType;", true)
+	var image_name = JavaScript.eval("fileName;", true)
+	
+	fileName = image_name
+	
+	var image = Image.new()
+	var image_error
+	match image_type:
+		"image/png":
+			image_error = image.load_png_from_buffer(image_data)
+		"image/jpeg":
+			image_error = image.load_jpg_from_buffer(image_data)
+		"image/webp":
+			image_error = image.load_webp_from_buffer(image_data)
+		var invalid_type:
+			print("Invalid type: " + invalid_type)
+			return
+	if image_error:
+		print("An error occurred while trying to display the image.")
+		return
+	
+	var imgtex = ImageTexture.new()
+	imgtex.create_from_image(image)
+	
+	currentImage = imgtex
+	
+	imgLoaded = true
+	
+	endOffsetX.value = currentImage.get_width()
+	endOffsetY.value = currentImage.get_height()
+	
+	inputImage.texture = currentImage
+	inputImage.visible = true
+	fileDialogButton.visible = false
+	$Body/VBoxContainer/Panel/urlSubmit.visible = false
+	$Body/VBoxContainer/Panel/LineEdit.visible = false
+	$Body/VBoxContainer/Panel/CenterContainer.visible = false
+	
+	emit_signal("loaded")
+
+
+func save_image(image : Image, file_name : String = "ScaleNXExports") -> void:
+	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+		return
+		
+		
+	var png_data = image.save_png_to_buffer()
+	JavaScript.eval("download('%s', %s, 'image/png');" % [file_name, str(png_data)], true)
 
 
 func _input(event: InputEvent) -> void:
@@ -89,10 +279,27 @@ func _input(event: InputEvent) -> void:
 			_dragging = false
 		
 		
+		var modalPos = modalImage.rect_position
+		
+		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT && onModalPic:
+			_Modaldragging = event.pressed
+			
+			
+		elif event is InputEventMouseMotion and _Modaldragging and !running:
+			var motion = Vector2(event.relative.x, event.relative.y)
+			modalPos.x += motion.x
+			modalPos.y += motion.y
+			
+			
+			if modalPos.x > -295 and modalPos.x < 295:
+				modalImage.rect_position.x = modalPos.x
 
-func _ready() -> void:	
-	get_tree().connect("files_dropped", self, "_on_files_dropped")
-
+			if modalPos.y > -295 and modalPos.y < 295:
+				modalImage.rect_position.y = modalPos.y
+			
+		else:
+			_Modaldragging = false
+		
 
 func _on_files_dropped(files, screen):
 	if files[0] != null && running == false:
@@ -112,6 +319,8 @@ func _on_files_dropped(files, screen):
 		imgPath = files[0]
 		imgLoaded = true
 		
+		endOffsetX.value = currentImage.get_width()
+		endOffsetY.value = currentImage.get_height()
 		
 		inputImage.texture = currentImage
 		inputImage.visible = true
@@ -136,6 +345,9 @@ func _on_FileDialog_file_selected(path: String) -> void:
 		
 		imgPath = path
 		imgLoaded = true
+		
+		endOffsetX.value = currentImage.get_width()
+		endOffsetY.value = currentImage.get_height()
 		
 		inputImage.texture = currentImage
 		inputImage.visible = true
@@ -165,8 +377,8 @@ func _on_StartButton_pressed() -> void:
 		var img = currentImage
 		
 		# getting width und height of the image
-		var width = int(img.get_width() - offsetX.value)
-		var height = int(img.get_height() - offsetY.value)
+		var width = int(endOffsetX.value - offsetX.value)
+		var height = int(endOffsetY.value - offsetY.value)
 		
 		# getting the tileWidth and tileHeight from the ui
 		tileWidth = int(widthBox.value)
@@ -190,7 +402,6 @@ func _on_StartButton_pressed() -> void:
 		running = true
 		
 		
-		
 		var scene = null
 		
 		# loading and instantiating the Tiler
@@ -207,6 +418,9 @@ func _on_StartButton_pressed() -> void:
 		instance.offsetX = offsetX.value
 		instance.offsetY = offsetY.value
 		
+		instance.endOffsetX = endOffsetX.value
+		instance.endOffsetY = endOffsetY.value
+		
 		instance.outputDir = outputDir
 		instance.imgPath = imgPath
 		
@@ -216,6 +430,9 @@ func _on_StartButton_pressed() -> void:
 		
 		instance.sort_by = sort_by
 		
+		instance.filter = filter
+		instance.shader = shader
+		
 		add_child(instance)
 		
 		
@@ -223,7 +440,10 @@ func _on_StartButton_pressed() -> void:
 		# warning-ignore:return_value_discarded
 		thread.start(instance, "tilesetToTile", img)
 		
-		startButton.text = "Stop Tiling"
+		
+		if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+			startButton.text = "Stop Tiling"
+		
 	
 	elif running:
 		if tiler != null:
@@ -298,7 +518,11 @@ func _http_request_completed(result, response_code, headers, body):
 	
 	imgLoaded = true
 	
+	
 	currentImage = texture	
+
+	endOffsetX.value = currentImage.get_width()
+	endOffsetY.value = currentImage.get_height()
 
 	inputImage.texture = texture
 	inputImage.visible = true
@@ -350,7 +574,6 @@ func _on_Green_pressed():
 
 
 func _on_Blue_pressed():
-	print("blue")
 	sort_by = "blue"
 
 
@@ -371,7 +594,12 @@ func _on_PrintingMode_toggled(button_pressed: bool) -> void:
 
 
 func _on_Opendialog_pressed() -> void:
-	fileDialog.visible = true
+	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+		fileDialog.visible = true
+	else:
+		load_image()
+		
+			
 
 
 func _on_fileDialog_pressed() -> void:
@@ -379,17 +607,23 @@ func _on_fileDialog_pressed() -> void:
 
 
 func _on_DeleteTiledImages_pressed() -> void:
+	generatedImages.clear()
 	for n in $Body/VBoxContainer/ScrollContainer/TiledImages.get_children():
 		n.queue_free()
 
 
 func _on_RemovePreviewImage_pressed() -> void:
+	imgLoaded = false
 	inputImage.texture = null
 	inputImage.visible = false
 	fileDialogButton.visible = true
+	modalImage.texture = null
 	$Body/VBoxContainer/Panel/urlSubmit.visible = true
 	$Body/VBoxContainer/Panel/LineEdit.visible = true
 	$Body/VBoxContainer/Panel/CenterContainer.visible = true
+	
+	endOffsetX.value = 0
+	endOffsetY.value = 0
 
 
 func _on_Panel_mouse_entered() -> void:
@@ -406,8 +640,108 @@ func _on_OutputDialog_dir_selected(dir: String) -> void:
 
 
 func _on_ColorPalette_pressed() -> void:
+	_reset_settings()
+	
 	widthBox.value = 1
 	heightBox.value = 1
+
+
+func _on_Save_pressed() -> void:
+	print("SAVING")
+	var scene = load("res://scenes/UserButton.tscn")
+	var instance = scene.instance()
+	
+	instance.widthBox = widthBox.value
+	instance.heightBox = heightBox.value
+
+	instance.sortingModeLever = sortingModeLever.pressed
+	
+	redCheck.toggle_mode
+	greenCheck.toggle_mode
+	blueCheck.toggle_mode
+	
+	instance.printingModeLever = printingModeLever.pressed
+	instance.mirroredModeLever = mirroredModeLever.pressed
+
+	instance.offsetX = offsetX.value
+	instance.offsetY = offsetY.value
+	
+	if !presetLineEdit.text:
+		instance.title = str("User Button ", presets.get_child_count() + 1)
+	
+	else:
+		instance.title = presetLineEdit.text
+	
+	presets.add_child(instance)
+	
+	_save_buttons()
+	
+	print("SAVED")
+
+
+func _save_buttons() -> void:
+	yield(get_tree().create_timer(0.5), "timeout")
+	
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	for node in save_nodes:
+		# Check the node is an instanced scene so it can be instanced again during load.
+		if node.filename.empty():
+			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
+			continue
+
+		# Check the node has a save function.
+		if !node.has_method("save"):
+			print("persistent node '%s' is missing a save() function, skipped" % node.name)
+			continue
+
+		# Call the node's save function.
+		var node_data = node.call("save")
+
+		# Store the save dictionary as a new line in the save file.
+		save_game.store_line(to_json(node_data))
+	save_game.close()
+	
+
+func _on_Load() -> void:
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		return # Error! We don't have a save to load.
+
+	# We need to revert the game state so we're not cloning objects
+	# during loading. This will vary wildly depending on the needs of a
+	# project, so take care with this step.
+	# For our example, we will accomplish this by deleting saveable objects.
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	for i in save_nodes:
+		i.queue_free()
+
+	# Load the file line by line and process that dictionary to restore
+	# the object it represents.
+	save_game.open("user://savegame.save", File.READ)
+	while save_game.get_position() < save_game.get_len():
+		 # Get the saved dictionary from the next line in the save file
+		var node_data = parse_json(save_game.get_line())
+		
+		# Firstly, we need to create the object and add it to the tree and set its position.
+		var new_object = load(node_data["filename"]).instance()
+		get_node(node_data["parent"]).add_child(new_object)
+		new_object.rect_position = Vector2(node_data["pos_x"], node_data["pos_y"])
+		
+		
+		# Now we set the remaining variables.
+		for i in node_data.keys():
+			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+				continue
+			new_object.set(i, node_data[i])
+		
+	save_game.close()
+
+
+func _reset_settings() -> void:
+	widthBox.value = 16
+	heightBox.value = 16
 
 	sortingModeLever.pressed = false
 	printingModeLever.pressed = false
@@ -415,51 +749,180 @@ func _on_ColorPalette_pressed() -> void:
 	
 	offsetX.value = 0
 	offsetY.value = 0
+	
+	if imgLoaded:
+		endOffsetX.value = currentImage.get_width()
+		endOffsetY.value = currentImage.get_height()
+	
+	else:
+		endOffsetX.value = 0
+		endOffsetY.value = 0
 
-func _on_Save_pressed() -> void:
-	var f = File.new()
-	f.open("user://settings.sav", File.WRITE)
-	f.store_var(widthBox.value)
-	f.store_var(heightBox.value)
-	
-	f.store_var(offsetX.value)
-	f.store_var(offsetY.value)
-	
-	f.store_var(sortingModeLever.pressed)
-	f.store_var(redCheck.pressed)
-	f.store_var(greenCheck.pressed)
-	f.store_var(blueCheck.pressed)
-	
-	f.store_var(mirroredModeLever.pressed)
-	
-	f.store_var(printingModeLever.pressed)
-	
-	f.store_var(outputDir)
-	
-	f.close()
+func _on_Clear_pressed() -> void:
+	_reset_settings()
 
 
-func _on_Load_pressed() -> void:
-	var f = File.new()
-	
-	f.open("user://settings.sav", File.READ)
-	widthBox.value = f.get_var()
-	heightBox.value = f.get_var()
-	
-	offsetX.value = f.get_var()
-	offsetY.value = f.get_var()
-	
-	sortingModeLever.pressed = f.get_var()
-	redCheck.pressed = f.get_var()
-	greenCheck.pressed = f.get_var()
-	blueCheck.pressed = f.get_var()
-	
-	mirroredModeLever.pressed = f.get_var()
-	
-	printingModeLever.pressed = f.get_var()
-	outputDir = f.get_var()
-	$Sidebar/TabContainer/Options/ScrollContainer/OptionList/location.text = outputDir
-	
-	f.close()
+
+func _open_Modal(inputImage, generatedImage) -> void:
+	currentModalImage = generatedImages.find(generatedImage)
+	modal.visible = true
+	modalImage.texture = inputImage
+	modalImage.rect_rotation = generatedImages[currentModalImage].rotated * 90
+	modalLabel.text = generatedImage.title
+	richModalLabel.text = generatedImage.info
+
+func _on_closeButton_pressed() -> void:
+	modal.visible = false
 
 
+func _on_rightButton_pressed() -> void:	
+	if currentModalImage - 1 >= 0:
+		currentModalImage -= 1
+	else:
+		currentModalImage = generatedImages.size() - 1
+	
+	modalImage.rect_rotation = generatedImages[currentModalImage].rotated * 90
+	modalImage.texture = generatedImages[currentModalImage].img
+	modalLabel.text = generatedImages[currentModalImage].title
+	richModalLabel.text = generatedImages[currentModalImage].info
+
+
+func _on_leftButton_pressed() -> void:
+	if currentModalImage + 1 <= generatedImages.size() - 1:
+		currentModalImage += 1
+	else:
+		currentModalImage = 0
+	
+	modalImage.texture = generatedImages[currentModalImage].img
+	modalLabel.text = generatedImages[currentModalImage].title
+	richModalLabel.text = generatedImages[currentModalImage].info
+	modalImage.rect_rotation = generatedImages[currentModalImage].rotated * 90
+
+
+func _on_GameboyGrayscale_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGreen.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/VirtualBoy.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative.pressed = false
+		filter = button_pressed
+		shader = "GB gray"
+		
+	else:
+		filter = button_pressed
+	
+
+
+func _on_GameboyGreen_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGrayscale.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/VirtualBoy.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative.pressed = false
+		filter = button_pressed
+		shader = "GB green"
+		
+	else:
+		filter = button_pressed
+
+
+
+func _on_VirtualBoy_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGrayscale.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGreen.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative.pressed = false
+		filter = button_pressed
+		shader = "VB"
+		
+	else:
+		filter = button_pressed
+
+
+
+func _on_Negative_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGrayscale.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGreen.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/VirtualBoy.pressed = false
+		filter = button_pressed
+		shader = "Negative"
+		
+	else:
+		filter = button_pressed
+
+	
+
+
+func _on_Filter_Clear_pressed() -> void:
+	for n in $Sidebar/TabContainer/Filter/ScrollContainer/OptionList.get_children():
+		if n is CheckButton:
+			n.pressed = false
+
+
+func _on_download_pressed() -> void:
+	generatedImages[currentModalImage]._on_download_pressed()
+
+
+func _on_Hflip_pressed() -> void:
+	hflip = !hflip
+	modalImage.flip_h = hflip
+	generatedImages[currentModalImage].get_node("Image").flip_h = hflip
+
+
+func _on_Vflip_pressed() -> void:
+	vflip = !vflip
+	modalImage.flip_v = vflip
+	generatedImages[currentModalImage].get_node("Image").flip_v = vflip
+
+
+func _on_roatetLeft_pressed() -> void:
+	generatedImages[currentModalImage].rotated -= 1
+	if generatedImages[currentModalImage].rotated < 0:
+		generatedImages[currentModalImage].rotated = 3
+	
+	modalImage.rect_rotation = 90 * generatedImages[currentModalImage].rotated
+	generatedImages[currentModalImage].get_node("Image").rect_rotation = 90 * generatedImages[currentModalImage].rotated
+	
+	
+func _on_rotateRight_pressed() -> void:
+	generatedImages[currentModalImage].rotated += 1
+	if generatedImages[currentModalImage].rotated > 3:
+		generatedImages[currentModalImage].rotated = 0
+		
+	modalImage.rect_rotation = 90 * generatedImages[currentModalImage].rotated
+	generatedImages[currentModalImage].get_node("Image").rect_rotation = 90 * generatedImages[currentModalImage].rotated
+
+
+func _on_CenterImage_pressed() -> void:
+	modalImage.rect_position = Vector2.ZERO
+	zoomSlider.value = 1
+	modalImage.rect_scale = Vector2.ONE
+
+
+
+func _on_ImageBackground_mouse_entered() -> void:
+	onModalPic = true
+
+
+func _on_ImageBackground_mouse_exited() -> void:
+	onModalPic = false
+
+
+func _on_Control_mouse_entered() -> void:
+	onModalPic = true
+
+
+func _on_Control_mouse_exited() -> void:
+	onModalPic = false
+
+
+
+func _on_Filter_pressed() -> void:
+	if imgLoaded:
+		widthBox.value = endOffsetX.value
+		heightBox.value = endOffsetY.value
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGreen.pressed = true
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/GameboyGrayscale.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/VirtualBoy.pressed = false
+		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative.pressed = false
+		filter = true
+		shader = "GB green"

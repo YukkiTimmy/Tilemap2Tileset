@@ -11,8 +11,12 @@ var outputDir : String = ""
 var seperate : bool = false
 var mirrored : bool = false
 var sorting : bool = true
+var filter : bool = false
+
 
 var sort_by : String = "red"
+
+var shader : String = ""
 
 var start_time : float = 0
 var time_now : float = 0
@@ -20,7 +24,17 @@ var time_now : float = 0
 var offsetX := 0
 var offsetY := 0
 
+var endOffsetX := 0
+var endOffsetY := 0
+
 var grid_size := 0
+
+
+func _ready() -> void:
+	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+		return
+		
+	tilesetToTile(get_parent().currentImage)
 
 
 # warning-ignore:unused_argument
@@ -30,10 +44,10 @@ func _process(delta):
 
 func tilesetToTile(img) -> void:
 	start_time = OS.get_system_time_msecs()
-
+	
 	# getting width and height of the img
-	var width = img.get_width() - offsetX
-	var height = img.get_height() - offsetY
+	var width = endOffsetX - offsetX
+	var height = endOffsetY - offsetY
 
 	# getting the amount of rows and colums
 	var rows = width / tileWidth
@@ -179,7 +193,10 @@ func tilesetToTile(img) -> void:
 
 		# creating a new image file by taking the squareroot of the height and width
 		# and rounding them up, you always get a big enough image
-		imgOut.create(ceil(sqrt(uniqTiles.size())) * tileWidth, ceil(sqrt(uniqTiles.size())) * tileHeight, false , data.get_format())
+		var newWidth = ceil(sqrt(uniqTiles.size())) * tileWidth
+		var newHeight = ceil(sqrt(uniqTiles.size())) * tileHeight
+		
+		imgOut.create(newWidth, newHeight, false , data.get_format())
 
 		# simple count variable
 		var count := 0
@@ -201,7 +218,7 @@ func tilesetToTile(img) -> void:
 
 		if sorting:
 			newFileName += str("sorted_", sort_by, "_")
-
+		
 		# changing the output image in the gui to the new tileset
 		var texture = ImageTexture.new()
 		texture.create_from_image(imgOut, 1)
@@ -211,20 +228,61 @@ func tilesetToTile(img) -> void:
 		var scene = load("res://scenes/GeneratedImage.tscn")
 		var generatedImage = scene.instance()
 		
+		get_parent().generatedImages.push_back(generatedImage)
+		
 		if !sorting:
 			sort_by = "None"
 		
-		generatedImage.txt = imgOut
-		generatedImage.img = texture
-		generatedImage.title = imgPath.get_file()
+		
+		# Filter stuff
+		
+		if filter:
+			var viewportScene = load("res://scenes/ViewportImage.tscn")
+			var viewport = viewportScene.instance()
+			
+			get_parent().add_child(viewport)
+			
+			viewport.shader = shader
+			
+			viewport.getViewportImage(texture)
+			
+			yield(viewport, "_done")
+			
+			var newTexture = ImageTexture.new()
+			newTexture.create_from_image(viewport.outputImage, 1)
+			
+			generatedImage.txt = viewport.outputImage
+			
+			generatedImage.img = newTexture
+		
+		else:
+			shader = "None"
+			
+			generatedImage.txt = imgOut
+			
+			generatedImage.img = texture
+		
+			
+		if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
+			generatedImage.title = imgPath.get_file()
+		else:
+			generatedImage.title = get_parent().fileName
+			time_now = 0
+			start_time = 0
+		
+		
 		generatedImage.info = str("Tiles printed: ", uniqTiles.size(), "\n"
 								,"Tile Size: ", tileWidth, "x", tileHeight, "\n"
+								,"Original Size: ", width, "x", height, "\n"
+								,"New Size: ", newWidth, "x", newHeight, "\n"
 								,"Total Tiles: ", maxTiles, "\n"
 								,"Time: ", time_now - start_time, "ms\n"
 								,"Mirror: ", !mirrored, "\n"
 								,"Sorted: ", sorting, "\n"
 								,"Sorted By: ",sort_by, "\n"
-								,"Sperated: ", seperate)
+								,"Sperated: ", seperate, "\n"
+								,"Filterd: ", filter, "\n"
+								,"Shader: ", shader)
 		
 		
 		get_parent().get("tiledImages").add_child(generatedImage)
@@ -236,6 +294,7 @@ func tilesetToTile(img) -> void:
 	get_parent().startButton.text = "Start Tiling"
 	
 	queue_free()
+
 
 func _imageHash(image: Image) -> int:
 	var data = image.get_data()

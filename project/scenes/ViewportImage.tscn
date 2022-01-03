@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/shaders/mainShader.tres" type="Material" id=1]
+[ext_resource path="res://scripts/ViewportImage.gd" type="Script" id=2]
+
+[node name="ViewportImage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2936.0
+margin_right = 2936.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 64, 64 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="Image" type="Sprite" parent="ViewportContainer/Viewport"]
+position = Vector2( 32, 32 )
+
+[node name="Shader" type="ColorRect" parent="ViewportContainer/Viewport"]
+material = ExtResource( 1 )
+margin_right = 2000.0
+margin_bottom = 2000.0
