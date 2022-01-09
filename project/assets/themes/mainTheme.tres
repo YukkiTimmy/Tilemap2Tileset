@@ -16,7 +16,7 @@ shadow_offset = Vector2( 2, 2 )
 [sub_resource type="StyleBoxFlat" id=11]
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.145098, 0.137255, 0.188235, 1 )
 border_width_bottom = 2
 border_color = Color( 0.862745, 0.862745, 0.862745, 1 )
@@ -27,7 +27,7 @@ corner_radius_bottom_left = 2
 shadow_size = 2
 shadow_offset = Vector2( 2, 3 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.188235, 0.176471, 0.25098, 1 )
 border_width_bottom = 2
 border_color = Color( 1, 1, 1, 1 )
@@ -60,9 +60,11 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+shadow_size = 2
+shadow_offset = Vector2( 2, 3 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.147691, 0.13916, 0.1875, 1 )
+bg_color = Color( 0.14902, 0.137255, 0.188235, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -84,7 +86,7 @@ bg_color = Color( 0.92549, 0.411765, 0.941176, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.145098, 0.137255, 0.188235, 1 )
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
@@ -97,7 +99,7 @@ bg_color = Color( 0.145098, 0.137255, 0.188235, 1 )
 border_width_bottom = 2
 border_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=23]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -108,8 +110,7 @@ border_color = Color( 0.92549, 0.411765, 0.941176, 1 )
 [sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.145098, 0.137255, 0.188235, 1 )
 
-[sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.188235, 0.176471, 0.25098, 1 )
+[sub_resource type="StyleBoxEmpty" id=25]
 
 [sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.133333, 0.12549, 0.164706, 1 )
@@ -121,22 +122,23 @@ expand_margin_top = 24.0
 shadow_size = 2
 shadow_offset = Vector2( 2, 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=24]
 size = 23
 font_data = ExtResource( 1 )
 
 [resource]
-default_font = SubResource( 1 )
+default_font = SubResource( 24 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/styles/disabled = SubResource( 17 )
 Button/styles/focus = SubResource( 11 )
-Button/styles/hover = SubResource( 8 )
-Button/styles/normal = SubResource( 7 )
+Button/styles/hover = SubResource( 20 )
+Button/styles/normal = SubResource( 21 )
 Button/styles/pressed = SubResource( 9 )
 CheckBox/colors/font_color = Color( 1, 1, 1, 1 )
 CheckButton/colors/font_color = Color( 1, 1, 1, 1 )
 CheckButton/icons/off = null
 LineEdit/colors/clear_button_color = Color( 1, 1, 1, 1 )
+LineEdit/colors/font_color = Color( 1, 1, 1, 1 )
 LineEdit/styles/focus = SubResource( 12 )
 LineEdit/styles/normal = SubResource( 10 )
 Panel/styles/panel = SubResource( 2 )
@@ -146,9 +148,9 @@ ProgressBar/styles/bg = SubResource( 18 )
 ProgressBar/styles/fg = SubResource( 19 )
 TabContainer/colors/font_color_bg = Color( 0.513726, 0.513726, 0.513726, 1 )
 TabContainer/colors/font_color_fg = Color( 1, 1, 1, 1 )
-TabContainer/styles/panel = SubResource( 3 )
+TabContainer/styles/panel = SubResource( 22 )
 TabContainer/styles/tab_bg = SubResource( 4 )
-TabContainer/styles/tab_fg = SubResource( 6 )
+TabContainer/styles/tab_fg = SubResource( 23 )
 Tabs/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
 Tabs/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Tabs/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
@@ -172,6 +174,6 @@ TooltipLabel/colors/font_color_shadow = Color( 0.145098, 0.137255, 0.188235, 1 )
 TooltipLabel/constants/shadow_offset_x = 2
 TooltipLabel/constants/shadow_offset_y = 2
 Tree/styles/bg = SubResource( 14 )
-VScrollBar/styles/scroll = SubResource( 15 )
+VScrollBar/styles/scroll = SubResource( 25 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
 WindowDialog/styles/panel = SubResource( 16 )

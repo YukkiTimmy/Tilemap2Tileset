@@ -1,0 +1,60 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+uniform bool gameboy = false;
+uniform bool blackAndWhite = false;
+
+uniform vec4 darkestGS : hint_color;
+uniform vec4 darkGS : hint_color;
+uniform vec4 lightGS : hint_color;
+uniform vec4 lightestGS : hint_color;
+
+uniform vec4 darkest : hint_color;
+uniform vec4 dark : hint_color;
+uniform vec4 light : hint_color;
+uniform vec4 lightest : hint_color;
+
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	float rgb_avg = (COLOR.r + COLOR.g + COLOR.b) / 3.0;
+	
+	if (gameboy) {
+		if(rgb_avg < .25) {
+			COLOR = darkest;
+		} else if (rgb_avg < .5) {
+			COLOR = dark;
+		} else if (rgb_avg < .75) {
+			COLOR = light;
+		} else {
+			COLOR = lightest;
+		}
+		
+	} else if (blackAndWhite) {
+		if(rgb_avg < .25) {
+			COLOR = darkestGS;
+		} else if (rgb_avg < .5) {
+			COLOR = darkGS;
+		} else if (rgb_avg < .75) {
+			COLOR = lightGS;
+		} else {
+			COLOR = lightestGS;
+		}
+	}
+	
+}"
+
+[resource]
+shader = SubResource( 9 )
+shader_param/gameboy = false
+shader_param/blackAndWhite = true
+shader_param/darkestGS = null
+shader_param/darkGS = Color( 0.329412, 0.329412, 0.329412, 1 )
+shader_param/lightGS = Color( 0.662745, 0.662745, 0.662745, 1 )
+shader_param/lightestGS = Color( 1, 1, 1, 1 )
+shader_param/darkest = Color( 0.027451, 0.0941176, 0.129412, 1 )
+shader_param/dark = Color( 0.188235, 0.407843, 0.313726, 1 )
+shader_param/light = Color( 0.52549, 0.752941, 0.423529, 1 )
+shader_param/lightest = Color( 0.878431, 0.972549, 0.811765, 1 )
