@@ -236,6 +236,8 @@ func load_image():
 	
 	endOffsetX.value = currentImage.get_width()
 	endOffsetY.value = currentImage.get_height()
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 	
 	inputImage.texture = currentImage
 	inputImage.visible = true
@@ -321,6 +323,8 @@ func _on_files_dropped(files, _screen):
 		
 		endOffsetX.value = currentImage.get_width()
 		endOffsetY.value = currentImage.get_height()
+		inputImage.material.set_shader_param("imgW", endOffsetX.value)
+		inputImage.material.set_shader_param("imgH", endOffsetY.value)
 		
 		inputImage.texture = currentImage
 		inputImage.visible = true
@@ -348,6 +352,8 @@ func _on_FileDialog_file_selected(path: String) -> void:
 		
 		endOffsetX.value = currentImage.get_width()
 		endOffsetY.value = currentImage.get_height()
+		inputImage.material.set_shader_param("imgW", endOffsetX.value)
+		inputImage.material.set_shader_param("imgH", endOffsetY.value)
 		
 		inputImage.texture = currentImage
 		inputImage.visible = true
@@ -523,6 +529,8 @@ func _http_request_completed(_result, _response_code, _headers, body):
 
 	endOffsetX.value = currentImage.get_width()
 	endOffsetY.value = currentImage.get_height()
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 
 	inputImage.texture = texture
 	inputImage.visible = true
@@ -624,6 +632,8 @@ func _on_RemovePreviewImage_pressed() -> void:
 	
 	endOffsetX.value = 0
 	endOffsetY.value = 0
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 
 
 func _on_Panel_mouse_entered() -> void:
@@ -757,6 +767,9 @@ func _reset_settings() -> void:
 	else:
 		endOffsetX.value = 0
 		endOffsetY.value = 0
+
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 
 func _on_Clear_pressed() -> void:
 	_reset_settings()
@@ -926,3 +939,12 @@ func _on_Filter_pressed() -> void:
 		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative.pressed = false
 		filter = true
 		shader = "GB green"
+
+func _on_offsetX_value_changed(value):
+	inputImage.material.set_shader_param("offsetX", value)
+func _on_offsetY_value_changed(value):
+	inputImage.material.set_shader_param("offsetY", value)
+func _on_widthBox_value_changed(value):
+	inputImage.material.set_shader_param("checkerW", value)
+func _on_heightBox_value_changed(value):
+	inputImage.material.set_shader_param("checkerH", value)
