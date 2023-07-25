@@ -111,7 +111,7 @@ func _ready() -> void:
 	
 	_on_Load()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if zoomSlider.value >= 0.25 && zoomSlider.value <=10 && onModalPic:
 		if Input.is_action_just_released("zoom_in"):
 			zoomSlider.value += 0.075
@@ -301,7 +301,7 @@ func _input(event: InputEvent) -> void:
 			_Modaldragging = false
 		
 
-func _on_files_dropped(files, screen):
+func _on_files_dropped(files, _screen):
 	if files[0] != null && running == false:
 		# loading the input picture
 		var InputPicImg = load_external_tex(files[0])
@@ -496,7 +496,7 @@ func _on_urlSubmit_pressed() -> void:
 			push_error("An error occurred in the HTTP request.")
 
 
-func _http_request_completed(result, response_code, headers, body):
+func _http_request_completed(_result, _response_code, _headers, body):
 	var image = Image.new()
 	
 	imgPath = urlLine.text
@@ -763,10 +763,10 @@ func _on_Clear_pressed() -> void:
 
 
 
-func _open_Modal(inputImage, generatedImage) -> void:
+func _open_Modal(inI, generatedImage) -> void:
 	currentModalImage = generatedImages.find(generatedImage)
 	modal.visible = true
-	modalImage.texture = inputImage
+	modalImage.texture = inI
 	modalImage.rect_rotation = generatedImages[currentModalImage].rotated * 90
 	modalLabel.text = generatedImage.title
 	richModalLabel.text = generatedImage.info
