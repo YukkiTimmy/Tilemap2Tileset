@@ -277,7 +277,7 @@ custom_styles/panel = SubResource( 3 )
 
 [node name="inputImage" type="Polygon2D" parent="Body/VBoxContainer/Panel"]
 visible = false
-polygon = PoolVector2Array( 1, 11, 1, 239, 2, 243, 4, 246, 7, 248, 11, 249, 1027, 249, 1031, 248, 1034, 246, 1036, 243, 1037, 239, 1037, 15, 1037, 11, 1036, 7, 1034, 4, 1031, 2, 1027, 1, 11, 1, 7, 2, 4, 4, 2, 7 )
+polygon = PoolVector2Array( 1, 11, 1, 125.447, 1, 239, 1, 243, 1, 249, 7, 249, 11, 249, 1027, 249, 1031, 249, 1037, 249, 1037, 243, 1037, 239, 1037, 15, 1037, 11, 1037, 7, 1037, 1, 1031, 1, 1027, 1, 11, 1, 7, 1, 1, 1, 1, 7 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Body/VBoxContainer/Panel"]
 margin_right = 1024.0
