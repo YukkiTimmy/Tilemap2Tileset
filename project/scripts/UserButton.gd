@@ -29,6 +29,7 @@ func save():
 		"pos_x" : rect_position.x,
 		"pos_y" : rect_position.y,
 		"title" : title,
+		"widthBox" : widthBox,
 		"heightBox" : heightBox,
 		"sortingModeLever" : sortingModeLever,
 		"redCheck" : redCheck,
