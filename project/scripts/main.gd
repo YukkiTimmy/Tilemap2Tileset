@@ -386,17 +386,17 @@ func _on_StartButton_pressed() -> void:
 		
 		
 		# checking if the image is divisible by the tile sizes given
-		if width % tileWidth != 0 || height % tileHeight != 0:
-			print(width , " : " , tileWidth, " | ", height, " : ", tileHeight)
-			$InfoText.visible = true
+		# if width % tileWidth != 0 || height % tileHeight != 0:
+			# print(width , " : " , tileWidth, " | ", height, " : ", tileHeight)
+			# $InfoText.visible = true
 		
-			var tween = Tween.new()
-			add_child(tween)
-			tween.interpolate_property($InfoText, "modulate:a", modulate.a, 0.0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-			tween.playback_speed = 0.5
-			tween.start()
+			# var tween = Tween.new()
+			# add_child(tween)
+			# tween.interpolate_property($InfoText, "modulate:a", modulate.a, 0.0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			# tween.playback_speed = 0.5
+			# tween.start()
 			
-			return
+			# return
 		
 		# setting running to true to stop new processes from happening
 		running = true

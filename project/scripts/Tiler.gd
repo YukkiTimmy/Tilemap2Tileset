@@ -50,8 +50,10 @@ func tilesetToTile(img) -> void:
 	var height = endOffsetY - offsetY
 
 	# getting the amount of rows and colums
-	var rows = width / tileWidth
-	var cols = height / tileHeight
+	# using int + ceil because image "width" does not have to be divisible by "tileWidth"
+  # Same goes for height. So we get half-filled tiles too
+  var rows = int(ceil(width / tileWidth))
+	var cols = int(ceil(height / tileHeight))
 
 	# getting the total amount of tiles
 	var maxTiles = rows * cols
