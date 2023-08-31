@@ -111,7 +111,7 @@ func _ready() -> void:
 	
 	_on_Load()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if zoomSlider.value >= 0.25 && zoomSlider.value <=10 && onModalPic:
 		if Input.is_action_just_released("zoom_in"):
 			zoomSlider.value += 0.075
@@ -236,6 +236,8 @@ func load_image():
 	
 	endOffsetX.value = currentImage.get_width()
 	endOffsetY.value = currentImage.get_height()
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 	
 	inputImage.texture = currentImage
 	inputImage.visible = true
@@ -301,7 +303,7 @@ func _input(event: InputEvent) -> void:
 			_Modaldragging = false
 		
 
-func _on_files_dropped(files, screen):
+func _on_files_dropped(files, _screen):
 	if files[0] != null && running == false:
 		# loading the input picture
 		var InputPicImg = load_external_tex(files[0])
@@ -321,6 +323,8 @@ func _on_files_dropped(files, screen):
 		
 		endOffsetX.value = currentImage.get_width()
 		endOffsetY.value = currentImage.get_height()
+		inputImage.material.set_shader_param("imgW", endOffsetX.value)
+		inputImage.material.set_shader_param("imgH", endOffsetY.value)
 		
 		inputImage.texture = currentImage
 		inputImage.visible = true
@@ -348,6 +352,8 @@ func _on_FileDialog_file_selected(path: String) -> void:
 		
 		endOffsetX.value = currentImage.get_width()
 		endOffsetY.value = currentImage.get_height()
+		inputImage.material.set_shader_param("imgW", endOffsetX.value)
+		inputImage.material.set_shader_param("imgH", endOffsetY.value)
 		
 		inputImage.texture = currentImage
 		inputImage.visible = true
@@ -496,7 +502,7 @@ func _on_urlSubmit_pressed() -> void:
 			push_error("An error occurred in the HTTP request.")
 
 
-func _http_request_completed(result, response_code, headers, body):
+func _http_request_completed(_result, _response_code, _headers, body):
 	var image = Image.new()
 	
 	imgPath = urlLine.text
@@ -523,6 +529,8 @@ func _http_request_completed(result, response_code, headers, body):
 
 	endOffsetX.value = currentImage.get_width()
 	endOffsetY.value = currentImage.get_height()
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 
 	inputImage.texture = texture
 	inputImage.visible = true
@@ -624,6 +632,8 @@ func _on_RemovePreviewImage_pressed() -> void:
 	
 	endOffsetX.value = 0
 	endOffsetY.value = 0
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
 
 
 func _on_Panel_mouse_entered() -> void:
@@ -758,15 +768,18 @@ func _reset_settings() -> void:
 		endOffsetX.value = 0
 		endOffsetY.value = 0
 
+	inputImage.material.set_shader_param("imgW", endOffsetX.value)
+	inputImage.material.set_shader_param("imgH", endOffsetY.value)
+
 func _on_Clear_pressed() -> void:
 	_reset_settings()
 
 
 
-func _open_Modal(inputImage, generatedImage) -> void:
+func _open_Modal(inI, generatedImage) -> void:
 	currentModalImage = generatedImages.find(generatedImage)
 	modal.visible = true
-	modalImage.texture = inputImage
+	modalImage.texture = inI
 	modalImage.rect_rotation = generatedImages[currentModalImage].rotated * 90
 	modalLabel.text = generatedImage.title
 	richModalLabel.text = generatedImage.info
@@ -926,3 +939,12 @@ func _on_Filter_pressed() -> void:
 		$Sidebar/TabContainer/Filter/ScrollContainer/OptionList/Negative.pressed = false
 		filter = true
 		shader = "GB green"
+
+func _on_offsetX_value_changed(value):
+	inputImage.material.set_shader_param("offsetX", value)
+func _on_offsetY_value_changed(value):
+	inputImage.material.set_shader_param("offsetY", value)
+func _on_widthBox_value_changed(value):
+	inputImage.material.set_shader_param("checkerW", value)
+func _on_heightBox_value_changed(value):
+	inputImage.material.set_shader_param("checkerH", value)

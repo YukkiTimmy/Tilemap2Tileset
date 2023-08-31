@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/fonts/Mukta/Mukta-ExtraBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Sidebar.tscn" type="PackedScene" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://assets/imgs/icons/round_delete_gray_24dp.png" type="Texture" id=12]
 [ext_resource path="res://assets/imgs/icons/round_backspace_gray_24dp.png" type="Texture" id=13]
 [ext_resource path="res://assets/imgs/icons/round_backspace_white_24dp.png" type="Texture" id=14]
-[ext_resource path="res://test assets/tiled.png" type="Texture" id=15]
+[ext_resource path="res://assets/shaders/UI.gdshader" type="Shader" id=15]
 [ext_resource path="res://assets/imgs/icons/round_close_gray_24dp.png" type="Texture" id=16]
 [ext_resource path="res://assets/imgs/icons/round_arrow_forward_ios_white_24dp.png" type="Texture" id=17]
 [ext_resource path="res://assets/imgs/icons/round_arrow_forward_ios_gray_24dp.png" type="Texture" id=18]
@@ -30,6 +30,7 @@
 [ext_resource path="res://assets/imgs/icons/round_rotate_left_white_24dp.png" type="Texture" id=28]
 [ext_resource path="res://assets/imgs/icons/round_center_focus_strong_white_24dp.png" type="Texture" id=29]
 [ext_resource path="res://assets/imgs/icons/round_center_focus_strong_gray_24dp.png" type="Texture" id=30]
+[ext_resource path="res://test assets/tiled.png" type="Texture" id=31]
 
 [sub_resource type="ButtonGroup" id=7]
 resource_name = "Color"
@@ -55,6 +56,16 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 15 )
+shader_param/imgW = 0
+shader_param/imgH = 0
+shader_param/checkerW = 8
+shader_param/checkerH = 8
+shader_param/lineWidth = 1
+shader_param/offsetX = 0
+shader_param/offsetY = 0
 
 [sub_resource type="DynamicFont" id=12]
 size = 25
@@ -277,7 +288,8 @@ custom_styles/panel = SubResource( 3 )
 
 [node name="inputImage" type="Polygon2D" parent="Body/VBoxContainer/Panel"]
 visible = false
-polygon = PoolVector2Array( 1, 11, 1, 239, 2, 243, 4, 246, 7, 248, 11, 249, 1027, 249, 1031, 248, 1034, 246, 1036, 243, 1037, 239, 1037, 15, 1037, 11, 1036, 7, 1034, 4, 1031, 2, 1027, 1, 11, 1, 7, 2, 4, 4, 2, 7 )
+material = SubResource( 15 )
+polygon = PoolVector2Array( 1, 11, 1, 125.447, 1, 239, 1, 243, 1, 249, 7, 249, 11, 249, 1027, 249, 1031, 249, 1037, 249, 1037, 243, 1037, 239, 1037, 15, 1037, 11, 1037, 7, 1037, 1, 1031, 1, 1027, 1, 11, 1, 7, 1, 1, 1, 1, 7 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Body/VBoxContainer/Panel"]
 margin_right = 1024.0
@@ -773,7 +785,7 @@ render_target_update_mode = 0
 margin_right = 480.0
 margin_bottom = 480.0
 rect_pivot_offset = Vector2( 240, 240 )
-texture = ExtResource( 15 )
+texture = ExtResource( 31 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -808,12 +820,16 @@ __meta__ = {
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/SortingColors/Green" to="." method="_on_Green_pressed"]
 [connection signal="toggled" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/PrintingMode" to="." method="_on_PrintingMode_toggled"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/fileDialog" to="." method="_on_fileDialog_pressed"]
+[connection signal="value_changed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Offset/width" to="." method="_on_offsetX_value_changed"]
+[connection signal="value_changed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Offset/height" to="." method="_on_offsetY_value_changed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/4x4" to="." method="_on_4x4_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/8x8" to="." method="_on_8x8_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/16x16" to="." method="_on_16x16_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/32x32" to="." method="_on_32x32_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/64x64" to="." method="_on_64x64_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/128x128" to="." method="_on_128x128_pressed"]
+[connection signal="value_changed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/width" to="." method="_on_widthBox_value_changed"]
+[connection signal="value_changed" from="Sidebar/TabContainer/Options/ScrollContainer/OptionList/Sizes/height" to="." method="_on_heightBox_value_changed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/Save/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Options/Clear" to="." method="_on_Clear_pressed"]
 [connection signal="pressed" from="Sidebar/TabContainer/Presets/ScrollContainer/OptionList/ColorPalette" to="." method="_on_ColorPalette_pressed"]
