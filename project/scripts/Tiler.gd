@@ -1,361 +1,287 @@
 extends Node
+class_name Tiler
 
-var running : bool = true
+signal image_ready(output_package: Dictionary)
+@warning_ignore("unused_signal")
+signal get_total_tiles_to_check(total_tiles_to_check: int)
 
-var tileWidth : int = 16
-var tileHeight : int = 16
+# Tile settings
+var TILE_WIDTH : int = 16
+var TILE_HEIGHT : int = 16
 
-var imgPath : String = ""
-var outputDir : String = ""
-
-var seperate : bool = false
-var mirrored : bool = false
-var sorting : bool = true
-var filter : bool = false
+var OFFSET_RECT : Rect2i = Rect2i(0,0,0,0)
 
 
-var sort_by : String = "red"
+var CHECK_ORIENTATION := true
+var SORT_TILES_BY := "None"
 
-var shader : String = ""
+#Information variables
+var unique_tile_counter := 0
 
 var start_time : float = 0
-var time_now : float = 0
+var end_time : float = 0
 
-var offsetX := 0
-var offsetY := 0
+var total_tiles_to_check : int = 0
+var current_tiles_checked : int = 0
 
-var endOffsetX := 0
-var endOffsetY := 0
-
-var grid_size := 0
-
-
-func _ready() -> void:
-	if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
-		return
-		
-	tilesetToTile(get_parent().currentImage)
-
-
-# warning-ignore:unused_argument
-func _process(delta):
-	time_now = OS.get_system_time_msecs()
-
-
-func tilesetToTile(img) -> void:
-	start_time = OS.get_system_time_msecs()
+func _run_threaded(tiler_settings : Dictionary) -> void:
+	start_time = Time.get_ticks_msec()
 	
-	# getting width and height of the img
-	var width = endOffsetX - offsetX
-	var height = endOffsetY - offsetY
-
-	# getting the amount of rows and colums
-	# using int + ceil because image "width" does not have to be divisible by "tileWidth"
-  # Same goes for height. So we get half-filled tiles too
-  var rows = int(ceil(width / tileWidth))
-	var cols = int(ceil(height / tileHeight))
-
-	# getting the total amount of tiles
-	var maxTiles = rows * cols
-
-	# turning the StreamTexture into an Image
-	var data = img.get_data()
-
-	# preparing a new Array for unique tiles only
-	var uniqTiles := []
-
-	# dictionary of hashes to tile index in uniqTiles
-	var tileHashes : Dictionary = {}
-
-	var counter : int = 0
-	get_parent().get("progress").max_value = maxTiles
+	# Set Settings
+	TILE_WIDTH = tiler_settings.tile_width
+	TILE_HEIGHT = tiler_settings.tile_height
 	
-	# >>>>> Thanks to Asher Glick & gokiburi skin over on Github, <<<<<
-	# >>>>> for helping me improve the algorithm drastically! <3  <<<<<
-
-	# saving every single tile into the "splittedImgs" Array
-	for y in cols:
-		for x in rows:
-			var tempImage = Image.new()
-
-			# creating a temporary image (width, height, midmap stuff just put it on false,
-			# 							  the RGB Format - I just take the same as the origin image has)
-			tempImage.create(tileWidth, tileHeight, false, data.get_format())
-			# initialising a temporary Image
-
-			# copying part of the main image to the temporary img
-			tempImage.blit_rect(
-				data,
-				Rect2(
-					tileWidth * x + offsetX,
-					tileHeight * y + offsetY,
-					tileWidth * x + tileWidth + offsetX,
-					tileHeight * y + tileHeight + offsetY),
-				Vector2.ZERO
-			)
-
-			
-			counter += 1
-			get_parent().get("progress").value = counter
-			
-		
-			# Check if the tile is unique.
-			var imagehash = _imageHash(tempImage)
-			if imagehash in tileHashes:
-				continue
-
-			# Add all hashes of tile permutations to the list. This is done so
-			# that a hash of any permutation of this tile will be detected in
-			# the code above.
-			var newTileIndex = len(uniqTiles)
-			tileHashes[imagehash] = newTileIndex
-			
-			if !mirrored:
-				tempImage.flip_x()
-				tileHashes[_imageHash(tempImage)] = newTileIndex
-
-				tempImage.flip_y()
-				tileHashes[_imageHash(tempImage)] = newTileIndex
-
-				tempImage.flip_x()
-				tileHashes[_imageHash(tempImage)] = newTileIndex
-
-				# Rotated 90deg Tile Permutations.
-				var tempRotatedTile = _rotatedTile(tempImage)
-				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
-
-				tempRotatedTile.flip_x()
-				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
-
-				tempRotatedTile.flip_y()
-				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
-
-				tempRotatedTile.flip_x()
-				tileHashes[_imageHash(tempRotatedTile)] = newTileIndex
-
-				# Reset original tile to normal
-				tempImage.flip_y()
-
-			# adding the new unique tile to the Array
-			uniqTiles.append(tempImage)
-			
-			
+	OFFSET_RECT = tiler_settings.offset_rect
 	
-	# sorting
-	if sorting:
-		uniqTiles = _sorting_tiles(uniqTiles)
+	print(OFFSET_RECT)
+	
+	var input_image = tiler_settings.input_image
+	var input_image_name = tiler_settings.file_name
 
+	CHECK_ORIENTATION = tiler_settings.check_orientation
 
-	# checks if the programm should print out a single or a multiple smaller images
+	SORT_TILES_BY = tiler_settings.sort_by
 
-	# ---single tiles---
-	if seperate == true:
-		# variable to count all the different tiles
-		var imgCount = 1
+	total_tiles_to_check = int(input_image.get_width() / TILE_WIDTH * input_image.get_height() / TILE_HEIGHT)
+	
+	if CHECK_ORIENTATION:
+		total_tiles_to_check *= 8
 
-		for i in uniqTiles:
-			# getting the filename of the image
-			var fileName = imgPath.get_file()
+	call_deferred("emit_signal", "get_total_tiles_to_check", total_tiles_to_check)
 
-			# I tried to cut of the extensions, so I could add the numbers after the name
-			# this step is completly optional
+	# Start tiling the image
+	var output_image := _generate_unique_tile_image(input_image)
+	
+	# Create ImageInfoResource to hold important data
+	var info_resource := ImageInfoResource.new()
+	info_resource.output_image = output_image
+	info_resource.input_image_name = input_image_name
+	info_resource.input_image_size = input_image.get_size()
+	info_resource.tile_size_used = Vector2i(TILE_WIDTH, TILE_HEIGHT)
+	info_resource.unique_tiles = unique_tile_counter
+	info_resource.total_tiles_checked = total_tiles_to_check
+	info_resource.total_time_needed = end_time - start_time
+	info_resource.input_image_file_size = input_image.get_data_size()
+	info_resource.checked_orienation = CHECK_ORIENTATION
+	info_resource.sorted_by = SORT_TILES_BY
+	
+	
+	call_deferred("_on_finished", info_resource)
 
-			# removing the 3 long extensions
-			if fileName.ends_with(".png") || fileName.ends_with(".jpg") || fileName.ends_with(".gif"):
-				fileName.erase(fileName.length() - 4, 4)
+func _on_finished(info_resource: ImageInfoResource) -> void:
+	emit_signal("image_ready", info_resource)
+	
 
-			# removing the 4 long extensions
-			elif fileName.ends_with(".jpeg"):
-				fileName.erase(fileName.length() - 5, 5)
+func _generate_unique_tile_image(input_image: Image) -> Image:
+	var unique_tiles := _extract_unique_tiles(input_image)
+	
+	unique_tile_counter = unique_tiles.size()
+	
+	end_time = Time.get_ticks_msec()
+	
+	unique_tiles = _sort_unique_tiles(unique_tiles)
+	
+	return _compose_output_image(unique_tiles, input_image.get_format())
 
-			# just in case you ended up here with a unvalid extension (shouldn't happen
+func _extract_unique_tiles(image: Image) -> Array:
+	var rows : int = floor(image.get_height() / TILE_HEIGHT)
+	var cols : int = floor(image.get_width() / TILE_WIDTH)
+
+	var seen := {}  
+	var unique_tiles := [] 
+	var tile_map := {} 
+
+	var tile_id = 0
+
+	for row in range(rows):
+		for col in range(cols):
+			var tile_data := _extract_tile(image, col, row)
+			
+			var base_hash = _image_hash(tile_data)
+						
+			var hashes := _generate_all_orientation_hashes(tile_data)
+
+			var found_tile_id = null
+			for h in hashes:
+				if seen.has(h):
+					found_tile_id = seen[h]
+					break
+
+			if found_tile_id != null:
+				tile_map[found_tile_id]["amount"] += 1
 			else:
-				print("File Extension can't be accepted")
-				return
+				for h in hashes:
+					seen[h] = tile_id
 
-			# saving all the tiles to a .png file
-			var newFileName : String = "_tiled_"
+				var tile = {
+					"tile_id": tile_id,
+					"tile_data": tile_data,
+					"amount": 1,
+				}
+				unique_tiles.append(tile)
+				tile_map[tile_id] = tile
+				tile_id += 1
 
-			if !mirrored:
-				newFileName += "mirrored_"
+	return unique_tiles
 
-			if sorting:
-				newFileName += str("sorted_", sort_by, "_")
+func _extract_tile(image: Image, col: int, row: int) -> Image:
+	var pos := Vector2i(col * TILE_WIDTH, row * TILE_HEIGHT)
+	var size := Vector2i(TILE_WIDTH, TILE_HEIGHT)
+	var tile_data := Image.create(size.x, size.y, false, image.get_format())
 
-			i.save_png(str(outputDir, "/", fileName, newFileName, tileWidth, "x", tileHeight, "_", imgCount, ".png"))
+	tile_data.blit_rect(image, Rect2i(pos, size), Vector2i(0, 0))
 
-			# increasing the number of printed tiles by one
-			imgCount += 1
+	return tile_data
+
+func _compose_output_image(tiles: Array, format: int) -> Image:
+	var count := tiles.size()
+	var grid := int(ceil(sqrt(count)))
+
+	var output := Image.create(grid * TILE_WIDTH, grid * TILE_HEIGHT, false, format)
+
+	var i := 0
+	for y in range(grid):
+		for x in range(grid):
+			if i >= count: break
+			output.blit_rect(
+				tiles[i].tile_data,
+				Rect2i(Vector2i.ZERO, Vector2i(TILE_WIDTH, TILE_HEIGHT)),
+				Vector2i(x * TILE_WIDTH, y * TILE_HEIGHT)
+			)
+			i += 1
+
+	return output
+
+func _image_hash(image: Image) -> int:
+	current_tiles_checked += 1
+	return hash(image.get_data())
 
 
-	# ---one big image---
+# manipulating an dupliacted image over the base image (via tile.duplicate()) saved in average 16% time
+func _generate_all_orientation_hashes(tile: Image) -> Array:
+	var hashes: Array = []
+	hashes.append(_image_hash(tile))
+
+	if not CHECK_ORIENTATION:
+		return hashes
+
+	var tmp := tile.duplicate()
+	tmp.flip_x()
+	hashes.append(_image_hash(tmp))
+
+	tmp.flip_y()
+	hashes.append(_image_hash(tmp))
+
+	tmp = tile.duplicate()
+	tmp.flip_y()
+	hashes.append(_image_hash(tmp))
+
+	var rotated := _rotate_image(tile)
+	hashes.append(_image_hash(rotated))
+
+	tmp = rotated.duplicate()
+	tmp.flip_x()
+	hashes.append(_image_hash(tmp))
+
+	tmp.flip_y()
+	hashes.append(_image_hash(tmp))
+
+	tmp = rotated.duplicate()
+	tmp.flip_y()
+	hashes.append(_image_hash(tmp))
+
+	return hashes
+
+
+func _rotate_image(tile: Image) -> Image:
+	var rotated := Image.create(TILE_WIDTH, TILE_HEIGHT, false, tile.get_format())
+
+	for y in TILE_HEIGHT:
+		for x in TILE_WIDTH:
+			rotated.set_pixel(y, x, tile.get_pixel(x, y))
+
+	return rotated
+
+
+
+func _compare_tile_amount(a, b) -> bool:
+	return a["amount"] > b["amount"]
+
+
+func _compare_by_brightness(a, b) -> bool:
+	var brightness_a := get_average_brightness(a["tile_data"])
+	var brightness_b := get_average_brightness(b["tile_data"])
+	return brightness_a < brightness_b
+
+
+func get_average_brightness(image: Image) -> float:
+	var total_brightness := 0.0
+	var width := image.get_width()
+	var height := image.get_height()
+
+	for y in range(height):
+		for x in range(width):
+			var color: Color = image.get_pixel(x, y)
+			var brightness := (color.r + color.g + color.b) / 3.0
+			total_brightness += brightness
+
+	return total_brightness / float(width * height)
+
+
+func _sort_unique_tiles(unique_tiles: Array) -> Array:
+	match SORT_TILES_BY:
+		"Amount":
+			unique_tiles.sort_custom(_compare_tile_amount)
+		"Brightness":
+			unique_tiles.sort_custom(_compare_by_brightness)
+		"Dominant Color":
+			unique_tiles.sort_custom(_compare_by_dominant_color)
+		"Cluster by Color":
+			return cluster_tiles_by_dominant_color(unique_tiles)
+	return unique_tiles
+
+
+func _compare_by_dominant_color(a, b) -> bool:
+	var dom_a := get_dominant_color_channel(a["tile_data"])
+	var dom_b := get_dominant_color_channel(b["tile_data"])
+	return dom_a < dom_b 
+
+
+func get_dominant_color_channel(image: Image) -> int:
+	var total_r := 0.0
+	var total_g := 0.0
+	var total_b := 0.0
+	var width := image.get_width()
+	var height := image.get_height()
+
+	for y in range(height):
+		for x in range(width):
+			var color: Color = image.get_pixel(x, y)
+			total_r += color.r
+			total_g += color.g
+			total_b += color.b
+
+	if total_r >= total_g and total_r >= total_b:
+		return 0  
+	elif total_g >= total_r and total_g >= total_b:
+		return 1  
 	else:
-		# initiallise a new image file
-		var imgOut = Image.new()
+		return 2  
 
-		# creating a new image file by taking the squareroot of the height and width
-		# and rounding them up, you always get a big enough image
-		var newWidth = ceil(sqrt(uniqTiles.size())) * tileWidth
-		var newHeight = ceil(sqrt(uniqTiles.size())) * tileHeight
-		
-		imgOut.create(newWidth, newHeight, false , data.get_format())
+func cluster_tiles_by_dominant_color(unique_tiles: Array) -> Array:
+	var red_tiles: Array = []
+	var green_tiles: Array = []
+	var blue_tiles: Array = []
 
-		# simple count variable
-		var count := 0
+	for tile in unique_tiles:
+		var dominant := get_dominant_color_channel(tile["tile_data"])
+		match dominant:
+			0:  # red
+				red_tiles.append(tile)
+			1:  # green
+				green_tiles.append(tile)
+			2:  # blue
+				blue_tiles.append(tile)
 
-		# looping through the new image
-		for y in ceil(sqrt(uniqTiles.size())):
-			for x in ceil(sqrt(uniqTiles.size())):
-				# you could end up with less unique tiles then there is space in the image
-				if count < uniqTiles.size():
-					# putting all unique tiles into the new image
-					imgOut.blit_rect(uniqTiles[count], Rect2(0, 0, tileWidth, tileHeight), Vector2(x * tileWidth, y * tileHeight))
-					count += 1
-
-		# saving the image to the output path
-		var newFileName : String = "/tiled_"
-
-		if !mirrored:
-			newFileName += "mirrored_"
-
-		if sorting:
-			newFileName += str("sorted_", sort_by, "_")
-		
-		# changing the output image in the gui to the new tileset
-		var texture = ImageTexture.new()
-		texture.create_from_image(imgOut, 1)
-		
-		
-		# Adding tiled image to the list
-		var scene = load("res://scenes/GeneratedImage.tscn")
-		var generatedImage = scene.instance()
-		
-		get_parent().generatedImages.push_back(generatedImage)
-		
-		if !sorting:
-			sort_by = "None"
-		
-		
-		# Filter stuff
-		
-		if filter:
-			var viewportScene = load("res://scenes/ViewportImage.tscn")
-			var viewport = viewportScene.instance()
-			
-			get_parent().add_child(viewport)
-			
-			viewport.shader = shader
-			
-			viewport.getViewportImage(texture)
-			
-			yield(viewport, "_done")
-			
-			var newTexture = ImageTexture.new()
-			newTexture.create_from_image(viewport.outputImage, 1)
-			
-			generatedImage.txt = viewport.outputImage
-			
-			generatedImage.img = newTexture
-		
-		else:
-			shader = "None"
-			
-			generatedImage.txt = imgOut
-			
-			generatedImage.img = texture
-		
-			
-		if OS.get_name() != "HTML5" or !OS.has_feature('JavaScript'):
-			generatedImage.title = imgPath.get_file()
-		else:
-			generatedImage.title = get_parent().fileName
-			time_now = 0
-			start_time = 0
-		
-		
-		generatedImage.info = str("Tiles printed: ", uniqTiles.size(), "\n"
-								,"Tile Size: ", tileWidth, "x", tileHeight, "\n"
-								,"Original Size: ", width, "x", height, "\n"
-								,"New Size: ", newWidth, "x", newHeight, "\n"
-								,"Total Tiles: ", maxTiles, "\n"
-								,"Time: ", time_now - start_time, "ms\n"
-								,"Mirror: ", !mirrored, "\n"
-								,"Sorted: ", sorting, "\n"
-								,"Sorted By: ",sort_by, "\n"
-								,"Sperated: ", seperate, "\n"
-								,"Filterd: ", filter, "\n"
-								,"Shader: ", shader)
-		
-		
-		get_parent().get("tiledImages").add_child(generatedImage)
-		get_parent().get("tiledImages").move_child(generatedImage, 0)
-		
-
-	# making sure that the main process can start a new process
-	get_parent().running = false
-	get_parent().startButton.text = "Start Tiling"
-	
-	queue_free()
-
-
-func _imageHash(image: Image) -> int:
-	var data = image.get_data()
-	return hash(data)
-
-
-func _rotatedTile(tile : Image) -> Image:
-	var rotatedTile = Image.new()
-	rotatedTile.create(tileWidth, tileHeight, false, tile.get_format())
-
-	tile.lock()
-	rotatedTile.lock()
-	for y in tileHeight:
-		for x in tileWidth:
-			rotatedTile.set_pixel(y, x, tile.get_pixel(x,y))
-	tile.unlock()
-	rotatedTile.unlock()
-
-	return rotatedTile
-
-
-func _sorting_tiles(tiles : Array) -> Array:
-	var rgb_values := []
-	var sorted_tiles := []
-
-	var tileR : int = 0
-	var tileG : int = 0
-	var tileB : int = 0
-
-	var count : int = 0
-
-	for i in tiles:
-		i.lock()
-		for y in tileHeight:
-			for x in tileWidth:
-				tileR += i.get_pixel(x,y).r8
-				tileG += i.get_pixel(x,y).g8
-				tileB += i.get_pixel(x,y).b8
-
-		match sort_by:
-			"red":
-				rgb_values.append(Vector2(tileR,count))
-			"green":
-				rgb_values.append(Vector2(tileG,count))
-			"blue":
-				rgb_values.append(Vector2(tileB,count))
-
-		tileR = 0
-		tileG = 0
-		tileB = 0
-
-		count += 1
-
-	rgb_values.sort()
-
-	for n in tiles.size():
-		sorted_tiles.append(0)
-
-	for i in rgb_values.size():
-		sorted_tiles[i] = tiles[rgb_values[i].y]
-
-	return sorted_tiles
+	# Du kannst die Reihenfolge hier beliebig ändern
+	return red_tiles + green_tiles + blue_tiles

@@ -1,0 +1,412 @@
+[gd_scene load_steps=13 format=3 uid="uid://diwduwoqomdbj"]
+
+[ext_resource type="Script" uid="uid://bex64jh7tg7j0" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="StyleBox" uid="uid://gfltwg1fcj4l" path="res://assets/themes/container_theme.tres" id="2_jyhfs"]
+[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://dv0i8y6kwgi8h" path="res://scripts/zoom_container.gd" id="5_tipki"]
+[ext_resource type="Texture2D" uid="uid://bxl8edohoyexc" path="res://lake.png" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://d6g28app383n" path="res://scenes/save_modal.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://ukj0f035egra" path="res://scenes/tileDetailModal.tscn" id="7_o6xl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.188235, 0.176471, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(0.188235, 0.176471, 0.25098, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sugp2")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
+
+[node name="MainMarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MainMarginContainer"]
+layout_mode = 2
+
+[node name="LeftSidebarMargin" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+
+[node name="LeftSidebarPanel" type="PanelContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="LeftSidebarInnerMargin" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin/LeftSidebarPanel"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin/LeftSidebarPanel/LeftSidebarInnerMargin"]
+layout_mode = 2
+
+[node name="LeftSidebarTitel" type="Label" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin/LeftSidebarPanel/LeftSidebarInnerMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "TILED IMAGES"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin/LeftSidebarPanel/LeftSidebarInnerMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin/LeftSidebarPanel/LeftSidebarInnerMargin/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TiledImagesList" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/LeftSidebarMargin/LeftSidebarPanel/LeftSidebarInnerMargin/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="CenterSidebarMargin" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin"]
+layout_mode = 2
+
+[node name="CenterPanelTop" type="PanelContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer"]
+layout_mode = 2
+
+[node name="LeftSidebarTitel" type="Label" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "INPUT IMAGE"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_5vw27")
+
+[node name="InputImageBackground" type="Panel" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_tbgi4")
+
+[node name="ZoomContainer" type="Control" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer/InputImageBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_tipki")
+
+[node name="InputImageTextureRect" type="TextureRect" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer/InputImageBackground/ZoomContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_85g3d")
+stretch_mode = 5
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_5vw27")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_lquwl")
+
+[node name="CenterPanelBottom" type="PanelContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelBottom"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelBottom/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelBottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelBottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_lquwl")
+
+[node name="TileButton" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelBottom/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "start tiling"
+
+[node name="RightSidebarMargin" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin"]
+layout_mode = 2
+
+[node name="RightSidebarPanel" type="PanelContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="LeftSidebarTitel" type="Label" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="SettingsContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckOrienationButton" type="CheckButton" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+text = "Ignore Tiles in other Orientation"
+
+[node name="SortButton" type="CheckButton" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+text = "Sort unique Tiles"
+
+[node name="SortOptionButton" type="OptionButton" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+selected = 0
+item_count = 5
+popup/item_0/text = "ID"
+popup/item_0/id = 0
+popup/item_1/text = "Amount"
+popup/item_1/id = 1
+popup/item_2/text = "Brightness"
+popup/item_2/id = 2
+popup/item_3/text = "Dominant Color"
+popup/item_3/id = 3
+popup/item_4/text = "Cluster by Color"
+popup/item_4/id = 4
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="TileSizeGridContainer" type="GridContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="TileSize4x4Button" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4x4"
+
+[node name="TileSize8x8Button" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8x8"
+
+[node name="TileSize16x16Button" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "16x16"
+
+[node name="TileSize32x32Button" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "32x32"
+
+[node name="TileSize64x64Button" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "64x64"
+
+[node name="TileSize128x128Button" type="Button" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "128x128"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="ManualTileSize" type="HBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="ManualTileSizeX" type="SpinBox" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/ManualTileSize"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 100000.0
+value = 16.0
+rounded = true
+suffix = "px"
+custom_arrow_step = 1.0
+
+[node name="ManualTileSizeY" type="SpinBox" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/ManualTileSize"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 100000.0
+value = 16.0
+rounded = true
+suffix = "px"
+custom_arrow_step = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_lquwl")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="LeftSidebarTitel" type="Label" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "OUTPUT"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tefeu")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "asd"
+
+[node name="TileDetailModal" parent="." instance=ExtResource("7_o6xl0")]
+visible = false
+layout_mode = 1
+
+[node name="SaveModal" parent="." instance=ExtResource("6_tefeu")]
+visible = false
+layout_mode = 1
+
+[connection signal="resized" from="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelTop/MarginContainer/VBoxContainer/InputImageBackground/ZoomContainer" to="." method="_on_zoom_container_resized"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/CenterSidebarMargin/VBoxContainer/CenterPanelBottom/MarginContainer/VBoxContainer/TileButton" to="." method="_on_tile_button_pressed"]
+[connection signal="toggled" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/CheckOrienationButton" to="." method="_on_check_orienation_button_toggled"]
+[connection signal="toggled" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/SortButton" to="." method="_on_sort_button_toggled"]
+[connection signal="item_selected" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/SortOptionButton" to="." method="_on_sort_option_button_item_selected"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer/TileSize4x4Button" to="." method="_on_tile_size_4x_4_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer/TileSize8x8Button" to="." method="_on_tile_size_8x_8_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer/TileSize16x16Button" to="." method="_on_tile_size_16x_16_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer/TileSize32x32Button" to="." method="_on_tile_size_32x_32_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer/TileSize64x64Button" to="." method="_on_tile_size_64x_64_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/TileSizeGridContainer/TileSize128x128Button" to="." method="_on_tile_size_128x_128_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/ManualTileSize/ManualTileSizeX" to="." method="_on_manual_tile_size_x_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MainMarginContainer/HBoxContainer/RightSidebarMargin/VBoxContainer/RightSidebarPanel/MarginContainer/VBoxContainer/SettingsContainer/ManualTileSize/ManualTileSizeY" to="." method="_on_manual_tile_size_y_value_changed"]

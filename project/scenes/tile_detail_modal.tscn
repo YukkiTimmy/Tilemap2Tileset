@@ -1,0 +1,298 @@
+[gd_scene load_steps=26 format=3 uid="uid://ukj0f035egra"]
+
+[ext_resource type="Script" uid="uid://dyl60qx7mm3u4" path="res://scripts/tile_detail_modal.gd" id="1_bqso3"]
+[ext_resource type="StyleBox" uid="uid://bl3l373t6c2xm" path="res://assets/themes/tile_detail_modal.tres" id="2_7rir7"]
+[ext_resource type="Texture2D" uid="uid://dxxov7exl8k66" path="res://assets/imgs/icons/round_arrow_forward_ios_white_24dp.png" id="3_vkgs5"]
+[ext_resource type="Texture2D" uid="uid://bmkeu0yoncitc" path="res://assets/imgs/icons/round_arrow_forward_ios_gray_24dp.png" id="4_vknrm"]
+[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="5_7k67k"]
+[ext_resource type="PackedScene" uid="uid://bjddwrlb2tp30" path="res://scenes/zoom_container.tscn" id="6_1nnhu"]
+[ext_resource type="StyleBox" uid="uid://gfltwg1fcj4l" path="res://assets/themes/container_theme.tres" id="7_citgt"]
+[ext_resource type="Texture2D" uid="uid://tvmq4bm30ile" path="res://assets/imgs/icons/round_swap_horiz_white_24dp.png" id="8_1jo87"]
+[ext_resource type="Texture2D" uid="uid://bx7m2yu36sl1a" path="res://assets/imgs/icons/round_swap_horiz_gray_24dp.png" id="9_mtps3"]
+[ext_resource type="Texture2D" uid="uid://opn24kwgpid" path="res://assets/imgs/icons/round_swap_vert_white_24dp.png" id="10_cwohx"]
+[ext_resource type="Texture2D" uid="uid://odcfjbhvtt4v" path="res://assets/imgs/icons/round_swap_vert_gray_24dp.png" id="11_fdoas"]
+[ext_resource type="Texture2D" uid="uid://bv0avgyr5qu1w" path="res://assets/imgs/icons/round_rotate_right_white_24dp.png" id="12_8b3ye"]
+[ext_resource type="Texture2D" uid="uid://cm1cj8bc15edb" path="res://assets/imgs/icons/round_rotate_right_gray_24dp.png" id="13_55q7v"]
+[ext_resource type="Texture2D" uid="uid://dex4ycsjlso0d" path="res://assets/imgs/icons/round_rotate_left_white_24dp.png" id="14_7mpll"]
+[ext_resource type="Texture2D" uid="uid://c4d7iur2m3wym" path="res://assets/imgs/icons/round_rotate_left_gray_24dp.png" id="15_5y5yw"]
+[ext_resource type="Texture2D" uid="uid://cp7jr112tmi1x" path="res://assets/imgs/icons/round_delete_white_24dp.png" id="16_udyqe"]
+[ext_resource type="Texture2D" uid="uid://dbtlup36jq1v3" path="res://assets/imgs/icons/round_delete_gray_24dp.png" id="17_0eiid"]
+[ext_resource type="Texture2D" uid="uid://bffd2wp8jv2pa" path="res://assets/imgs/icons/round_file_download_white_24dp.png" id="18_0sstc"]
+[ext_resource type="Texture2D" uid="uid://d3knjqymhwim2" path="res://assets/imgs/icons/round_file_download_gray_24dp.png" id="19_8q521"]
+[ext_resource type="Texture2D" uid="uid://blautuchqxfot" path="res://assets/imgs/icons/round_close_white_24dp.png" id="20_tukot"]
+[ext_resource type="Texture2D" uid="uid://dihg67gfkv48q" path="res://assets/imgs/icons/round_close_gray_24dp.png" id="21_d04rq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm18m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fk52h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j651x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvx2c"]
+
+[node name="Modal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqso3")
+
+[node name="TransparentBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.298039)
+
+[node name="MainContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContainerBackground_Cont" type="PanelContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_7rir7")
+
+[node name="MainContainer_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="MainContainer_VBox" type="VBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont"]
+layout_mode = 2
+
+[node name="MainContainerTitel" type="Label" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INPUT IMAGE"
+horizontal_alignment = 1
+
+[node name="MainContainer_VBox" type="HBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PreviousImage_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_vkgs5")
+texture_pressed = ExtResource("4_vknrm")
+flip_h = true
+
+[node name="VSeparator2" type="VSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_sm18m")
+
+[node name="OutputImage_VBox" type="VBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OutputImageBackground" type="Panel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox"]
+clip_children = 2
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("5_7k67k")
+
+[node name="ZoomContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox/OutputImageBackground" instance=ExtResource("6_1nnhu")]
+unique_name_in_owner = true
+layout_mode = 1
+allow_scaling_beyond_container = true
+
+[node name="OutputImageTextureRect" type="TextureRect" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox/OutputImageBackground/ZoomContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" type="HSlider" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_sm18m")
+
+[node name="ImageData_VBox" type="VBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ImageDataTitel" type="Label" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
+layout_mode = 2
+text = "IMAGE DATA"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fk52h")
+
+[node name="ImageInformationBackground_Cont" type="Panel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7_citgt")
+
+[node name="ImageInformation_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/ImageInformationBackground_Cont"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ImageInformation" type="RichTextLabel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/ImageInformationBackground_Cont/ImageInformation_MargCont"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "asdasd
+asd
+asd
+as
+das
+d
+asd
+asd
+asd
+"
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_j651x")
+
+[node name="SettingsButtonBackground_Cont" type="PanelContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("7_citgt")
+
+[node name="SettingsButton_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SettingsButton_HBox" type="HBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont"]
+layout_mode = 2
+
+[node name="FlipH_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_1jo87")
+texture_pressed = ExtResource("9_mtps3")
+texture_hover = ExtResource("9_mtps3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FlipV_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_cwohx")
+texture_pressed = ExtResource("11_fdoas")
+texture_hover = ExtResource("11_fdoas")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RotateRight_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("12_8b3ye")
+texture_pressed = ExtResource("13_55q7v")
+texture_hover = ExtResource("13_55q7v")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RotateLeft_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("14_7mpll")
+texture_pressed = ExtResource("15_5y5yw")
+texture_hover = ExtResource("15_5y5yw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lvx2c")
+
+[node name="Delete_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("16_udyqe")
+texture_pressed = ExtResource("17_0eiid")
+texture_hover = ExtResource("17_0eiid")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Download_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("18_0sstc")
+texture_pressed = ExtResource("19_8q521")
+texture_hover = ExtResource("19_8q521")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator3" type="VSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_sm18m")
+
+[node name="NextImage_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_vkgs5")
+texture_pressed = ExtResource("4_vknrm")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="CloseButton" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/MarginContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("20_tukot")
+texture_hover = ExtResource("21_d04rq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/PreviousImage_Btn" to="." method="_on_previous_image_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox/FlipH_Btn" to="." method="_on_flip_h_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox/FlipV_Btn" to="." method="_on_flip_v_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox/RotateRight_Btn" to="." method="_on_rotate_right_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox/RotateLeft_Btn" to="." method="_on_rotate_left_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox/Delete_Btn" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont/SettingsButton_MargCont/SettingsButton_HBox/Download_Btn" to="." method="_on_download_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/NextImage_Btn" to="." method="_on_next_image_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MarginContainer2/CloseButton" to="." method="_on_close_button_pressed"]

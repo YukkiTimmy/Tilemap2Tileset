@@ -1,0 +1,383 @@
+[gd_scene load_steps=12 format=3 uid="uid://diwduwoqomdbj"]
+
+[ext_resource type="Script" uid="uid://bex64jh7tg7j0" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="StyleBox" uid="uid://gfltwg1fcj4l" path="res://assets/themes/container_theme.tres" id="2_jyhfs"]
+[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bjddwrlb2tp30" path="res://scenes/zoom_container.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://d6g28app383n" path="res://scenes/save_modal.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://ukj0f035egra" path="res://scenes/tile_detail_modal.tscn" id="7_o6xl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.188235, 0.176471, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(0.188235, 0.176471, 0.25098, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sugp2")
+
+[node name="MainContentBackground_Cont" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
+
+[node name="MainContent_MargCont" type="MarginContainer" parent="MainContentBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainContent_HBox" type="HBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LeftSidebarBackground_Cont" type="PanelContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="LeftSidebar_MargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+
+[node name="LeftSidebar_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont"]
+layout_mode = 2
+
+[node name="LeftSidebarTitel" type="Label" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "TILED IMAGES"
+
+[node name="TiledImageItem_Scroll" type="ScrollContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TiledImageItem_MargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TiledImageItem_Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TiledImagesList_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TiledImageItem_Scroll/TiledImageItem_MargCont"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="CenterContainer_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 20
+
+[node name="UpperCenterContainerBackground_Cont" type="PanelContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="UpperCenterContainer_MargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="UpperCenterContainer_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont"]
+layout_mode = 2
+
+[node name="UpperCenterContainerTitel" type="Label" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "INPUT IMAGE"
+
+[node name="HSeparator2" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_5vw27")
+
+[node name="InputImageBackground_Cont" type="Panel" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_tbgi4")
+
+[node name="ZoomContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/InputImageBackground_Cont" instance=ExtResource("4_tefeu")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="InputImageTextureRect" type="TextureRect" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/InputImageBackground_Cont/ZoomContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator3" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_5vw27")
+
+[node name="BottomCenterContainerBackground_Cont" type="PanelContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="BottomCenterContainerBackground_MargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BottomCenterContainerBackground_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont"]
+layout_mode = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_lquwl")
+
+[node name="StartTiling_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "start tiling"
+
+[node name="RightSidebar_Vbox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="UpperRightSidebar_Cont" type="PanelContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="UpperRightSidebar_MargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="UpperRightSidebar_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont"]
+layout_mode = 2
+
+[node name="UpperRightTitel" type="Label" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+
+[node name="HSeparator" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="SettingsContainer" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox"]
+layout_mode = 2
+
+[node name="CheckOrienationButton_Check" type="CheckButton" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+layout_mode = 2
+text = "Ignore Tiles in other Orientation"
+
+[node name="SortButton_Check" type="CheckButton" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+layout_mode = 2
+text = "Sort unique Tiles"
+
+[node name="SortOptionButton_Opt" type="OptionButton" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+selected = 0
+item_count = 5
+popup/item_0/text = "ID"
+popup/item_0/id = 0
+popup/item_1/text = "Amount"
+popup/item_1/id = 1
+popup/item_2/text = "Brightness"
+popup/item_2/id = 2
+popup/item_3/text = "Dominant Color"
+popup/item_3/id = 3
+popup/item_4/text = "Cluster by Color"
+popup/item_4/id = 4
+
+[node name="HSeparator" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="TileSizeGridContainer" type="GridContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="TileSize4x4_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4x4"
+
+[node name="TileSize8x8_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8x8"
+
+[node name="TileSize16x16_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "16x16"
+
+[node name="TileSize32x32_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "32x32"
+
+[node name="TileSize64x64_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "64x64"
+
+[node name="TileSize128x128_Btn" type="Button" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "128x128"
+
+[node name="HSeparator2" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="ManualTileSize_HBox" type="HBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="ManualTileSizeX_Spin" type="SpinBox" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 100000.0
+value = 16.0
+rounded = true
+suffix = "px"
+custom_arrow_step = 1.0
+
+[node name="ManualTileSizeY_Spin" type="SpinBox" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 100000.0
+value = 16.0
+rounded = true
+suffix = "px"
+custom_arrow_step = 1.0
+
+[node name="LowerRightSidebar_Cont" type="PanelContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_jyhfs")
+
+[node name="LowerRightSidebar_MargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="LowerRightSidebar_VBox" type="VBoxContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont"]
+layout_mode = 2
+
+[node name="LeftSidebarTitel" type="Label" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
+theme_override_font_sizes/font_size = 30
+text = "OUTPUT"
+
+[node name="HSeparator" type="HSeparator" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
+
+[node name="Console_Cont" type="PanelContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tefeu")
+
+[node name="ConsoleMargCont" type="MarginContainer" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox/Console_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ConsoleText" type="RichTextLabel" parent="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox/Console_Cont/ConsoleMargCont"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "asd"
+
+[node name="TileDetailModal" parent="." instance=ExtResource("7_o6xl0")]
+visible = false
+layout_mode = 1
+
+[node name="SaveModal" parent="." instance=ExtResource("6_tefeu")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox/StartTiling_Btn" to="." method="_on_tile_button_pressed"]
+[connection signal="toggled" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/CheckOrienationButton_Check" to="." method="_on_check_orienation_button_check_toggled"]
+[connection signal="toggled" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/SortButton_Check" to="." method="_on_sort_button_toggled"]
+[connection signal="item_selected" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/SortOptionButton_Opt" to="." method="_on_sort_option_button_item_selected"]
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer/TileSize4x4_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(4, 4)]]
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer/TileSize8x8_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(8, 8)]]
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer/TileSize16x16_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(16, 16)]]
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer/TileSize32x32_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(32, 32)]]
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer/TileSize64x64_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(64, 64)]]
+[connection signal="pressed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSizeGridContainer/TileSize128x128_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(128, 128)]]
+[connection signal="value_changed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox/ManualTileSizeX_Spin" to="." method="_on_manual_tile_size_x_value_changed"]
+[connection signal="value_changed" from="MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox/ManualTileSizeY_Spin" to="." method="_on_manual_tile_size_y_value_changed"]

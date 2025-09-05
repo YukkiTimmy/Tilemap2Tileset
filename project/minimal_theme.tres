@@ -1,0 +1,2234 @@
+[gd_resource type="Theme" load_steps=76 format=3 uid="uid://ctxe4nsidj1cc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j2au"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxtyv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.286157, 0.286157, 0.286157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwl58"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.196392, 0.196392, 0.196392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t327q"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.222039, 0.222039, 0.222039, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s1p1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.196392, 0.196392, 0.196392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cghmo"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.136392, 0.136392, 0.136392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6a6c"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+bg_color = Color(0.11898, 0.11898, 0.11898, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrix6"]
+content_margin_left = 8.0
+content_margin_top = 4.8
+content_margin_right = 8.0
+content_margin_bottom = 4.8
+bg_color = Color(0.222039, 0.222039, 0.222039, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0hbx"]
+content_margin_left = 8.0
+content_margin_top = 4.8
+content_margin_right = 8.0
+content_margin_bottom = 4.8
+bg_color = Color(0.273333, 0.273333, 0.273333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojsnk"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gaiwr"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.196392, 0.196392, 0.196392, 1)
+border_color = Color(0.254098, 0.254098, 0.254098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.005)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hudit"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxqda"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.273333, 0.273333, 0.273333, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.305392, 0.305392, 0.305392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.005)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rveaq"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.324627, 0.324627, 0.324627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.356686, 0.356686, 0.356686, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.005)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mopw"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.222039, 0.222039, 0.222039, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.254098, 0.254098, 0.254098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.005)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5awnw"]
+content_margin_left = 6.0
+content_margin_top = 2.0
+content_margin_right = 6.0
+content_margin_bottom = 2.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0s7s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.3)
+corner_radius_top_left = 256
+corner_radius_top_right = 256
+corner_radius_bottom_right = 256
+corner_radius_bottom_left = 256
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlncq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.3)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1ruv"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+bg_color = Color(0.0841568, 0.0841568, 0.0841568, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhw1f"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.196392, 0.196392, 0.196392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c1uj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.234863, 0.234863, 0.234863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy1lg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.121157, 0.121157, 0.121157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0k33"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.132039, 0.132039, 0.132039, 1)
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p37tn"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.121157, 0.121157, 0.121157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggm5i"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyk36"]
+content_margin_left = 0.0
+content_margin_top = 4.8
+content_margin_right = 0.0
+content_margin_bottom = 4.8
+bg_color = Color(0.196392, 0.196392, 0.196392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3qge"]
+content_margin_left = 6.0
+content_margin_top = 3.6
+content_margin_right = 6.0
+content_margin_bottom = 3.6
+bg_color = Color(0.273333, 0.273333, 0.273333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjje2"]
+content_margin_left = 6.0
+content_margin_top = 3.6
+content_margin_right = 6.0
+content_margin_bottom = 3.6
+bg_color = Color(0.222039, 0.222039, 0.222039, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olbr6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.03)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj4ss"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.110274, 0.110274, 0.110274, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td3dt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.110274, 0.110274, 0.110274, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ppr3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.209216, 0.209216, 0.209216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l77mo"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.07)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caljq"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyp5b"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.123333, 0.123333, 0.123333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5ubu"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.123333, 0.123333, 0.123333, 1)
+draw_center = false
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp84i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.273333, 0.273333, 0.273333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqplf"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.123333, 0.123333, 0.123333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nat6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.07)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p1at"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.273333, 0.273333, 0.273333, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.145098, 0.145098, 0.145098, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04vcj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.504157, 0.504157, 0.504157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.145098, 0.145098, 0.145098, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8hv0"]
+content_margin_left = 0.0
+content_margin_top = 6.0
+content_margin_right = 0.0
+content_margin_bottom = 6.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_q1qfh"]
+color = Color(0, 0, 0, 0.3)
+grow_begin = -4.0
+grow_end = -4.0
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjfl8"]
+content_margin_left = 0.0
+content_margin_top = 2.0
+content_margin_right = 0.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.35)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jo0j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.04)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_757ha"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x75y"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt7ps"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+bg_color = Color(0.0885098, 0.0885098, 0.0885098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qv0qw"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+bg_color = Color(0.105922, 0.105922, 0.105922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1of7c"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+bg_color = Color(0, 0, 0, 0.2)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et1qe"]
+content_margin_left = 6.0
+content_margin_top = 3.6
+content_margin_right = 6.0
+content_margin_bottom = 3.6
+bg_color = Color(0.222039, 0.222039, 0.222039, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_eyk1a"]
+color = Color(0, 0, 0, 0.2)
+grow_begin = -6.0
+grow_end = -6.0
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ullag"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+bg_color = Color(0.110274, 0.110274, 0.110274, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8ys2"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+bg_color = Color(0.110274, 0.110274, 0.110274, 1)
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwql4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0885098, 0.0885098, 0.0885098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xy2r"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.247686, 0.247686, 0.247686, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3s4c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.114627, 0.114627, 0.114627, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkvi6"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.123333, 0.123333, 0.123333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j8yw"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+border_color = Color(0.337255, 0.619608, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4svh"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.127686, 0.127686, 0.127686, 1)
+border_color = Color(0.337255, 0.619608, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekbx3"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpjq3"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(1, 1, 1, 0)
+border_color = Color(0.337255, 0.619608, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ii72y"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a5rr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 8.0
+content_margin_bottom = 0.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmcvh"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.129863, 0.129863, 0.129863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1m7i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.110274, 0.110274, 0.110274, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rkg3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.196392, 0.196392, 0.196392, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noyle"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.04)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ubtr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.222039, 0.222039, 0.222039, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqpqr"]
+content_margin_left = 6.0
+content_margin_top = 10.0
+content_margin_right = 6.0
+content_margin_bottom = 10.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rrl8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0928627, 0.0928627, 0.0928627, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.0928627, 0.0928627, 0.0928627, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr4c0"]
+content_margin_left = 6.0
+content_margin_top = 0.0
+content_margin_right = 6.0
+content_margin_bottom = 0.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6gxuf"]
+color = Color(0, 0, 0, 0.3)
+grow_begin = -4.0
+grow_end = -4.0
+thickness = 2
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x13t0"]
+content_margin_left = 2.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.35)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="GDScript" id="GDScript_hhmc0"]
+script/source = "@tool
+extends Theme
+
+var base_color : Color
+var contrast : float
+var scale : float
+var dark_theme : bool
+
+func _init() -> void:
+	# Editor Settings
+
+	var settings : EditorSettings = EditorInterface.get_editor_settings()
+
+	@warning_ignore('unsafe_cast')
+	base_color = settings.get_setting('interface/theme/base_color')
+	@warning_ignore('unsafe_cast')
+	contrast = settings.get_setting('interface/theme/contrast')
+	scale = EditorInterface.get_editor_scale()
+
+	@warning_ignore('unsafe_cast')
+	var accent_color : Color = settings.get_setting('interface/theme/accent_color')
+	@warning_ignore('unsafe_cast')
+	var base_spacing : int = settings.get_setting('interface/theme/base_spacing')
+	@warning_ignore('unsafe_cast')
+	var extra_spacing : int = settings.get_setting('interface/theme/additional_spacing')
+	@warning_ignore('unsafe_cast')
+	var corner_radius : int = settings.get_setting('interface/theme/corner_radius')
+	@warning_ignore('unsafe_cast')
+	var icon_and_font_color : int = settings.get_setting('interface/theme/icon_and_font_color')
+	@warning_ignore('unsafe_cast')
+	var relationship_line_opacity : float = settings.get_setting('interface/theme/relationship_line_opacity')
+	@warning_ignore('unsafe_cast')
+	var draw_extra_borders : bool = settings.get_setting('interface/theme/draw_extra_borders')
+
+	var increase_scrollbar_touch_area : bool
+	if Engine.get_version_info().hex >= 0x040500:
+		@warning_ignore('unsafe_cast')
+		increase_scrollbar_touch_area = settings.get_setting('interface/touchscreen/enable_touch_optimizations')	
+	else:
+		@warning_ignore('unsafe_cast')
+		increase_scrollbar_touch_area = settings.get_setting('interface/touchscreen/increase_scrollbar_touch_area')	
+
+	# Globals
+
+	base_spacing = maxi(base_spacing, 2) # Base spacing below 2 looks broken
+
+	var base_margin : float = base_spacing
+	var increased_margin : float = base_spacing + extra_spacing * 0.75
+	var popup_margin : float = maxf(base_margin * 2.4, 4.0 * scale)
+
+	dark_theme = base_color.get_luminance() < 0.5
+	var dark_theme_icon_and_font : bool = dark_theme
+
+	if icon_and_font_color != 0: # ColorMode.AUTO_COLOR
+		dark_theme_icon_and_font = icon_and_font_color == 2 # ColorMode.LIGHT
+
+	var mono_color : Color = Color.WHITE if dark_theme else Color.BLACK
+	var mono_color_inv : Color = Color.BLACK if dark_theme else Color.WHITE
+	var mono_color_icon_and_font : Color = Color.WHITE if dark_theme_icon_and_font else Color.BLACK
+
+	var extra_border_color_1 : Color = Color(1, 1, 1, 0.4) if dark_theme else Color(0, 0, 0, 0.4)
+	var extra_border_color_2 : Color = Color(1, 1, 1, 0.2) if dark_theme else Color(0, 0, 0, 0.2)
+
+	# Ensure minimum contrast with the light theme. The default
+	# contrast makes it hard to see the UI elements
+	if not dark_theme and contrast < 0 and contrast > -0.4:
+		contrast = -0.4
+
+	# Main stylebox that most styleboxes duplicate
+	var base_sb : StyleBoxFlat = StyleBoxFlat.new()
+	base_sb.bg_color = base_color
+	base_sb.set_content_margin_all(base_margin * scale)
+	base_sb.set_corner_radius_all(int(corner_radius * scale))
+
+	# Non-transparent buttons will potentially blend worse with background
+	# than transparent ones, however this is currently only noticeable on the Close
+	# button of editor settings, and it probably shouldn't even exist
+	var button_sb : StyleBoxFlat = base_sb.duplicate()
+	button_sb.bg_color = _get_base_color(0.3, 0.8)
+	button_sb.shadow_color = Color(0, 0, 0, 0.005) if dark_theme else Color(1, 1, 1, 0.005)
+	button_sb.shadow_size = int(ceilf(8 * scale))
+	button_sb.shadow_offset = Vector2(0, 4) * scale
+	if draw_extra_borders:
+		_set_border(button_sb, extra_border_color_1, 1)
+	else:
+		_set_border(button_sb, _get_base_color(0.425, 0.7), 1)
+	_set_margin(button_sb, base_margin * 2, base_margin * 1.5, base_margin * 2, base_margin * 1.5)
+
+	var button_hover_sb : StyleBoxFlat = button_sb.duplicate()
+	button_hover_sb.bg_color = _get_base_color(0.5, 0.7)
+	if draw_extra_borders:
+		_set_border(button_hover_sb, extra_border_color_1, 1)
+	else:
+		_set_border(button_hover_sb, _get_base_color(0.625, 0.7), 1)
+
+	var button_pressed_sb : StyleBoxFlat = button_sb.duplicate()
+	button_pressed_sb.bg_color = _get_base_color(0.7, 0.7)
+	if draw_extra_borders:
+		_set_border(button_pressed_sb, extra_border_color_1, 1)
+	else:
+		_set_border(button_pressed_sb, _get_base_color(0.825, 0.7), 1)
+
+	var button_disabled_sb : StyleBoxFlat = button_sb.duplicate()
+	button_disabled_sb.set_border_width_all(0)
+	button_disabled_sb.bg_color = _get_base_color(0.2, 0.7)
+	if draw_extra_borders:
+		_set_border(button_disabled_sb, extra_border_color_2 * Color(1, 1, 1, 0.5), 1)
+
+	var flat_button_hover_sb : StyleBoxFlat = base_sb.duplicate()
+	# This affects buttons in Tree so top and bottom margins should be kept low
+	_set_margin(flat_button_hover_sb, base_margin * 1.5, base_margin * 0.9, base_margin * 1.5, base_margin * 0.9)
+	flat_button_hover_sb.bg_color = _get_base_color(0.3, 0.7)
+	if draw_extra_borders:
+		_set_border(flat_button_hover_sb, extra_border_color_1, 1)
+
+	var flat_button_pressed_sb : StyleBoxFlat = flat_button_hover_sb.duplicate()
+	flat_button_pressed_sb.bg_color = _get_base_color(0.5, 0.7)
+
+	var flat_button_normal_sb : StyleBoxFlat = flat_button_hover_sb.duplicate()
+	flat_button_normal_sb.draw_center = false
+
+	var base_empty_sb : StyleBoxFlat = base_sb.duplicate()
+	base_empty_sb.draw_center = false
+	base_empty_sb.set_content_margin_all(0)
+
+	var base_empty_wide_sb : StyleBoxFlat = base_sb.duplicate()
+	base_empty_wide_sb.draw_center = false
+	# Ensure minimum margin for wide flat buttons otherwise the topbar looks broken
+	var base_empty_wide_margin : float = maxf(base_margin, 3.0)
+	_set_margin(base_empty_wide_sb, base_empty_wide_margin * 1.5, base_empty_wide_margin, base_empty_wide_margin * 1.5, base_empty_wide_margin)
+
+	# Animation editor
+
+	set_color('focus_color', 'AnimationBezierTrackEdit', Color.TRANSPARENT)
+	set_color('h_line_color', 'AnimationBezierTrackEdit', mono_color * Color(1, 1, 1, 0.12))
+	set_color('track_focus_color', 'AnimationBezierTrackEdit', mono_color * Color(1, 1, 1, 0.1))
+	set_color('v_line_color', 'AnimationBezierTrackEdit', Color.TRANSPARENT)
+
+	set_color('font_primary_color', 'AnimationTimelineEdit', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_secondary_color', 'AnimationTimelineEdit', mono_color_icon_and_font * Color(1, 1, 1, 0.4))
+	set_color('h_line_color', 'AnimationTimelineEdit', Color.TRANSPARENT)
+	set_color('v_line_primary_color', 'AnimationTimelineEdit', mono_color * Color(1, 1, 1, 0.4))
+	set_color('v_line_secondary_color', 'AnimationTimelineEdit', mono_color * Color(1, 1, 1, 0.08))
+
+	set_constant('text_primary_margin', 'AnimationTimelineEdit', int(base_margin * 0.75 * scale))
+	set_constant('text_secondary_margin', 'AnimationTimelineEdit', int(base_margin * 0.5 * scale))
+	set_constant('v_line_primary_margin', 'AnimationTimelineEdit', int(base_margin * scale))
+	set_constant('v_line_primary_width', 'AnimationTimelineEdit', int(ceilf(2 * scale)))
+	set_constant('v_line_secondary_margin', 'AnimationTimelineEdit', int(base_margin * 1.5 * scale))
+	set_constant('v_line_secondary_width', 'AnimationTimelineEdit', int(ceilf(scale)))
+
+	var sb : StyleBoxFlat = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.55, 0.7)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_1, 1)
+	set_stylebox('time_available', 'AnimationTimelineEdit', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.2, 0.8)
+	set_stylebox('time_unavailable', 'AnimationTimelineEdit', sb)
+
+	set_color('h_line_color', 'AnimationTrackEdit', Color.TRANSPARENT)
+	set_constant('h_separation', 'AnimationTrackEdit', int(base_margin * 1.5 * scale))
+
+	sb = base_sb.duplicate()
+	sb.draw_center = false
+	_set_border(sb, _get_base_color(0.3, 0.6), 2)
+	_set_margin(sb, base_margin * 1.5, base_margin, base_margin * 1.5, base_margin)
+	set_stylebox('focus', 'AnimationTrackEdit', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.2, 0.9)
+	set_stylebox('hover', 'AnimationTrackEdit', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.2)
+	set_stylebox('odd', 'AnimationTrackEdit', sb)
+
+	set_color('bg_color', 'AnimationTrackEditGroup', _get_base_color(-0.2))
+	set_color('h_line_color', 'AnimationTrackEditGroup', Color.TRANSPARENT)
+	set_color('v_line_color', 'AnimationTrackEditGroup', Color.TRANSPARENT)
+	set_constant('h_separation', 'AnimationTrackEditGroup', int(base_margin * 2 * scale))
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.6)
+	_set_margin(sb, base_margin * 4, base_margin, 0, base_margin)
+	set_stylebox('header', 'AnimationTrackEditGroup', sb)
+
+	# Bottom panel
+
+	# Use bigger margin for buttons in bottom panel to make them easier to press
+	var empty_sb : StyleBoxFlat = base_empty_sb.duplicate()
+	_set_margin(empty_sb, base_margin * 2, base_margin * 1.2, base_margin * 2, base_margin * 1.2)
+	set_stylebox('normal', 'BottomPanelButton', base_empty_wide_sb)
+
+	sb = flat_button_hover_sb.duplicate()
+	_set_margin(sb, base_margin * 2, base_margin * 1.2, base_margin * 2, base_margin * 1.2)
+	set_stylebox('hover', 'BottomPanelButton', sb)
+	set_stylebox('pressed', 'BottomPanelButton', sb)
+
+	sb = flat_button_pressed_sb.duplicate()
+	_set_margin(sb, base_margin * 2, base_margin * 1.2, base_margin * 2, base_margin * 1.2)
+	set_stylebox('hover_pressed', 'BottomPanelButton', sb)
+
+	# Audio Bus
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.2, 0.7)
+	set_stylebox('normal', 'EditorAudioBus', sb)
+	set_stylebox('focus', 'EditorAudioBus', sb)
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.35, 0.7)
+	set_stylebox('master', 'EditorAudioBus', sb)
+
+	# Button
+
+	set_color('font_color', 'Button', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_disabled_color', 'Button', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('font_focus_color', 'Button', mono_color_icon_and_font)
+	set_color('font_hover_color', 'Button', mono_color_icon_and_font)
+	set_color('font_hover_pressed_color', 'Button', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'Button', mono_color_icon_and_font)
+	set_color('icon_disabled_color', 'Button', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('icon_normal_color', 'Button', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_constant('outline_size', 'Button', 0)
+	set_stylebox('disabled', 'Button', button_disabled_sb)
+	set_stylebox('disabled_mirrored', 'Button', button_disabled_sb)
+	set_stylebox('focus', 'Button', base_empty_sb)
+	set_stylebox('hover', 'Button', button_hover_sb)
+	set_stylebox('hover_mirrored', 'Button', button_hover_sb)
+	set_stylebox('hover_pressed', 'Button', button_pressed_sb)
+	set_stylebox('hover_pressed_mirrored', 'Button', button_pressed_sb)
+	set_stylebox('normal', 'Button', button_sb)
+	set_stylebox('normal_mirrored', 'Button', button_sb)
+	set_stylebox('pressed', 'Button', button_pressed_sb)
+	set_stylebox('pressed_mirrored', 'Button', button_pressed_sb)
+
+	# Checkbox
+
+	set_color('font_hover_pressed_color', 'CheckBox', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'CheckBox', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+
+	sb = base_sb.duplicate()
+	sb.draw_center = false
+	_set_margin(sb, base_margin * 1.5, base_margin * 0.5, base_margin * 1.5, base_margin * 0.5)
+	set_stylebox('normal', 'CheckBox', sb)
+	set_stylebox('normal_mirrored', 'CheckBox', sb)
+
+	# CheckButton
+
+	set_color('font_focus_color', 'CheckButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_hover_pressed_color', 'CheckButton', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'CheckButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+
+	# Editor
+
+	set_color('background', 'Editor', _get_base_color(-0.6))
+	set_color('box_selection_fill_color', 'Editor', mono_color * Color(1, 1, 1, 0.12))
+	set_color('box_selection_stroke_color', 'Editor', mono_color * Color(1, 1, 1, 0.4))
+	# Ruler in 2D view:
+	set_color('dark_color_2', 'Editor', Color(0, 0, 0, 0.3) if dark_theme else Color(1, 1, 1, 0.3))
+	# Shortcut tree cell background:
+	set_color('dark_color_3', 'Editor', _get_base_color(-0.6))
+
+	set_color('forward_plus_color', 'Editor', Color(0.54902, 0.752941, 0.392157))
+	set_color('gl_compatibility_color', 'Editor', Color(0.447059, 0.698039, 0.890196))
+	set_color('mobile_color', 'Editor', Color(0.862745, 0.482353, 0.584314))
+	set_color('property_color_w', 'Editor', mono_color_icon_and_font * Color(1, 1, 1, 0.8))
+	set_color('property_color_x', 'Editor', Color('#E16277') if dark_theme_icon_and_font else Color('#670A18'))
+	set_color('property_color_y', 'Editor', Color('#C3EF65') if dark_theme_icon_and_font else Color('#455E10'))
+	set_color('property_color_z', 'Editor', Color('#6AABF6') if dark_theme_icon_and_font else Color('#143862'))
+	set_color('warning_color', 'Editor', Color('#D4C79F') if dark_theme_icon_and_font else Color('#D47D03'))
+
+	set_color('prop_subsection', 'Editor', Color.TRANSPARENT)
+	set_constant('top_bar_separation', 'Editor', int(base_margin * scale))
+	set_constant('window_border_margin', 'Editor', int(base_margin * scale))
+
+	# EditorHelpBit
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.3 if dark_theme else -0.7)
+	_set_margin(sb, base_margin * 2, base_margin, base_margin * 2, base_margin)
+	sb.set_corner_radius_all(0)
+	sb.corner_radius_bottom_right = int(corner_radius * scale)
+	sb.corner_radius_bottom_left = int(corner_radius * scale)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('normal', 'EditorHelpBitContent', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.55 if dark_theme else -0.9) # Same as secondary tree
+	_set_margin(sb, base_margin * 2, base_margin, base_margin * 2, base_margin)
+	sb.set_corner_radius_all(0)
+	sb.corner_radius_top_right = int(corner_radius * scale)
+	sb.corner_radius_top_left = int(corner_radius * scale)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('normal', 'EditorHelpBitTitle', sb)
+
+	# EditorInspector
+
+	empty_sb = base_empty_sb.duplicate()
+	empty_sb.set_content_margin_all(base_margin * 2 * scale)
+	set_stylebox('panel', 'EditorInspector', empty_sb)
+	set_constant('v_separation', 'EditorInspector', int(base_margin * 0.5 * scale))
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.2, 0.8)
+	_set_margin(sb, 0, base_margin * 1.2, 0, base_margin * 1.2)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('bg', 'EditorInspectorCategory', sb)
+	set_constant('h_separation', 'EditorInspectorSection', int(base_margin * scale))
+
+	# EditorLogFilterButton
+
+	# Hover and pressed styles are swapped for toggle buttons on purpose
+	set_stylebox('hover', 'EditorLogFilterButton', flat_button_pressed_sb)
+	set_stylebox('pressed', 'EditorLogFilterButton', flat_button_hover_sb)
+	set_stylebox('normal', 'EditorLogFilterButton', base_empty_sb)
+
+
+	# EditorProperty
+
+	set_color('property_color', 'EditorProperty', mono_color_icon_and_font * Color(1, 1, 1, 0.6))
+	set_color('warning_color', 'EditorProperty', get_color('warning_color', 'Editor'))
+	set_stylebox('bg', 'EditorProperty', base_empty_sb)
+
+	# Having visible indication of selected property doesn't bring
+	# any value to the regular inspector, however connection
+	# bindings editor relies on it for property removal
+	sb = base_sb.duplicate()
+	# Transparent background to make sure it blends with subresource editors
+	sb.bg_color = mono_color * Color(1, 1, 1, 0.03)
+	set_stylebox('bg_selected', 'EditorProperty', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.8) # Same as LineEdit normal
+	sb.set_content_margin_all(base_margin * scale)
+	set_stylebox('child_bg', 'EditorProperty', sb)
+
+	# EditorSpinSlider
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.8)
+	sb.set_content_margin_all(base_margin * scale)
+	set_stylebox('label_bg', 'EditorSpinSlider', sb)
+
+	# Viewport
+
+	sb = base_sb.duplicate()
+	sb.draw_center = false
+	sb.set_corner_radius_all(0)
+	_set_border(sb, mono_color * Color(1, 1, 1, 0.07), 2, false)
+	set_stylebox('FocusViewport', 'EditorStyles', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = Color(0, 0, 0, 0.3) if dark_theme else Color(1, 1, 1, 0.3)
+	_set_margin(sb, base_margin * 2, base_margin * 1.5, base_margin * 2, base_margin * 1.5)
+	set_stylebox('Information3dViewport', 'EditorStyles', sb)
+
+	# Contextual Toolbar
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.25)
+	sb.set_content_margin_all(0)
+	set_stylebox('ContextualToolbar', 'EditorStyles', sb)
+
+	# LaunchPad
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.5)
+	_set_margin(sb, base_margin * 1.5, base_margin, base_margin * 1.5, base_margin)
+	sb.set_expand_margin_all(scale)
+	sb.set_border_width_all(0)
+	set_stylebox('LaunchPadMovieMode', 'EditorStyles', sb)
+
+	sb = sb.duplicate()
+	sb.draw_center = false
+	sb.border_color = Color.TRANSPARENT
+	set_stylebox('LaunchPadNormal', 'EditorStyles', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.5)
+	sb.set_content_margin_all(0)
+	set_stylebox('MovieWriterButtonPressed', 'EditorStyles', sb)
+
+	# Godot 4.5:
+	set_color('icon_normal_color', 'RunBarButtonMovieMakerDisabled', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('icon_pressed_color', 'RunBarButtonMovieMakerDisabled', mono_color_icon_and_font)
+	set_color('icon_hover_color', 'RunBarButtonMovieMakerDisabled', mono_color_icon_and_font)
+	set_color('icon_hover_pressed_color', 'RunBarButtonMovieMakerDisabled', mono_color_icon_and_font)
+
+	set_color('icon_normal_color', 'RunBarButtonMovieMakerEnabled', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('icon_pressed_color', 'RunBarButtonMovieMakerEnabled', mono_color_icon_and_font)
+	set_color('icon_hover_color', 'RunBarButtonMovieMakerEnabled', mono_color_icon_and_font)
+	set_color('icon_hover_pressed_color', 'RunBarButtonMovieMakerEnabled', mono_color_icon_and_font)
+
+	# Godot 4.4 and earlier:
+	set_color('movie_writer_icon_hover', 'EditorStyles', Color(1, 1, 1, 0.8))
+	set_color('movie_writer_icon_hover_pressed', 'EditorStyles', Color(1, 1, 1, 0.8))
+	set_color('movie_writer_icon_normal', 'EditorStyles', Color(1, 1, 1, 0.7))
+	set_color('movie_writer_icon_pressed', 'EditorStyles', Color(1, 1, 1, 0.941176))
+
+	# EditorValidationPanel
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.5)
+	_set_margin(sb, base_margin, base_margin * 0.5, base_margin, base_margin * 0.5)
+	set_stylebox('panel', 'EditorValidationPanel', sb)
+
+	# FlatButton
+
+	set_color('font_color', 'FlatButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_disabled_color', 'FlatButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('font_focus_color', 'FlatButton', mono_color_icon_and_font)
+	set_color('font_hover_color', 'FlatButton', mono_color_icon_and_font)
+	set_color('font_hover_pressed_color', 'FlatButton', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'FlatButton', mono_color_icon_and_font)
+	set_color('icon_disabled_color', 'FlatButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('icon_normal_color', 'FlatButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+
+	set_stylebox('disabled', 'FlatButton', base_empty_wide_sb)
+	set_stylebox('disabled_mirrored', 'FlatButton', base_empty_wide_sb)
+	set_stylebox('normal', 'FlatButton', base_empty_wide_sb)
+	set_stylebox('normal_mirrored', 'FlatButton', base_empty_wide_sb)
+	set_stylebox('hover', 'FlatButton', flat_button_hover_sb)
+	set_stylebox('hover_mirrored', 'FlatButton', flat_button_hover_sb)
+	set_stylebox('hover_pressed', 'FlatButton', flat_button_pressed_sb)
+	set_stylebox('hover_pressed_mirrored', 'FlatButton', flat_button_pressed_sb)
+	set_stylebox('pressed', 'FlatButton', flat_button_pressed_sb)
+	set_stylebox('pressed_mirrored', 'FlatButton', flat_button_pressed_sb)
+
+	# FlatMenuButton
+
+	set_color('font_color', 'FlatMenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_disabled_color', 'FlatMenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('font_focus_color', 'FlatMenuButton', mono_color_icon_and_font)
+	set_color('font_hover_color', 'FlatMenuButton', mono_color_icon_and_font)
+	set_color('font_hover_pressed_color', 'FlatMenuButton', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'FlatMenuButton', mono_color_icon_and_font)
+
+	set_color('icon_normal_color', 'FlatMenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('icon_disabled_color', 'FlatMenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('icon_focus_color', 'FlatMenuButton', mono_color_icon_and_font)
+	set_color('icon_hover_color', 'FlatMenuButton', mono_color_icon_and_font)
+	set_color('icon_hover_pressed_color', 'FlatMenuButton', mono_color_icon_and_font)
+	set_color('icon_pressed_color', 'FlatMenuButton', mono_color_icon_and_font)
+
+	set_stylebox('disabled', 'FlatMenuButton', base_empty_wide_sb)
+	set_stylebox('disabled_mirrored', 'FlatMenuButton', base_empty_wide_sb)
+	set_stylebox('focus', 'FlatMenuButton', base_empty_wide_sb)
+	set_stylebox('normal', 'FlatMenuButton', base_empty_wide_sb)
+	set_stylebox('normal_mirrored', 'FlatMenuButton', base_empty_wide_sb)
+	set_stylebox('hover', 'FlatMenuButton', flat_button_hover_sb)
+	set_stylebox('hover_mirrored', 'FlatMenuButton', flat_button_hover_sb)
+	set_stylebox('hover_pressed', 'FlatMenuButton', flat_button_pressed_sb)
+	set_stylebox('hover_pressed_mirrored', 'FlatMenuButton', flat_button_pressed_sb)
+	set_stylebox('pressed', 'FlatMenuButton', flat_button_pressed_sb)
+	set_stylebox('pressed_mirrored', 'FlatMenuButton', flat_button_pressed_sb)
+
+	# ColorPicker
+
+	sb = base_sb.duplicate()
+	sb.draw_center = false
+	_set_border(sb, mono_color * Color(1, 1, 1, 0.3), 1)
+
+	set_stylebox('sample_focus', 'ColorPicker', sb)
+	set_stylebox('picker_focus_rectangle', 'ColorPicker', sb)
+
+	sb = sb.duplicate()
+	sb.set_corner_radius_all(int(256 * scale))
+	sb.set_corner_detail(int(32 * scale))
+
+	set_stylebox('picker_focus_circle', 'ColorPicker', sb)
+
+	# GraphEdit
+
+	sb = base_sb.duplicate()
+	sb.draw_center = false
+	_set_border(sb, mono_color * Color(1, 1, 1, 0.07), 2)
+	set_stylebox('panel_focus', 'GraphEdit', sb)
+
+	# GraphStateMachine
+
+	set_color('focus_color', 'GraphStateMachine', Color.TRANSPARENT)
+
+	# Box Containers
+
+	set_constant('separation', 'HBoxContainer', int(2 * scale))
+	set_constant('separation', 'VBoxContainer', int(2 * scale))
+
+	# Split Containers
+
+	set_constant('autohide', 'HSplitContainer', 1)
+	set_constant('minimum_grab_thickness', 'HSplitContainer', int(base_margin * 1.5 * scale))
+	set_constant('separation', 'HSplitContainer', int(ceilf(2 * scale)))
+
+	set_constant('autohide', 'VSplitContainer', 1)
+	set_constant('minimum_grab_thickness', 'VSplitContainer', int(base_margin * 1.5 * scale))
+	set_constant('separation', 'VSplitContainer', int(ceilf(2 * scale)))
+
+	# InspectorActionButton
+
+	set_constant('h_separation', 'InspectorActionButton', int(base_margin * 2 * scale))
+	set_stylebox('disabled', 'InspectorActionButton', button_disabled_sb)
+	set_stylebox('disabled_mirrored', 'InspectorActionButton', button_disabled_sb)
+	set_stylebox('normal', 'InspectorActionButton', button_sb)
+	set_stylebox('normal_mirrored', 'InspectorActionButton', button_sb)
+	set_stylebox('hover', 'InspectorActionButton', button_hover_sb)
+	set_stylebox('hover_mirrored', 'InspectorActionButton', button_hover_sb)
+	set_stylebox('pressed', 'InspectorActionButton', button_pressed_sb)
+	set_stylebox('pressed_mirrored', 'InspectorActionButton', button_pressed_sb)
+
+	# ItemList
+
+	set_color('guide_color', 'ItemList', Color.TRANSPARENT)
+	set_constant('v_separation', 'ItemList', int(base_margin * 1.5 * scale))
+
+	sb = base_sb.duplicate()
+	sb.bg_color = mono_color * Color(1, 1, 1, 0.04)
+	set_stylebox('cursor', 'ItemList', sb)
+	set_stylebox('cursor_unfocused', 'ItemList', sb)
+	set_stylebox('focus', 'ItemList', base_empty_sb)
+
+	set_stylebox('hovered', 'ItemList', flat_button_hover_sb)
+	set_stylebox('selected', 'ItemList', flat_button_hover_sb)
+	set_stylebox('selected_focus', 'ItemList', flat_button_hover_sb)
+	set_stylebox('hovered_selected', 'ItemList', flat_button_hover_sb)
+	set_stylebox('hovered_selected_focus', 'ItemList', flat_button_hover_sb)
+
+	sb = base_sb.duplicate()
+	sb.set_content_margin_all(base_margin * 2 * scale)
+	set_stylebox('panel', 'ItemList', sb)
+
+	# Label
+
+	set_color('font_color', 'Label', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+
+	empty_sb = base_empty_sb.duplicate()
+	# Keeping vertical margin low otherwise quick open looks bad
+	_set_margin(empty_sb, base_margin * 2, base_margin, base_margin * 2, base_margin)
+	set_stylebox('normal', 'Label', empty_sb)
+
+	# LineEdit and TextEdit
+
+	set_color('font_placeholder_color', 'LineEdit', mono_color_icon_and_font * Color(1, 1, 1, 0.4))
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-1.3 if dark_theme else -2.2)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_1, 1)
+	_set_margin(sb, base_margin * 2, base_margin * 0.75, base_margin * 2, base_margin * 0.75)
+	set_stylebox('focus', 'LineEdit', sb)
+	set_stylebox('focus', 'TextEdit', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = _get_base_color(-0.9 if dark_theme else -1.8)
+	set_stylebox('normal', 'LineEdit', sb)
+	set_stylebox('normal', 'TextEdit', sb)
+
+	# Using transparent background for readonly otherwise it looks bad in the master audio bus
+	sb = sb.duplicate()
+	sb.bg_color = Color(0, 0, 0, 0.2) if dark_theme else Color(1, 1, 1, 0.5)
+	set_stylebox('read_only', 'LineEdit', sb)
+	set_stylebox('read_only', 'TextEdit', sb)
+
+	# MainMenuBar
+
+	set_stylebox('normal', 'MainMenuBar', flat_button_normal_sb)
+	set_stylebox('hover', 'MainMenuBar', flat_button_hover_sb)
+	set_stylebox('hover_pressed', 'MainMenuBar', flat_button_pressed_sb)
+	set_stylebox('pressed', 'MainMenuBar', flat_button_pressed_sb)
+
+	# MainScreenButton
+
+	set_stylebox('normal', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('normal_mirrored', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('hover', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('hover_mirrored', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('hover_pressed', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('hover_pressed_mirrored', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('pressed', 'MainScreenButton', base_empty_wide_sb)
+	set_stylebox('pressed_mirrored', 'MainScreenButton', base_empty_wide_sb)
+
+	# MenuButton
+
+	set_color('font_color', 'MenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_disabled_color', 'MenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('font_focus_color', 'MenuButton', mono_color_icon_and_font)
+	set_color('font_hover_color', 'MenuButton', mono_color_icon_and_font)
+	set_color('font_hover_pressed_color', 'MenuButton', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'MenuButton', mono_color_icon_and_font)
+
+	set_color('icon_normal_color', 'MenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('icon_disabled_color', 'MenuButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('icon_focus_color', 'MenuButton', mono_color_icon_and_font)
+	set_color('icon_hover_color', 'MenuButton', mono_color_icon_and_font)
+	set_color('icon_hover_pressed_color', 'MenuButton', mono_color_icon_and_font)
+	set_color('icon_pressed_color', 'MenuButton', mono_color_icon_and_font)
+
+	set_stylebox('disabled', 'MenuButton', base_empty_wide_sb)
+	set_stylebox('disabled_mirrored', 'MenuButton', base_empty_wide_sb)
+	set_stylebox('focus', 'MenuButton', base_empty_wide_sb)
+	set_stylebox('normal', 'MenuButton', base_empty_wide_sb)
+	set_stylebox('normal_mirrored', 'MenuButton', base_empty_wide_sb)
+	set_stylebox('pressed', 'MenuButton', flat_button_pressed_sb)
+	set_stylebox('pressed_mirrored', 'MenuButton', flat_button_pressed_sb)
+	set_stylebox('hover', 'MenuButton', flat_button_hover_sb)
+	set_stylebox('hover_mirrored', 'MenuButton', flat_button_hover_sb)
+	set_stylebox('hover_pressed', 'MenuButton', flat_button_hover_sb)
+	set_stylebox('hover_pressed_mirrored', 'MenuButton', flat_button_hover_sb)
+
+	# OptionButton
+
+	set_constant('arrow_margin', 'OptionButton', int(base_margin * 2 * scale))
+
+	set_color('font_color', 'OptionButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('font_disabled_color', 'OptionButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('font_focus_color', 'OptionButton', mono_color_icon_and_font)
+	set_color('font_hover_color', 'OptionButton', mono_color_icon_and_font)
+	set_color('font_hover_pressed_color', 'OptionButton', mono_color_icon_and_font)
+	set_color('font_pressed_color', 'OptionButton', mono_color_icon_and_font)
+	set_color('icon_disabled_color', 'OptionButton', mono_color_icon_and_font * Color(1, 1, 1, 0.3))
+	set_color('icon_normal_color', 'OptionButton', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+
+	set_stylebox('disabled', 'OptionButton', button_disabled_sb)
+	set_stylebox('disabled_mirrored', 'OptionButton', button_disabled_sb)
+	set_stylebox('focus', 'OptionButton', base_empty_sb)
+	set_stylebox('normal', 'OptionButton', button_sb)
+	set_stylebox('normal_mirrored', 'OptionButton', button_sb)
+	set_stylebox('pressed', 'OptionButton', button_pressed_sb)
+	set_stylebox('pressed_mirrored', 'OptionButton', button_pressed_sb)
+	set_stylebox('hover', 'OptionButton', button_hover_sb)
+	set_stylebox('hover_mirrored', 'OptionButton', button_hover_sb)
+	set_stylebox('hover_pressed', 'OptionButton', button_pressed_sb)
+	set_stylebox('hover_pressed_mirrored', 'OptionButton', button_pressed_sb)
+
+	# Popups
+
+	set_constant('item_start_padding', 'PopupMenu', int(popup_margin * scale))
+	set_constant('v_separation', 'PopupMenu', int(base_margin * 1.75 * scale))
+	set_constant('h_separation', 'PopupMenu', int(base_margin * 1.75 * scale))
+
+	set_stylebox('hover', 'PopupMenu', flat_button_hover_sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.8, 0.9)
+	sb.set_content_margin_all(int(popup_margin * scale))
+	sb.set_corner_radius_all(0)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('panel', 'PopupMenu', sb)
+
+	var line_sb : StyleBoxLine = StyleBoxLine.new()
+	line_sb.color = Color(0, 0, 0, 0.2)
+	line_sb.grow_begin = base_margin * -1.5 * scale
+	line_sb.grow_end = base_margin * -1.5 * scale
+	line_sb.thickness = int(ceilf(scale * 2))
+	set_stylebox('labeled_separator_left', 'PopupMenu', line_sb)
+	set_stylebox('labeled_separator_right', 'PopupMenu', line_sb)
+	set_stylebox('separator', 'PopupMenu', line_sb)
+
+	set_stylebox('panel', 'PanelContainer', base_empty_wide_sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.8, 0.9)
+	sb.shadow_color = Color(0, 0, 0, 0.3)
+	sb.shadow_size = int(base_margin * 0.75 * scale)
+	sb.set_content_margin_all(int(popup_margin * scale))
+	sb.set_corner_radius_all(0)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('panel', 'PopupPanel', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.8, 0.9)
+	sb.set_content_margin_all(0)
+	sb.set_corner_radius_all(0)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('panel', 'TooltipPanel', sb)
+
+	sb = base_sb.duplicate()
+	sb.set_content_margin_all(int(popup_margin * scale))
+	sb.set_corner_radius_all(0)
+	set_stylebox('panel', 'PopupDialog', sb)
+	set_stylebox('panel', 'AcceptDialog', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = _get_base_color(-1.4)
+	set_stylebox('panel', 'EditorSettingsDialog', sb)
+	set_stylebox('panel', 'ProjectSettingsEditor', sb)
+	set_stylebox('panel', 'ProjectExportDialog', sb)
+	set_stylebox('panel', 'SceneImportSettingsDialog', sb)
+	set_stylebox('panel', 'EditorAbout', sb)
+	set_stylebox('panel', 'ThemeItemEditorDialog', sb)
+
+	# ProgressBar
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-1.3, 0.9)
+	sb.expand_margin_top = base_margin * 0.5 * scale
+	sb.expand_margin_bottom = base_margin * 0.5 * scale
+	sb.set_content_margin_all(base_margin * scale)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('background', 'ProgressBar', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = _get_base_color(0.4, 0.8)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_1, 1)
+	set_stylebox('fill', 'ProgressBar', sb)
+
+	# RichTextLabel
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.5)
+	sb.set_content_margin_all(base_margin * 2 * scale)
+	set_stylebox('normal', 'RichTextLabel', sb)
+
+	# ScrollContainer
+
+	set_stylebox('panel', 'ScrollContainer', base_empty_sb)
+	set_stylebox('focus', 'ScrollContainer', base_empty_sb)
+
+	# ScrollBar
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(0.5, 0.6)
+	_set_border(sb, _get_base_color() * Color(1, 1, 1, 0), 3)
+
+	set_stylebox('grabber', 'HScrollBar', sb)
+	set_stylebox('grabber', 'VScrollBar', sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(1.4, 0.5)
+	_set_border(sb, _get_base_color() * Color(1, 1, 1, 0), 2.5)
+
+	set_stylebox('grabber_highlight', 'HScrollBar', sb)
+	set_stylebox('grabber_highlight', 'VScrollBar', sb)
+	set_stylebox('grabber_pressed', 'HScrollBar', sb)
+	set_stylebox('grabber_pressed', 'VScrollBar', sb)
+
+	var margin : int = 12 if increase_scrollbar_touch_area else 6
+
+	empty_sb = base_empty_sb.duplicate()
+	_set_margin(empty_sb, 0, margin, 0, margin)
+
+	set_stylebox('scroll', 'HScrollBar', empty_sb)
+	set_stylebox('scroll_focus', 'HScrollBar', empty_sb)
+
+	empty_sb = empty_sb.duplicate()
+	_set_margin(empty_sb, margin, 0, margin, 0)
+
+	set_stylebox('scroll', 'VScrollBar', empty_sb)
+	set_stylebox('scroll_focus', 'VScrollBar', empty_sb)
+
+	# SplitContainer
+
+	set_constant('minimum_grab_thickness', 'SplitContainer', int(base_margin * 2.0 * scale))
+	set_constant('separation', 'SplitContainer', int(base_margin * 0.75 * scale))
+
+	# TabContainer
+
+	sb = base_sb.duplicate()
+	_set_margin(sb, base_margin * 4, base_margin * 2.3, base_margin * 4, base_margin * 2.3)
+	sb.set_corner_radius_all(0)
+	sb.corner_radius_top_left = int(corner_radius * scale)
+	sb.corner_radius_top_right = int(corner_radius * scale)
+	set_stylebox('tab_selected', 'TabBar', sb)
+	set_stylebox('tab_selected', 'TabContainer', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = _get_base_color(-0.35)
+	set_stylebox('tab_selected', 'TabContainerOdd', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = base_color
+	sb.border_color = accent_color
+	set_stylebox('tab_focus', 'TabBar', sb)
+	set_stylebox('tab_focus', 'TabContainer', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = Color.TRANSPARENT
+	sb.set_border_width_all(0)
+	set_stylebox('tab_unselected', 'TabBar', sb)
+	set_stylebox('tab_unselected', 'TabContainer', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = _get_base_color(-0.4)
+	set_stylebox('tab_hovered', 'TabBar', sb)
+	set_stylebox('tab_hovered', 'TabContainer', sb)
+
+	sb = base_sb.duplicate()
+	sb.set_content_margin_all(increased_margin * 1.5 * scale)
+	sb.set_corner_radius_all(0)
+	sb.corner_radius_bottom_right = int(corner_radius * scale)
+	sb.corner_radius_bottom_left = int(corner_radius * scale)
+	set_stylebox('panel', 'TabContainer', sb)
+
+	sb = empty_sb.duplicate()
+	_set_margin(sb, 0, 0, base_margin * 2, 0)
+	set_stylebox('tabbar_background', 'TabContainer', sb)
+
+	# Tree
+
+	set_color('drop_position_color', 'Tree', mono_color * Color(1, 1, 1, 0.4))
+	set_color('font_color', 'Tree', mono_color_icon_and_font * Color(1, 1, 1, 0.7))
+	set_color('guide_color', 'Tree', Color.TRANSPARENT)
+	set_color('parent_hl_line_color', 'Tree', mono_color * Color(1, 1, 1, relationship_line_opacity))
+	set_constant('children_hl_line_width', 'Tree', 0)
+	set_constant('draw_guides', 'Tree', 0)
+	set_constant('draw_relationship_lines', 'Tree', 1)
+	set_constant('inner_item_margin_left', 'Tree', int(base_margin * scale))
+	set_constant('inner_item_margin_right', 'Tree', int(base_margin * scale))
+	set_constant('parent_hl_line_width', 'Tree', int(ceilf(scale)))
+	set_constant('relationship_line_width', 'Tree', 0)
+
+	var tree_v_separation : int = int(pow(base_margin * 0.2 * scale, 3))
+	set_constant('v_separation', 'Tree', tree_v_separation)
+
+	# Using empty stylebox for trees to avoid drawing unnecessary borders in docks.
+	# Note that using opaque color that is the same as dock background
+	# doesn't work because EditorPropertyResource is using Tree panel
+	# stylebox to draw its background as well, making it look broken
+	empty_sb = base_empty_sb.duplicate()
+	_set_margin(empty_sb, base_margin * 1.5, base_margin * 2.5, base_margin * 1.5, base_margin * 2.5)
+	set_stylebox('panel', 'Tree', empty_sb)
+
+	# Leaving focus empty for trees and scroll containers because there's no way to
+	# make focus indication look not janky when only a part of a dock is highlighted
+	set_stylebox('focus', 'Tree', base_empty_sb)
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-1.2 if dark_theme else -1.8)
+
+	# Using a transparent border to separate rounded column titles
+	sb.border_width_left = int(ceilf(scale))
+	sb.border_width_right = int(ceilf(scale))
+	sb.border_color = sb.bg_color * Color(1, 1, 1, 0)
+
+	set_stylebox('title_button_hover', 'Tree', sb)
+	set_stylebox('title_button_normal', 'Tree', sb)
+	set_stylebox('title_button_pressed', 'Tree', sb)
+
+	sb = flat_button_hover_sb.duplicate()
+	sb.set_content_margin_all(0)
+	sb.bg_color = _get_base_color(0.2, 0.7)
+	set_stylebox('button_hover', 'Tree', sb)
+	set_stylebox('hover', 'Tree', sb)
+	set_stylebox('hovered_dimmed', 'Tree', sb)
+	set_stylebox('custom_button_hover', 'Tree', sb)
+	set_stylebox('hovered', 'Tree', sb)
+	set_stylebox('selected', 'Tree', sb)
+	set_stylebox('selected_focus', 'Tree', sb)
+
+	sb = sb.duplicate()
+	sb.bg_color = _get_base_color(0.3, 0.7)
+	set_stylebox('hovered_selected', 'Tree', sb)
+	set_stylebox('hovered_selected_focus', 'Tree', sb)
+
+	set_stylebox('button_pressed', 'Tree', flat_button_pressed_sb)
+	set_stylebox('custom_button_pressed', 'Tree', flat_button_pressed_sb)
+
+	# Cursor is drawn on top of the item so it needs to be transparent
+	sb = base_sb.duplicate()
+	sb.bg_color = mono_color * Color(1, 1, 1, 0.04)
+	set_stylebox('cursor', 'Tree', sb)
+	set_stylebox('cursor_unfocused', 'Tree', sb)
+
+	# Separators
+
+	line_sb = StyleBoxLine.new()
+	line_sb.color = Color(0, 0, 0, 0.3) if dark_theme else Color(0, 0, 0, 0.1)
+	line_sb.grow_begin = base_margin * -1 * scale
+	line_sb.grow_end = base_margin * -1 * scale
+	line_sb.thickness = int(ceilf(scale * 2))
+
+	set_constant('separation', 'HSeparator', int(base_margin * 2 * scale))
+	set_constant('separation', 'VSeparator', int(base_margin * 2 * scale))
+
+	set_stylebox('separator', 'HSeparator', line_sb)
+	line_sb = line_sb.duplicate()
+	line_sb.vertical = true
+	set_stylebox('separator', 'VSeparator', line_sb)
+
+	# Sliders
+
+	sb = base_sb.duplicate()
+	sb.bg_color = mono_color_inv * Color(1, 1, 1, 0.35)
+	_set_margin(sb, 0, 2, 0, 2)
+	set_stylebox('slider', 'HSlider', sb)
+	sb = sb.duplicate()
+	_set_margin(sb, 2, 0, 2, 0)
+	set_stylebox('slider', 'VSlider', sb)
+
+	# Sidebars
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.55 if dark_theme else -0.9)
+	if draw_extra_borders:
+		_set_border(sb, extra_border_color_2, 1)
+	set_stylebox('panel', 'TreeSecondary', sb)
+	set_stylebox('panel', 'ItemListSecondary', sb)
+	# Use sidebar stylebox for EditorDebuggerInspector in StackTrace
+	# to keep the default 3-column layout, as debugger inspector is
+	# too small to be considered a main area
+	set_stylebox('panel', 'EditorDebuggerInspector', sb)
+
+	# ProjectManager
+
+	sb = base_sb.duplicate()
+	sb.bg_color = _get_base_color(-0.7 if dark_theme else -0.9)
+	set_stylebox('project_list', 'ProjectManager', sb)
+
+	# HACKS
+	# This section is for workarounds for unthemable UI
+	# These could be fixed on the engine side in the future
+
+	(func() -> void:
+
+		# Project Manager fixes
+		if EditorInterface.get_script_editor() == null:
+
+			# QuickSettingsDialog
+
+			# QuickSettingsDialog is using EditorStyles Background stylebox
+			# by default which is way too dark for this theme
+
+			var scene_tree : SceneTree = Engine.get_main_loop()
+			var root : Window = scene_tree.root
+			var quick_settings_dialog : AcceptDialog = root.find_children('', 'QuickSettingsDialog', true, false)[0]
+			var quick_settings_dialog_list_panel : PanelContainer = quick_settings_dialog.find_children('', 'PanelContainer', true, false)[0]
+			var panel_sb_quick_settings : StyleBoxFlat = base_sb.duplicate()
+			panel_sb_quick_settings.bg_color = _get_base_color(-0.7 if dark_theme else -0.9)
+			quick_settings_dialog_list_panel.add_theme_stylebox_override('panel', panel_sb_quick_settings)
+			var _error_quick_settings : int = quick_settings_dialog.theme_changed.connect(func() -> void:
+				# Reapply the stylebox override on theme change
+				quick_settings_dialog_list_panel.add_theme_stylebox_override('panel', panel_sb_quick_settings)
+			)
+
+			# All fixes below are for the main editor window
+			return
+
+		# TilesetEditor
+
+		# Tileset editor is using Tree panel for the panel container of expanded view, while minimal theme
+		# needs trees to be transparent, so it needs to have an explicitly set style for the theme
+		# to still be able to support transparent Trees
+		# See https://github.com/godotengine/godot/issues/99118
+
+		var tileset_editor : Control = EditorInterface.get_base_control().find_children('', 'TileSetEditor', true, false)[0]
+		var expand_panel : Control = tileset_editor.get_child(3)
+		var panel_sb_expand_panel : StyleBoxFlat = base_sb.duplicate()
+		panel_sb_expand_panel.set_corner_radius_all(0)
+		expand_panel.add_theme_stylebox_override('panel', panel_sb_expand_panel)
+		var _error_tileset_editor : int = tileset_editor.theme_changed.connect(func() -> void:
+			expand_panel.add_theme_stylebox_override('panel', panel_sb_expand_panel)
+		)
+
+		# EditorObjectSelector
+
+		# Godot sometimes relies on unexposed MarginContainers
+
+		var editor_object_selector : Control = EditorInterface.get_base_control().find_children('', 'EditorObjectSelector', true, false)[0]
+		var editor_object_selector_margin_container : Control = editor_object_selector.find_children('', 'MarginContainer', true, false)[0]
+		editor_object_selector_margin_container.add_theme_constant_override('margin_left', int(base_margin * 2 * scale))
+		editor_object_selector_margin_container.add_theme_constant_override('margin_right', int(base_margin * 2.5 * scale))
+
+		# CanvasItemEditor, Node3DEditor, GameView
+
+		# Increase toolbar margins
+
+		var canvas_item_editor : Control = EditorInterface.get_base_control().find_children('', 'CanvasItemEditor', true, false)[0]
+		var canvas_item_editor_toolbar_margin_container : Control = canvas_item_editor.find_children('', 'MarginContainer', true, false)[0]
+		canvas_item_editor_toolbar_margin_container.add_theme_constant_override('margin_top', int(base_margin * 0.5 * scale))
+		canvas_item_editor_toolbar_margin_container.add_theme_constant_override('margin_bottom', int(base_margin * 0.5 * scale))
+
+		var node_3d_editor : Control = EditorInterface.get_base_control().find_children('', 'Node3DEditor', true, false)[0]
+		var node_3d_editor_toolbar_margin_container : Control = node_3d_editor.find_children('', 'MarginContainer', true, false)[0]
+		node_3d_editor_toolbar_margin_container.add_theme_constant_override('margin_top', int(base_margin * 0.5 * scale))
+		node_3d_editor_toolbar_margin_container.add_theme_constant_override('margin_bottom', int(base_margin * 0.5 * scale))
+
+		# GameView is not enabled in the Android editor as the Game workspace is implemented differently
+		if Engine.get_version_info().hex >= 0x040400 and not OS.has_feature('android'):
+			var game_view : Control = EditorInterface.get_base_control().find_children('', 'GameView', true, false)[0]
+			var game_view_toolbar_margin_container : Control = game_view.find_children('', 'MarginContainer', true, false)[0]
+			game_view_toolbar_margin_container.add_theme_constant_override('margin_top', int(base_margin * 0.5 * scale))
+			game_view_toolbar_margin_container.add_theme_constant_override('margin_bottom', int(base_margin * 0.5 * scale))
+		
+		# ThemeTypeEditor TabContainer
+
+		# Tabs of ThemeTypeEditor need to be custom because of lighter background of
+		# the bottom panel
+
+		var theme_type_editor : Control = EditorInterface.get_base_control().find_children('', 'ThemeTypeEditor', true, false)[0]
+		var theme_type_editor_tab_container : TabContainer = theme_type_editor.find_children('', 'TabContainer', true, false)[0]
+
+		var theme_type_editor_tab_container_sb : StyleBoxFlat = base_sb.duplicate()
+		theme_type_editor_tab_container_sb.bg_color = _get_base_color(-1.1)
+		theme_type_editor_tab_container_sb.set_content_margin_all(0)
+		theme_type_editor_tab_container_sb.content_margin_top = int(base_margin * scale)
+		theme_type_editor_tab_container_sb.corner_radius_bottom_left = 0
+		theme_type_editor_tab_container_sb.corner_radius_bottom_right = 0
+	
+		theme_type_editor_tab_container.add_theme_stylebox_override('tabbar_background', theme_type_editor_tab_container_sb)
+
+	).call_deferred()
+
+# Lighten base color in dark theme, darken in light theme, clamp
+func _get_base_color(brightness_offset: float = 0, saturation_multiplier: float = 1) -> Color:
+	var dark : bool = dark_theme if brightness_offset >= 0 else !dark_theme
+	var color : Color = Color(base_color)
+	color.v = clampf(lerpf(color.v, 1 if dark else 0, absf(contrast * brightness_offset)), 0, 1)
+	color.s *= saturation_multiplier
+	return color
+
+# Shorthand content margin setter
+func _set_margin(sb: StyleBox, left: float, top: float, right: float = left, bottom: float = top) -> void:
+	sb.content_margin_left = left * scale
+	sb.content_margin_top = top * scale
+	sb.content_margin_right = right * scale
+	sb.content_margin_bottom = bottom * scale
+
+# Shorthand border setter
+func _set_border(sb: StyleBoxFlat, color: Color, width: float = 1, blend: bool = false) -> void:
+	sb.border_color = color
+	sb.border_blend = blend
+	sb.set_border_width_all(int(ceilf(width * scale)))
+"
+
+[resource]
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_0j2au")
+AnimationBezierTrackEdit/colors/focus_color = Color(1, 1, 1, 0)
+AnimationBezierTrackEdit/colors/h_line_color = Color(1, 1, 1, 0.12)
+AnimationBezierTrackEdit/colors/track_focus_color = Color(1, 1, 1, 0.1)
+AnimationBezierTrackEdit/colors/v_line_color = Color(1, 1, 1, 0)
+AnimationTimelineEdit/colors/font_primary_color = Color(1, 1, 1, 0.7)
+AnimationTimelineEdit/colors/font_secondary_color = Color(1, 1, 1, 0.4)
+AnimationTimelineEdit/colors/h_line_color = Color(1, 1, 1, 0)
+AnimationTimelineEdit/colors/v_line_primary_color = Color(1, 1, 1, 0.4)
+AnimationTimelineEdit/colors/v_line_secondary_color = Color(1, 1, 1, 0.08)
+AnimationTimelineEdit/constants/text_primary_margin = 3
+AnimationTimelineEdit/constants/text_secondary_margin = 2
+AnimationTimelineEdit/constants/v_line_primary_margin = 4
+AnimationTimelineEdit/constants/v_line_primary_width = 2
+AnimationTimelineEdit/constants/v_line_secondary_margin = 6
+AnimationTimelineEdit/constants/v_line_secondary_width = 1
+AnimationTimelineEdit/styles/time_available = SubResource("StyleBoxFlat_nxtyv")
+AnimationTimelineEdit/styles/time_unavailable = SubResource("StyleBoxFlat_cwl58")
+AnimationTrackEdit/colors/h_line_color = Color(1, 1, 1, 0)
+AnimationTrackEdit/constants/h_separation = 6
+AnimationTrackEdit/styles/focus = SubResource("StyleBoxFlat_t327q")
+AnimationTrackEdit/styles/hover = SubResource("StyleBoxFlat_0s1p1")
+AnimationTrackEdit/styles/odd = SubResource("StyleBoxFlat_cghmo")
+AnimationTrackEditGroup/colors/bg_color = Color(0.136392, 0.136392, 0.136392, 1)
+AnimationTrackEditGroup/colors/h_line_color = Color(1, 1, 1, 0)
+AnimationTrackEditGroup/colors/v_line_color = Color(1, 1, 1, 0)
+AnimationTrackEditGroup/constants/h_separation = 8
+AnimationTrackEditGroup/styles/header = SubResource("StyleBoxFlat_i6a6c")
+BottomPanelButton/styles/hover = SubResource("StyleBoxFlat_hrix6")
+BottomPanelButton/styles/hover_pressed = SubResource("StyleBoxFlat_e0hbx")
+BottomPanelButton/styles/normal = SubResource("StyleBoxFlat_ojsnk")
+BottomPanelButton/styles/pressed = SubResource("StyleBoxFlat_hrix6")
+Button/colors/font_color = Color(1, 1, 1, 0.7)
+Button/colors/font_disabled_color = Color(1, 1, 1, 0.3)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.3)
+Button/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+Button/constants/outline_size = 0
+Button/styles/disabled = SubResource("StyleBoxFlat_gaiwr")
+Button/styles/disabled_mirrored = SubResource("StyleBoxFlat_gaiwr")
+Button/styles/focus = SubResource("StyleBoxFlat_hudit")
+Button/styles/hover = SubResource("StyleBoxFlat_lxqda")
+Button/styles/hover_mirrored = SubResource("StyleBoxFlat_lxqda")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_rveaq")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_rveaq")
+Button/styles/normal = SubResource("StyleBoxFlat_6mopw")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_6mopw")
+Button/styles/pressed = SubResource("StyleBoxFlat_rveaq")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_rveaq")
+CheckBox/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_pressed_color = Color(1, 1, 1, 0.7)
+CheckBox/styles/normal = SubResource("StyleBoxFlat_5awnw")
+CheckBox/styles/normal_mirrored = SubResource("StyleBoxFlat_5awnw")
+CheckButton/colors/font_focus_color = Color(1, 1, 1, 0.7)
+CheckButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_pressed_color = Color(1, 1, 1, 0.7)
+ColorPicker/styles/picker_focus_circle = SubResource("StyleBoxFlat_d0s7s")
+ColorPicker/styles/picker_focus_rectangle = SubResource("StyleBoxFlat_jlncq")
+ColorPicker/styles/sample_focus = SubResource("StyleBoxFlat_jlncq")
+Editor/colors/background = Color(0.11898, 0.11898, 0.11898, 1)
+Editor/colors/box_selection_fill_color = Color(1, 1, 1, 0.12)
+Editor/colors/box_selection_stroke_color = Color(1, 1, 1, 0.4)
+Editor/colors/dark_color_2 = Color(0, 0, 0, 0.3)
+Editor/colors/dark_color_3 = Color(0.11898, 0.11898, 0.11898, 1)
+Editor/colors/forward_plus_color = Color(0.54902, 0.752941, 0.392157, 1)
+Editor/colors/gl_compatibility_color = Color(0.447059, 0.698039, 0.890196, 1)
+Editor/colors/mobile_color = Color(0.862745, 0.482353, 0.584314, 1)
+Editor/colors/prop_subsection = Color(1, 1, 1, 0)
+Editor/colors/property_color_w = Color(1, 1, 1, 0.8)
+Editor/colors/property_color_x = Color(0.882353, 0.384314, 0.466667, 1)
+Editor/colors/property_color_y = Color(0.764706, 0.937255, 0.396078, 1)
+Editor/colors/property_color_z = Color(0.415686, 0.670588, 0.964706, 1)
+Editor/colors/warning_color = Color(0.831373, 0.780392, 0.623529, 1)
+Editor/constants/top_bar_separation = 4
+Editor/constants/window_border_margin = 4
+EditorAbout/styles/panel = SubResource("StyleBoxFlat_x1ruv")
+EditorAudioBus/styles/focus = SubResource("StyleBoxFlat_bhw1f")
+EditorAudioBus/styles/master = SubResource("StyleBoxFlat_4c1uj")
+EditorAudioBus/styles/normal = SubResource("StyleBoxFlat_bhw1f")
+EditorDebuggerInspector/styles/panel = SubResource("StyleBoxFlat_qy1lg")
+EditorHelpBitContent/styles/normal = SubResource("StyleBoxFlat_q0k33")
+EditorHelpBitTitle/styles/normal = SubResource("StyleBoxFlat_p37tn")
+EditorInspector/constants/v_separation = 2
+EditorInspector/styles/panel = SubResource("StyleBoxFlat_ggm5i")
+EditorInspectorCategory/styles/bg = SubResource("StyleBoxFlat_dyk36")
+EditorInspectorSection/constants/h_separation = 4
+EditorLogFilterButton/styles/hover = SubResource("StyleBoxFlat_b3qge")
+EditorLogFilterButton/styles/normal = SubResource("StyleBoxFlat_hudit")
+EditorLogFilterButton/styles/pressed = SubResource("StyleBoxFlat_jjje2")
+EditorProperty/colors/property_color = Color(1, 1, 1, 0.6)
+EditorProperty/colors/warning_color = Color(0.831373, 0.780392, 0.623529, 1)
+EditorProperty/styles/bg = SubResource("StyleBoxFlat_hudit")
+EditorProperty/styles/bg_selected = SubResource("StyleBoxFlat_olbr6")
+EditorProperty/styles/child_bg = SubResource("StyleBoxFlat_jj4ss")
+EditorSettingsDialog/styles/panel = SubResource("StyleBoxFlat_x1ruv")
+EditorSpinSlider/styles/label_bg = SubResource("StyleBoxFlat_td3dt")
+EditorStyles/colors/movie_writer_icon_hover = Color(1, 1, 1, 0.8)
+EditorStyles/colors/movie_writer_icon_hover_pressed = Color(1, 1, 1, 0.8)
+EditorStyles/colors/movie_writer_icon_normal = Color(1, 1, 1, 0.7)
+EditorStyles/colors/movie_writer_icon_pressed = Color(1, 1, 1, 0.941176)
+EditorStyles/styles/ContextualToolbar = SubResource("StyleBoxFlat_5ppr3")
+EditorStyles/styles/FocusViewport = SubResource("StyleBoxFlat_l77mo")
+EditorStyles/styles/Information3dViewport = SubResource("StyleBoxFlat_caljq")
+EditorStyles/styles/LaunchPadMovieMode = SubResource("StyleBoxFlat_fyp5b")
+EditorStyles/styles/LaunchPadNormal = SubResource("StyleBoxFlat_d5ubu")
+EditorStyles/styles/MovieWriterButtonPressed = SubResource("StyleBoxFlat_hp84i")
+EditorValidationPanel/styles/panel = SubResource("StyleBoxFlat_pqplf")
+FlatButton/colors/font_color = Color(1, 1, 1, 0.7)
+FlatButton/colors/font_disabled_color = Color(1, 1, 1, 0.3)
+FlatButton/colors/font_focus_color = Color(1, 1, 1, 1)
+FlatButton/colors/font_hover_color = Color(1, 1, 1, 1)
+FlatButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+FlatButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+FlatButton/colors/icon_disabled_color = Color(1, 1, 1, 0.3)
+FlatButton/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+FlatButton/styles/disabled = SubResource("StyleBoxFlat_ojsnk")
+FlatButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_ojsnk")
+FlatButton/styles/hover = SubResource("StyleBoxFlat_jjje2")
+FlatButton/styles/hover_mirrored = SubResource("StyleBoxFlat_jjje2")
+FlatButton/styles/hover_pressed = SubResource("StyleBoxFlat_b3qge")
+FlatButton/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_b3qge")
+FlatButton/styles/normal = SubResource("StyleBoxFlat_ojsnk")
+FlatButton/styles/normal_mirrored = SubResource("StyleBoxFlat_ojsnk")
+FlatButton/styles/pressed = SubResource("StyleBoxFlat_b3qge")
+FlatButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_b3qge")
+FlatMenuButton/colors/font_color = Color(1, 1, 1, 0.7)
+FlatMenuButton/colors/font_disabled_color = Color(1, 1, 1, 0.3)
+FlatMenuButton/colors/font_focus_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/font_hover_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/icon_disabled_color = Color(1, 1, 1, 0.3)
+FlatMenuButton/colors/icon_focus_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/icon_hover_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+FlatMenuButton/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+FlatMenuButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
+FlatMenuButton/styles/disabled = SubResource("StyleBoxFlat_ojsnk")
+FlatMenuButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_ojsnk")
+FlatMenuButton/styles/focus = SubResource("StyleBoxFlat_ojsnk")
+FlatMenuButton/styles/hover = SubResource("StyleBoxFlat_jjje2")
+FlatMenuButton/styles/hover_mirrored = SubResource("StyleBoxFlat_jjje2")
+FlatMenuButton/styles/hover_pressed = SubResource("StyleBoxFlat_b3qge")
+FlatMenuButton/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_b3qge")
+FlatMenuButton/styles/normal = SubResource("StyleBoxFlat_ojsnk")
+FlatMenuButton/styles/normal_mirrored = SubResource("StyleBoxFlat_ojsnk")
+FlatMenuButton/styles/pressed = SubResource("StyleBoxFlat_b3qge")
+FlatMenuButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_b3qge")
+GraphEdit/styles/panel_focus = SubResource("StyleBoxFlat_7nat6")
+GraphStateMachine/colors/focus_color = Color(1, 1, 1, 0)
+HBoxContainer/constants/separation = 2
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_8p1at")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_04vcj")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_04vcj")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_a8hv0")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_a8hv0")
+HSeparator/constants/separation = 8
+HSeparator/styles/separator = SubResource("StyleBoxLine_q1qfh")
+HSlider/styles/slider = SubResource("StyleBoxFlat_bjfl8")
+HSplitContainer/constants/autohide = 1
+HSplitContainer/constants/minimum_grab_thickness = 6
+HSplitContainer/constants/separation = 2
+InspectorActionButton/constants/h_separation = 8
+InspectorActionButton/styles/disabled = SubResource("StyleBoxFlat_gaiwr")
+InspectorActionButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_gaiwr")
+InspectorActionButton/styles/hover = SubResource("StyleBoxFlat_lxqda")
+InspectorActionButton/styles/hover_mirrored = SubResource("StyleBoxFlat_lxqda")
+InspectorActionButton/styles/normal = SubResource("StyleBoxFlat_6mopw")
+InspectorActionButton/styles/normal_mirrored = SubResource("StyleBoxFlat_6mopw")
+InspectorActionButton/styles/pressed = SubResource("StyleBoxFlat_rveaq")
+InspectorActionButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_rveaq")
+ItemList/colors/guide_color = Color(1, 1, 1, 0)
+ItemList/constants/v_separation = 6
+ItemList/styles/cursor = SubResource("StyleBoxFlat_1jo0j")
+ItemList/styles/cursor_unfocused = SubResource("StyleBoxFlat_1jo0j")
+ItemList/styles/focus = SubResource("StyleBoxFlat_hudit")
+ItemList/styles/hovered = SubResource("StyleBoxFlat_jjje2")
+ItemList/styles/hovered_selected = SubResource("StyleBoxFlat_jjje2")
+ItemList/styles/hovered_selected_focus = SubResource("StyleBoxFlat_jjje2")
+ItemList/styles/panel = SubResource("StyleBoxFlat_757ha")
+ItemList/styles/selected = SubResource("StyleBoxFlat_jjje2")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_jjje2")
+ItemListSecondary/styles/panel = SubResource("StyleBoxFlat_qy1lg")
+Label/colors/font_color = Color(1, 1, 1, 0.7)
+Label/styles/normal = SubResource("StyleBoxFlat_5x75y")
+LineEdit/colors/font_placeholder_color = Color(1, 1, 1, 0.4)
+LineEdit/styles/focus = SubResource("StyleBoxFlat_rt7ps")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_qv0qw")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_1of7c")
+MainMenuBar/styles/hover = SubResource("StyleBoxFlat_jjje2")
+MainMenuBar/styles/hover_pressed = SubResource("StyleBoxFlat_b3qge")
+MainMenuBar/styles/normal = SubResource("StyleBoxFlat_et1qe")
+MainMenuBar/styles/pressed = SubResource("StyleBoxFlat_b3qge")
+MainScreenButton/styles/hover = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/hover_mirrored = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/hover_pressed = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/normal = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/normal_mirrored = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/pressed = SubResource("StyleBoxFlat_ojsnk")
+MainScreenButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_ojsnk")
+MenuButton/colors/font_color = Color(1, 1, 1, 0.7)
+MenuButton/colors/font_disabled_color = Color(1, 1, 1, 0.3)
+MenuButton/colors/font_focus_color = Color(1, 1, 1, 1)
+MenuButton/colors/font_hover_color = Color(1, 1, 1, 1)
+MenuButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+MenuButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+MenuButton/colors/icon_disabled_color = Color(1, 1, 1, 0.3)
+MenuButton/colors/icon_focus_color = Color(1, 1, 1, 1)
+MenuButton/colors/icon_hover_color = Color(1, 1, 1, 1)
+MenuButton/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+MenuButton/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+MenuButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
+MenuButton/styles/disabled = SubResource("StyleBoxFlat_ojsnk")
+MenuButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_ojsnk")
+MenuButton/styles/focus = SubResource("StyleBoxFlat_ojsnk")
+MenuButton/styles/hover = SubResource("StyleBoxFlat_jjje2")
+MenuButton/styles/hover_mirrored = SubResource("StyleBoxFlat_jjje2")
+MenuButton/styles/hover_pressed = SubResource("StyleBoxFlat_jjje2")
+MenuButton/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_jjje2")
+MenuButton/styles/normal = SubResource("StyleBoxFlat_ojsnk")
+MenuButton/styles/normal_mirrored = SubResource("StyleBoxFlat_ojsnk")
+MenuButton/styles/pressed = SubResource("StyleBoxFlat_b3qge")
+MenuButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_b3qge")
+OptionButton/colors/font_color = Color(1, 1, 1, 0.7)
+OptionButton/colors/font_disabled_color = Color(1, 1, 1, 0.3)
+OptionButton/colors/font_focus_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_hover_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+OptionButton/colors/icon_disabled_color = Color(1, 1, 1, 0.3)
+OptionButton/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+OptionButton/constants/arrow_margin = 8
+OptionButton/styles/disabled = SubResource("StyleBoxFlat_gaiwr")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxFlat_gaiwr")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_hudit")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_lxqda")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxFlat_lxqda")
+OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_rveaq")
+OptionButton/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_rveaq")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_6mopw")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxFlat_6mopw")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_rveaq")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_rveaq")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ojsnk")
+PopupDialog/styles/panel = SubResource("StyleBoxFlat_0j2au")
+PopupMenu/constants/h_separation = 7
+PopupMenu/constants/item_start_padding = 9
+PopupMenu/constants/v_separation = 7
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_jjje2")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_eyk1a")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_eyk1a")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_ullag")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_eyk1a")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_u8ys2")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_bwql4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_8xy2r")
+ProjectExportDialog/styles/panel = SubResource("StyleBoxFlat_x1ruv")
+ProjectManager/styles/project_list = SubResource("StyleBoxFlat_v3s4c")
+ProjectSettingsEditor/styles/panel = SubResource("StyleBoxFlat_x1ruv")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_lkvi6")
+RunBarButtonMovieMakerDisabled/colors/icon_hover_color = Color(1, 1, 1, 1)
+RunBarButtonMovieMakerDisabled/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+RunBarButtonMovieMakerDisabled/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+RunBarButtonMovieMakerDisabled/colors/icon_pressed_color = Color(1, 1, 1, 1)
+RunBarButtonMovieMakerEnabled/colors/icon_hover_color = Color(1, 1, 1, 1)
+RunBarButtonMovieMakerEnabled/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+RunBarButtonMovieMakerEnabled/colors/icon_normal_color = Color(1, 1, 1, 0.7)
+RunBarButtonMovieMakerEnabled/colors/icon_pressed_color = Color(1, 1, 1, 1)
+SceneImportSettingsDialog/styles/panel = SubResource("StyleBoxFlat_x1ruv")
+ScrollContainer/styles/focus = SubResource("StyleBoxFlat_hudit")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_hudit")
+SplitContainer/constants/minimum_grab_thickness = 8
+SplitContainer/constants/separation = 3
+TabBar/styles/tab_focus = SubResource("StyleBoxFlat_3j8yw")
+TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_p4svh")
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_ekbx3")
+TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_wpjq3")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_ii72y")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_3j8yw")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_p4svh")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_ekbx3")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_wpjq3")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_4a5rr")
+TabContainerOdd/styles/tab_selected = SubResource("StyleBoxFlat_mmcvh")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_rt7ps")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_qv0qw")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_1of7c")
+ThemeItemEditorDialog/styles/panel = SubResource("StyleBoxFlat_x1ruv")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_q1m7i")
+Tree/colors/drop_position_color = Color(1, 1, 1, 0.4)
+Tree/colors/font_color = Color(1, 1, 1, 0.7)
+Tree/colors/guide_color = Color(1, 1, 1, 0)
+Tree/colors/parent_hl_line_color = Color(1, 1, 1, 0.1)
+Tree/constants/children_hl_line_width = 0
+Tree/constants/draw_guides = 0
+Tree/constants/draw_relationship_lines = 1
+Tree/constants/inner_item_margin_left = 4
+Tree/constants/inner_item_margin_right = 4
+Tree/constants/parent_hl_line_width = 1
+Tree/constants/relationship_line_width = 0
+Tree/constants/v_separation = 0
+Tree/styles/button_hover = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/button_pressed = SubResource("StyleBoxFlat_b3qge")
+Tree/styles/cursor = SubResource("StyleBoxFlat_noyle")
+Tree/styles/cursor_unfocused = SubResource("StyleBoxFlat_noyle")
+Tree/styles/custom_button_hover = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/custom_button_pressed = SubResource("StyleBoxFlat_b3qge")
+Tree/styles/focus = SubResource("StyleBoxFlat_hudit")
+Tree/styles/hover = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/hovered = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/hovered_dimmed = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/hovered_selected = SubResource("StyleBoxFlat_7ubtr")
+Tree/styles/hovered_selected_focus = SubResource("StyleBoxFlat_7ubtr")
+Tree/styles/panel = SubResource("StyleBoxFlat_qqpqr")
+Tree/styles/selected = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/selected_focus = SubResource("StyleBoxFlat_8rkg3")
+Tree/styles/title_button_hover = SubResource("StyleBoxFlat_0rrl8")
+Tree/styles/title_button_normal = SubResource("StyleBoxFlat_0rrl8")
+Tree/styles/title_button_pressed = SubResource("StyleBoxFlat_0rrl8")
+TreeSecondary/styles/panel = SubResource("StyleBoxFlat_qy1lg")
+VBoxContainer/constants/separation = 2
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_8p1at")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_04vcj")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_04vcj")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_hr4c0")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_hr4c0")
+VSeparator/constants/separation = 8
+VSeparator/styles/separator = SubResource("StyleBoxLine_6gxuf")
+VSlider/styles/slider = SubResource("StyleBoxFlat_x13t0")
+VSplitContainer/constants/autohide = 1
+VSplitContainer/constants/minimum_grab_thickness = 6
+VSplitContainer/constants/separation = 2
+script = SubResource("GDScript_hhmc0")

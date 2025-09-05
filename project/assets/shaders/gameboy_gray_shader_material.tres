@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsjw5ffc7v80a"]
+
+[ext_resource type="Shader" uid="uid://u5l26smt8ift" path="res://assets/shaders/gameboy_gray_shader.tres" id="1_gos1m"]
+
+[resource]
+shader = ExtResource("1_gos1m")
+shader_parameter/gb_darkest = Color(0, 0, 0, 1)
+shader_parameter/gb_dark = Color(0.329412, 0.329412, 0.329412, 1)
+shader_parameter/gb_light = Color(0.662745, 0.662745, 0.662745, 1)
+shader_parameter/gb_lightest = Color(1, 1, 1, 1)

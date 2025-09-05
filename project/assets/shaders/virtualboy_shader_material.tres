@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://covmxve780ryj"]
+
+[ext_resource type="Shader" uid="uid://dm16alrwfbver" path="res://assets/shaders/virtualboy_shader.gdshader" id="1_56pcl"]
+
+[resource]
+shader = ExtResource("1_56pcl")
+shader_parameter/gb_darkest = Color(0, 0, 0, 1)
+shader_parameter/gb_dark = Color(0.333333, 0, 0, 1)
+shader_parameter/gb_light = Color(0.643137, 0, 0, 1)
+shader_parameter/gb_lightest = Color(0.937255, 0, 0, 1)

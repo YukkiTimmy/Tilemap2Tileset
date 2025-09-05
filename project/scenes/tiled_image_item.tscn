@@ -1,0 +1,146 @@
+[gd_scene load_steps=15 format=3 uid="uid://cga0arepg8yv8"]
+
+[ext_resource type="StyleBox" uid="uid://dtu4fks6hd8nk" path="res://assets/themes/output_image_background.tres" id="1_d1a8y"]
+[ext_resource type="Script" uid="uid://dm84b18ibwjoo" path="res://scripts/tiled_image_item.gd" id="1_k2abn"]
+[ext_resource type="Texture2D" uid="uid://c284g1oxpraqe" path="res://links-awakening.png" id="2_k2abn"]
+[ext_resource type="StyleBox" uid="uid://cvysl2ekw7rs6" path="res://assets/themes/sub_container_theme.tres" id="2_wm0aa"]
+[ext_resource type="Texture2D" uid="uid://cp7jr112tmi1x" path="res://assets/imgs/icons/round_delete_white_24dp.png" id="4_o5xx5"]
+[ext_resource type="Texture2D" uid="uid://dbtlup36jq1v3" path="res://assets/imgs/icons/round_delete_gray_24dp.png" id="5_wm0aa"]
+[ext_resource type="Texture2D" uid="uid://bffd2wp8jv2pa" path="res://assets/imgs/icons/round_file_download_white_24dp.png" id="7_s0e17"]
+[ext_resource type="Texture2D" uid="uid://d3knjqymhwim2" path="res://assets/imgs/icons/round_file_download_gray_24dp.png" id="8_v5iba"]
+[ext_resource type="Texture2D" uid="uid://dxxov7exl8k66" path="res://assets/imgs/icons/round_arrow_forward_ios_white_24dp.png" id="9_f2rbw"]
+[ext_resource type="Texture2D" uid="uid://bmkeu0yoncitc" path="res://assets/imgs/icons/round_arrow_forward_ios_gray_24dp.png" id="10_gosbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyxv7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyxv7"]
+
+[sub_resource type="Theme" id="Theme_sw2ic"]
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_fyxv7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0e17"]
+
+[node name="TiledImageItem" type="Control"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 120.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+script = ExtResource("1_k2abn")
+
+[node name="MainContainerBackground_Cont" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_wm0aa")
+
+[node name="MainContainer_MargCont" type="MarginContainer" parent="MainContainerBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont"]
+layout_mode = 2
+
+[node name="OutputImageBackground" type="Panel" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
+clip_children = 2
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("1_d1a8y")
+
+[node name="OutputImagetextureRect" type="TextureRect" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/OutputImageBackground"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1230.0
+offset_top = -974.0
+offset_right = 1230.0
+offset_bottom = 974.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_k2abn")
+
+[node name="VSeparator" type="VSeparator" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_fyxv7")
+
+[node name="InformationContainer_VBox" type="VBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title_Line" type="LineEdit" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer_VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Unknown"
+flat = true
+
+[node name="Info" type="RichTextLabel" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer_VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_sw2ic")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "das ist eine info
+asd
+asd
+asd
+asd"
+
+[node name="ButtonContainer_VBox" type="VBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
+layout_mode = 2
+
+[node name="Delete_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture_normal = ExtResource("4_o5xx5")
+texture_hover = ExtResource("5_wm0aa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Download_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture_normal = ExtResource("7_s0e17")
+texture_hover = ExtResource("8_v5iba")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxTexture_s0e17")
+
+[node name="ScrollUp_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture_normal = ExtResource("9_f2rbw")
+texture_hover = ExtResource("10_gosbp")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="ScrollDown_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture_normal = ExtResource("9_f2rbw")
+texture_hover = ExtResource("10_gosbp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="gui_input" from="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/OutputImageBackground/OutputImagetextureRect" to="." method="_on_input_imagetexture_rect_gui_input"]
+[connection signal="pressed" from="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox/Delete_Btn" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox/Download_Btn" to="." method="_on_download_pressed"]

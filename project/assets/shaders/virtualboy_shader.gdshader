@@ -1,0 +1,21 @@
+shader_type canvas_item;
+
+uniform vec4 gb_darkest : source_color = vec4(0.0588, 0.2196, 0.0588, 1.0);
+uniform vec4 gb_dark : source_color = vec4(0.1882, 0.3843, 0.1882, 1.0);
+uniform vec4 gb_light : source_color = vec4(0.5451, 0.6745, 0.0588, 1.0);
+uniform vec4 gb_lightest : source_color = vec4(0.6078, 0.7373, 0.0588, 1.0);
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+    float brightness = dot(tex_color.rgb, vec3(0.299, 0.587, 0.114));
+
+    if (brightness < 0.25) {
+        COLOR = gb_darkest;
+    } else if (brightness < 0.5) {
+        COLOR = gb_dark;
+    } else if (brightness < 0.75) {
+        COLOR = gb_light;
+    } else {
+        COLOR = gb_lightest;
+    }
+}

@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=3 uid="uid://d6g28app383n"]
+
+[ext_resource type="Script" uid="uid://776ilwkty5jq" path="res://scripts/save_modal.gd" id="1_eowqx"]
+[ext_resource type="StyleBox" uid="uid://bl3l373t6c2xm" path="res://assets/themes/tile_detail_modal.tres" id="2_hr4oy"]
+[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="3_ch8m3"]
+[ext_resource type="Texture2D" uid="uid://bxl8edohoyexc" path="res://lake.png" id="4_eowqx"]
+[ext_resource type="Texture2D" uid="uid://blautuchqxfot" path="res://assets/imgs/icons/round_close_white_24dp.png" id="5_qtdht"]
+[ext_resource type="Texture2D" uid="uid://dihg67gfkv48q" path="res://assets/imgs/icons/round_close_gray_24dp.png" id="6_wigds"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85g3d"]
+
+[node name="SaveModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eowqx")
+
+[node name="TransparentBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.298039)
+
+[node name="MainContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContainerBackground_Cont" type="PanelContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(500, 270)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_hr4oy")
+
+[node name="MainContainer_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainContainer_VBox" type="VBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont"]
+layout_mode = 2
+
+[node name="MainContainerTitel" type="Label" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INPUT IMAGE"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_85g3d")
+
+[node name="MainContent_HBox" type="HBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 11
+
+[node name="OutputImageBackground" type="Panel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("3_ch8m3")
+
+[node name="OutputImageTextureRect" type="TextureRect" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/OutputImageBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("4_eowqx")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SaveOptions_VBox" type="VBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OutputPath_HBox" type="HBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+layout_mode = 2
+
+[node name="OutputPath_Label" type="Label" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/OutputPath_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Output path:"
+
+[node name="OutputPathBtn" type="Button" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/OutputPath_HBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Select path"
+
+[node name="OutputPath_Line" type="LineEdit" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_85g3d")
+
+[node name="Filename_HBox" type="HBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+layout_mode = 2
+
+[node name="Filename_Label" type="Label" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/Filename_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Filename:"
+
+[node name="Filename_Line" type="LineEdit" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/Filename_HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_85g3d")
+
+[node name="DowonloadButtons_Titel" type="Label" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+layout_mode = 2
+text = "Output as:"
+horizontal_alignment = 1
+
+[node name="DowonloadButtons_Cont" type="GridContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="SaveSingleImage_Btn" type="Button" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/DowonloadButtons_Cont"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Single Image"
+
+[node name="SaveMultipleImages_Btn" type="Button" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/DowonloadButtons_Cont"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mutiple Images"
+
+[node name="SaveTileSet_Btn" type="Button" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/DowonloadButtons_Cont"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TileSet"
+
+[node name="CloseButton_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Close_Btn" type="TextureButton" parent="MainContainer/MainContainerBackground_Cont/CloseButton_MargCont"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_qtdht")
+texture_hover = ExtResource("6_wigds")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a Directory"
+initial_position = 1
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/OutputPath_HBox/OutputPathBtn" to="." method="_on_output_path_button_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/DowonloadButtons_Cont/SaveSingleImage_Btn" to="." method="_on_save_single_image_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/DowonloadButtons_Cont/SaveMultipleImages_Btn" to="." method="_on_save_multiple_images_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/SaveOptions_VBox/DowonloadButtons_Cont/SaveTileSet_Btn" to="." method="_on_save_tile_set_pressed"]
+[connection signal="pressed" from="MainContainer/MainContainerBackground_Cont/CloseButton_MargCont/Close_Btn" to="." method="_on_close_button_pressed"]
+[connection signal="dir_selected" from="SaveDialog" to="." method="_on_save_dialog_dir_selected"]
