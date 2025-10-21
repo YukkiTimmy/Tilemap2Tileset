@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d6g28app383n"]
+[gd_scene load_steps=7 format=3 uid="uid://d6g28app383n"]
 
 [ext_resource type="Script" uid="uid://776ilwkty5jq" path="res://scripts/save_modal.gd" id="1_eowqx"]
-[ext_resource type="StyleBox" uid="uid://bl3l373t6c2xm" path="res://assets/themes/tile_detail_modal.tres" id="2_hr4oy"]
-[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="3_ch8m3"]
+[ext_resource type="Theme" uid="uid://1yvmk70n4wn2" path="res://assets/themes/main_dark.tres" id="1_mmcfc"]
 [ext_resource type="Texture2D" uid="uid://bxl8edohoyexc" path="res://lake.png" id="4_eowqx"]
 [ext_resource type="Texture2D" uid="uid://blautuchqxfot" path="res://assets/imgs/icons/round_close_white_24dp.png" id="5_qtdht"]
 [ext_resource type="Texture2D" uid="uid://dihg67gfkv48q" path="res://assets/imgs/icons/round_close_gray_24dp.png" id="6_wigds"]
@@ -16,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mmcfc")
 script = ExtResource("1_eowqx")
 
 [node name="TransparentBackground" type="ColorRect" parent="."]
@@ -35,13 +35,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainContainerBackground_Cont" type="PanelContainer" parent="MainContainer"]
+[node name="MainContainerBackground_Cont" type="Panel" parent="MainContainer"]
 custom_minimum_size = Vector2(500, 270)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_hr4oy")
 
 [node name="MainContainer_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
-layout_mode = 2
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 270.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -72,7 +73,6 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_styles/panel = ExtResource("3_ch8m3")
 
 [node name="OutputImageTextureRect" type="TextureRect" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContent_HBox/OutputImageBackground"]
 unique_name_in_owner = true
@@ -163,7 +163,10 @@ size_flags_horizontal = 3
 text = "TileSet"
 
 [node name="CloseButton_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
-layout_mode = 2
+layout_mode = 0
+offset_left = 460.0
+offset_right = 500.0
+offset_bottom = 40.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/margin_top = 10

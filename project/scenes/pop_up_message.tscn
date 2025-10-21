@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://bth3hp0iwjdnb"]
+
+[ext_resource type="Script" uid="uid://cb8abb5h45rxc" path="res://scripts/pop_up_message.gd" id="1_uiqbl"]
+[ext_resource type="Texture2D" uid="uid://cp7jr112tmi1x" path="res://assets/imgs/icons/round_delete_white_24dp.png" id="2_a4b0p"]
+[ext_resource type="Texture2D" uid="uid://dbtlup36jq1v3" path="res://assets/imgs/icons/round_delete_gray_24dp.png" id="3_djvpy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4b0p"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddk8o"]
+bg_color = Color(0.207843, 0.32549, 0.137255, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djvpy"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmkk3"]
+bg_color = Color(0.917647, 0.2, 0.137255, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiqbl"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.490196)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PopUpMessage" type="Control"]
+custom_minimum_size = Vector2(250, 125)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1670.0
+offset_bottom = -955.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uiqbl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="InfoTitleBackground_Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_a4b0p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoTitleBackground_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/InfoTitleBackground_Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 7.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ddk8o")
+text = "Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close_Btn" type="TextureButton" parent="VBoxContainer/InfoTitleBackground_Panel/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_a4b0p")
+texture_hover = ExtResource("3_djvpy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="WarningTitleBackground_Panel" type="Panel" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_djvpy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/WarningTitleBackground_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/WarningTitleBackground_Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 7.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qmkk3")
+text = "Warning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close_Btn" type="TextureButton" parent="VBoxContainer/WarningTitleBackground_Panel/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_a4b0p")
+texture_hover = ExtResource("3_djvpy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="InfoText_Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uiqbl")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/InfoText_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/InfoText_Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Dummy Text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="VBoxContainer/InfoTitleBackground_Panel/HBoxContainer/Close_Btn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/WarningTitleBackground_Panel/HBoxContainer/Close_Btn" to="." method="_on_close_btn_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

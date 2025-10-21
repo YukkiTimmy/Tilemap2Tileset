@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dq88dtdqh6cmi"]
+
+[ext_resource type="Shader" uid="uid://dpv6xn5sonbi0" path="res://assets/shaders/offset_shader.gdshader" id="1_26lr1"]
+
+[resource]
+shader = ExtResource("1_26lr1")
+shader_parameter/draw_box = false
+shader_parameter/box_color = Color(0.470588, 0.47451, 0.972549, 1)
+shader_parameter/rect_pos = Vector2(0, 0)
+shader_parameter/rect_size = Vector2(0, 0)
+shader_parameter/border_thickness = 2.0
+shader_parameter/draw_grid = false
+shader_parameter/grid_size = Vector2(16, 16)
+shader_parameter/grid_color = Color(0, 0, 0, 0.658824)
+shader_parameter/grid_thickness = 1.0
+shader_parameter/highlight_tile_under_mouse = false
+shader_parameter/tile_size = Vector2(16, 16)
+shader_parameter/mouse_pos = Vector2(0, 0)
+shader_parameter/highlight_color = Color(1, 1, 0, 0.3)

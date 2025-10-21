@@ -1,33 +1,31 @@
-[gd_scene load_steps=15 format=3 uid="uid://cga0arepg8yv8"]
+[gd_scene load_steps=14 format=3 uid="uid://cga0arepg8yv8"]
 
-[ext_resource type="StyleBox" uid="uid://dtu4fks6hd8nk" path="res://assets/themes/output_image_background.tres" id="1_d1a8y"]
 [ext_resource type="Script" uid="uid://dm84b18ibwjoo" path="res://scripts/tiled_image_item.gd" id="1_k2abn"]
-[ext_resource type="Texture2D" uid="uid://c284g1oxpraqe" path="res://links-awakening.png" id="2_k2abn"]
-[ext_resource type="StyleBox" uid="uid://cvysl2ekw7rs6" path="res://assets/themes/sub_container_theme.tres" id="2_wm0aa"]
+[ext_resource type="Theme" uid="uid://1yvmk70n4wn2" path="res://assets/themes/main_dark.tres" id="1_v5iba"]
+[ext_resource type="Texture2D" uid="uid://bxl8edohoyexc" path="res://lake.png" id="3_gosbp"]
 [ext_resource type="Texture2D" uid="uid://cp7jr112tmi1x" path="res://assets/imgs/icons/round_delete_white_24dp.png" id="4_o5xx5"]
+[ext_resource type="Texture2D" uid="uid://b5cvrcvp2ejyl" path="res://assets/imgs/icons_new/photo_size_select_small_24dp_FFFFFF_FILL0_wght300_GRAD0_opsz24.svg" id="4_ul3sc"]
+[ext_resource type="Texture2D" uid="uid://s74ksgkbqflp" path="res://assets/imgs/icons_new/numbers_24dp_FFFFFF_FILL0_wght300_GRAD0_opsz24.svg" id="5_rnb8b"]
 [ext_resource type="Texture2D" uid="uid://dbtlup36jq1v3" path="res://assets/imgs/icons/round_delete_gray_24dp.png" id="5_wm0aa"]
+[ext_resource type="Texture2D" uid="uid://cmxexw5e3ty0d" path="res://assets/imgs/icons_new/aspect_ratio_24dp_FFFFFF_FILL0_wght300_GRAD0_opsz24.svg" id="6_ce4wf"]
+[ext_resource type="Texture2D" uid="uid://bh30gwohx3g8v" path="res://assets/imgs/icons_new/file_save_24dp_FFFFFF_FILL0_wght300_GRAD0_opsz24.svg" id="7_qc4ej"]
 [ext_resource type="Texture2D" uid="uid://bffd2wp8jv2pa" path="res://assets/imgs/icons/round_file_download_white_24dp.png" id="7_s0e17"]
 [ext_resource type="Texture2D" uid="uid://d3knjqymhwim2" path="res://assets/imgs/icons/round_file_download_gray_24dp.png" id="8_v5iba"]
-[ext_resource type="Texture2D" uid="uid://dxxov7exl8k66" path="res://assets/imgs/icons/round_arrow_forward_ios_white_24dp.png" id="9_f2rbw"]
-[ext_resource type="Texture2D" uid="uid://bmkeu0yoncitc" path="res://assets/imgs/icons/round_arrow_forward_ios_gray_24dp.png" id="10_gosbp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyxv7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyxv7"]
 
 [sub_resource type="Theme" id="Theme_sw2ic"]
 VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_fyxv7")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0e17"]
-
 [node name="TiledImageItem" type="Control"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(300, 130)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 384.0
-offset_bottom = 120.0
+offset_right = 300.0
+offset_bottom = 130.0
 focus_mode = 1
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_v5iba")
 script = ExtResource("1_k2abn")
 
 [node name="MainContainerBackground_Cont" type="PanelContainer" parent="."]
@@ -37,25 +35,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_wm0aa")
+mouse_default_cursor_shape = 2
 
 [node name="MainContainer_MargCont" type="MarginContainer" parent="MainContainerBackground_Cont"]
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont"]
 layout_mode = 2
 
 [node name="OutputImageBackground" type="Panel" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
 clip_children = 2
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(110, 110)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_styles/panel = ExtResource("1_d1a8y")
+mouse_filter = 1
 
 [node name="OutputImagetextureRect" type="TextureRect" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/OutputImageBackground"]
 unique_name_in_owner = true
@@ -69,23 +67,106 @@ offset_right = 1230.0
 offset_bottom = 974.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 mouse_default_cursor_shape = 2
-texture = ExtResource("2_k2abn")
+texture = ExtResource("3_gosbp")
+expand_mode = 2
+stretch_mode = 3
 
-[node name="VSeparator" type="VSeparator" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_fyxv7")
-
-[node name="InformationContainer_VBox" type="VBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="InformationContainer" type="VBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title_Line" type="LineEdit" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer_VBox"]
+[node name="Title_Line" type="LineEdit" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Unknown"
+text = "Unkown"
 flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+tooltip_text = "Tilesize"
+texture = ExtResource("4_ul3sc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Tilesize_Label" type="Label" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Tilesize"
+mouse_filter = 1
+text = "16x16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+tooltip_text = "Amount of Tiles"
+texture = ExtResource("5_rnb8b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AmountOfTiles_Label" type="Label" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Amount of Tiles"
+mouse_filter = 1
+text = "324"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+tooltip_text = "Aspect Ratio"
+texture = ExtResource("6_ce4wf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Dimensions_Label" type="Label" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Aspect Ratio"
+mouse_filter = 1
+text = "288"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+tooltip_text = "Filesize"
+texture = ExtResource("7_qc4ej")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FileSize_Label" type="Label" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Filesize"
+mouse_filter = 1
+text = "320kB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InformationContainer_VBox" type="VBoxContainer" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Info" type="RichTextLabel" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer_VBox"]
 unique_name_in_owner = true
@@ -104,43 +185,23 @@ asd"
 layout_mode = 2
 
 [node name="Delete_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
-custom_minimum_size = Vector2(22, 22)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+size_flags_vertical = 2
 texture_normal = ExtResource("4_o5xx5")
 texture_hover = ExtResource("5_wm0aa")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Download_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
-custom_minimum_size = Vector2(22, 22)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+size_flags_vertical = 10
 texture_normal = ExtResource("7_s0e17")
 texture_hover = ExtResource("8_v5iba")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HSeparator" type="HSeparator" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
-layout_mode = 2
-theme_override_constants/separation = 16
-theme_override_styles/separator = SubResource("StyleBoxTexture_s0e17")
-
-[node name="ScrollUp_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-texture_normal = ExtResource("9_f2rbw")
-texture_hover = ExtResource("10_gosbp")
-ignore_texture_size = true
-stretch_mode = 5
-flip_h = true
-
-[node name="ScrollDown_Btn" type="TextureButton" parent="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox"]
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 2
-texture_normal = ExtResource("9_f2rbw")
-texture_hover = ExtResource("10_gosbp")
-ignore_texture_size = true
-stretch_mode = 5
-
-[connection signal="gui_input" from="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/OutputImageBackground/OutputImagetextureRect" to="." method="_on_input_imagetexture_rect_gui_input"]
+[connection signal="gui_input" from="MainContainerBackground_Cont" to="." method="_on_main_container_background_cont_gui_input"]
 [connection signal="pressed" from="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox/Delete_Btn" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/ButtonContainer_VBox/Download_Btn" to="." method="_on_download_pressed"]

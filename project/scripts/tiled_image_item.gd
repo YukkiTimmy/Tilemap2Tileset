@@ -3,7 +3,11 @@ class_name TiledImageItem
 
 @onready var output_image_texture_rect := %OutputImagetextureRect
 @onready var title_label := %Title_Line
-@onready var info_label := %Info
+
+@onready var tilesize_label := $MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer/Tilesize_Label
+@onready var amount_of_tiles_label := $MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer2/AmountOfTiles_Label
+@onready var dimension_label := $MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer3/Dimensions_Label
+@onready var file_size_label := $MainContainerBackground_Cont/MainContainer_MargCont/HBoxContainer/InformationContainer/HBoxContainer4/FileSize_Label
 
 var MAIN_SCENE : Control = null
 
@@ -21,7 +25,11 @@ func setup(_info_resource : ImageInfoResource) -> void:
 	output_image_texture_rect.texture = info_resource.get_output_image_texture()
 	
 	title_label.text = info_resource.input_image_name
-	info_label.text = info_resource.get_formatted_info_string()
+	
+	tilesize_label.text = str(info_resource.tile_size_used)
+	amount_of_tiles_label.text = str(info_resource.unique_tiles)
+	dimension_label.text = str(info_resource.output_image.get_size())
+	file_size_label.text = str(info_resource.output_image.get_data_size() / 1000.0, "KB")
 	
 	info_resource.stored_in_tiled_image_item = self
 	
@@ -49,11 +57,14 @@ func _on_path_chosen(save_path: String) -> void:
 
 
 		
-func _on_input_imagetexture_rect_gui_input(event: InputEvent) -> void:
+
+		
+
+
+func _on_main_container_background_cont_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		
 		if not MAIN_SCENE:
 			push_error("couldnt find main scene")
 		
 		MAIN_SCENE.tile_detail_modal.show_modal(info_resource)
-		

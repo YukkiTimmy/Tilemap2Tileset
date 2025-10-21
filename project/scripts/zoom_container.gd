@@ -19,13 +19,12 @@ var current_tween : Tween
 func _ready() -> void:
 	texture_rect = get_child(0)
 	texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-func _process(delta):
+	
+func _process(_delta):
 	if texture_rect.texture != last_texture:
 		last_texture = texture_rect.texture
 		_on_texture_changed()
 	
-
 func _gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -33,10 +32,10 @@ func _gui_input(event):
 			drag_start = get_global_mouse_position()
 
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			set_target_zoom(target_zoom + zoom_step)
+			set_target_zoom(target_zoom + zoom_step, get_local_mouse_position())
 
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			set_target_zoom(target_zoom - zoom_step)
+			set_target_zoom(target_zoom - zoom_step, get_local_mouse_position())
 
 	elif event is InputEventMouseMotion and dragging:
 		var delta = get_global_mouse_position() - drag_start
@@ -67,28 +66,30 @@ func get_min_zoom() -> float:
 	return min_zoom
 
 
-func set_target_zoom(new_zoom: float):
+func set_target_zoom(new_zoom: float, event_position: Vector2 = size / 2):
 	target_zoom = clamp(new_zoom, get_min_zoom(), max_zoom)
 
-	if current_tween and current_tween.is_valid():
+	if current_tween:
 		current_tween.kill()
 
 	current_tween = get_tree().create_tween()
 	current_tween.tween_method(
-		apply_zoom, zoom, target_zoom, 0.25
+		func(val): apply_zoom(val, event_position),
+		zoom, target_zoom, 0.25
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 
 
 
-func apply_zoom(value: float, event_position: Vector2 = size / 2):
+func apply_zoom(value: float, event_position: Vector2):
 	zoom = value
 
 	var prev_scale = texture_rect.scale
 	texture_rect.scale = Vector2(zoom, zoom)
 
-	var offset_in_image = (size / 2 - texture_rect.position) / prev_scale
-	texture_rect.position = size / 2 - offset_in_image * texture_rect.scale
+	var image_local_pos = (event_position - texture_rect.position) / prev_scale
+	texture_rect.scale = Vector2(zoom, zoom)
+	texture_rect.position = event_position - image_local_pos * texture_rect.scale
 
 	clamp_texture_position()
 

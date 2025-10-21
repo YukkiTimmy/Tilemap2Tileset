@@ -1,0 +1,118 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://1yvmk70n4wn2"]
+
+[ext_resource type="FontFile" uid="uid://du1nd6jgeimvh" path="res://assets/fonts/static/Roboto-Medium.ttf" id="1_6bq3s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muem4"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbj1t"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_og1vs"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+bg_color = Color(0.470588, 0.47451, 0.972549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.129863, 0.129863, 0.129863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.129863, 0.129863, 0.129863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc10j"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.129863, 0.129863, 0.129863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jscy8"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+bg_color = Color(0.129863, 0.129863, 0.129863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm3ni"]
+content_margin_left = 16.0
+content_margin_top = 9.2
+content_margin_right = 16.0
+content_margin_bottom = 9.2
+draw_center = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[resource]
+default_font = ExtResource("1_6bq3s")
+default_font_size = 14
+Button/font_sizes/font_size = 14
+Label/font_sizes/font_size = 14
+MenuButton/font_sizes/font_size = 14
+Panel/styles/panel = SubResource("StyleBoxFlat_muem4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_jbj1t")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_og1vs")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_85g3d")
+RichTextLabel/font_sizes/normal_font_size = 14
+TabContainer/font_sizes/font_size = 14
+TabContainer/styles/panel = SubResource("StyleBoxFlat_dp3eg")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_0ld40")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_gqmmt")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_yc10j")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_jscy8")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_pm3ni")
+TabContainer/styles/tabbar_background = null

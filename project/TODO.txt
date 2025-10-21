@@ -1,6 +1,4 @@
 TODO:
-	- Neue Icons (SVG)
-	- Rotation etc. ausgeben
 	- Favorisieren vom Output
 	- Speichern des Output
 	- Output alle löschen shortcut
@@ -14,7 +12,6 @@ TODO:
 				- auto generierung oder vorhandene TileMap umsetzen
 	- Eigene Shader hochladen
 	- Checks ob Tilesize, Offset und co funktionieren
-	- Error popUp
 	- UI überarbeiten
 	- Darkmode
 	- Menüleiste

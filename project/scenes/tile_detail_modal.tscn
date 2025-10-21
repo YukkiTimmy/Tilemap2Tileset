@@ -1,12 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://ukj0f035egra"]
+[gd_scene load_steps=25 format=3 uid="uid://ukj0f035egra"]
 
+[ext_resource type="Theme" uid="uid://1yvmk70n4wn2" path="res://assets/themes/main_dark.tres" id="1_72k62"]
 [ext_resource type="Script" uid="uid://dyl60qx7mm3u4" path="res://scripts/tile_detail_modal.gd" id="1_bqso3"]
-[ext_resource type="StyleBox" uid="uid://bl3l373t6c2xm" path="res://assets/themes/tile_detail_modal.tres" id="2_7rir7"]
 [ext_resource type="Texture2D" uid="uid://dxxov7exl8k66" path="res://assets/imgs/icons/round_arrow_forward_ios_white_24dp.png" id="3_vkgs5"]
 [ext_resource type="Texture2D" uid="uid://bmkeu0yoncitc" path="res://assets/imgs/icons/round_arrow_forward_ios_gray_24dp.png" id="4_vknrm"]
-[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="5_7k67k"]
 [ext_resource type="PackedScene" uid="uid://bjddwrlb2tp30" path="res://scenes/zoom_container.tscn" id="6_1nnhu"]
-[ext_resource type="StyleBox" uid="uid://gfltwg1fcj4l" path="res://assets/themes/container_theme.tres" id="7_citgt"]
 [ext_resource type="Texture2D" uid="uid://tvmq4bm30ile" path="res://assets/imgs/icons/round_swap_horiz_white_24dp.png" id="8_1jo87"]
 [ext_resource type="Texture2D" uid="uid://bx7m2yu36sl1a" path="res://assets/imgs/icons/round_swap_horiz_gray_24dp.png" id="9_mtps3"]
 [ext_resource type="Texture2D" uid="uid://opn24kwgpid" path="res://assets/imgs/icons/round_swap_vert_white_24dp.png" id="10_cwohx"]
@@ -28,6 +26,13 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j651x"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72k62"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lvx2c"]
 
 [node name="Modal" type="Control"]
@@ -37,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_72k62")
 script = ExtResource("1_bqso3")
 
 [node name="TransparentBackground" type="ColorRect" parent="."]
@@ -59,7 +65,6 @@ grow_vertical = 2
 [node name="MainContainerBackground_Cont" type="PanelContainer" parent="MainContainer"]
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_7rir7")
 
 [node name="MainContainer_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont"]
 layout_mode = 2
@@ -94,34 +99,28 @@ layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_sm18m")
 
-[node name="OutputImage_VBox" type="VBoxContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OutputImageBackground" type="Panel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox"]
+[node name="OutputImageBackground" type="Panel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
 clip_children = 2
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_styles/panel = ExtResource("5_7k67k")
 
-[node name="ZoomContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox/OutputImageBackground" instance=ExtResource("6_1nnhu")]
+[node name="ZoomContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImageBackground" instance=ExtResource("6_1nnhu")]
 unique_name_in_owner = true
 layout_mode = 1
 allow_scaling_beyond_container = true
 
-[node name="OutputImageTextureRect" type="TextureRect" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox/OutputImageBackground/ZoomContainer"]
+[node name="OutputImageTextureRect" type="TextureRect" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImageBackground/ZoomContainer"]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HSlider" type="HSlider" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/OutputImage_VBox"]
-layout_mode = 2
+stretch_mode = 5
 
 [node name="VSeparator" type="VSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox"]
 layout_mode = 2
@@ -145,7 +144,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_fk52h")
 [node name="ImageInformationBackground_Cont" type="Panel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("7_citgt")
 
 [node name="ImageInformation_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/ImageInformationBackground_Cont"]
 layout_mode = 1
@@ -162,16 +160,9 @@ theme_override_constants/margin_bottom = 15
 [node name="ImageInformation" type="RichTextLabel" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/ImageInformationBackground_Cont/ImageInformation_MargCont"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "asdasd
-asd
-asd
-as
-das
-d
-asd
-asd
-asd
-"
+text = "Dummy Text 1
+Dummy Text 2
+Dummy Text 3"
 
 [node name="HSeparator" type="HSeparator" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
 layout_mode = 2
@@ -180,7 +171,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_j651x")
 [node name="SettingsButtonBackground_Cont" type="PanelContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = ExtResource("7_citgt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_72k62")
 
 [node name="SettingsButton_MargCont" type="MarginContainer" parent="MainContainer/MainContainerBackground_Cont/MainContainer_MargCont/MainContainer_VBox/MainContainer_VBox/ImageData_VBox/SettingsButtonBackground_Cont"]
 layout_mode = 2

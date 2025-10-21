@@ -1,53 +1,40 @@
-[gd_scene load_steps=24 format=3 uid="uid://diwduwoqomdbj"]
+[gd_scene load_steps=19 format=3 uid="uid://diwduwoqomdbj"]
 
+[ext_resource type="Theme" uid="uid://1yvmk70n4wn2" path="res://assets/themes/main_dark.tres" id="1_jbj1t"]
 [ext_resource type="Script" uid="uid://bex64jh7tg7j0" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="StyleBox" uid="uid://dtl0ycb3ogipp" path="res://assets/themes/sidebar.tres" id="2_85g3d"]
-[ext_resource type="StyleBox" uid="uid://gfltwg1fcj4l" path="res://assets/themes/container_theme.tres" id="2_jyhfs"]
-[ext_resource type="StyleBox" uid="uid://7uqea4be8t43" path="res://assets/themes/input_image_background.tres" id="3_tbgi4"]
+[ext_resource type="Material" uid="uid://dq88dtdqh6cmi" path="res://assets/shaders/preview_image_shader_material.tres" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bjddwrlb2tp30" path="res://scenes/zoom_container.tscn" id="4_tefeu"]
-[ext_resource type="Shader" uid="uid://dpv6xn5sonbi0" path="res://assets/shaders/offset_shader.gdshader" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://cuj2x5mwk0hh" path="res://assets/imgs/icons_new/delete_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" id="6_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://d6g28app383n" path="res://scenes/save_modal.tscn" id="6_tefeu"]
-[ext_resource type="Texture2D" uid="uid://cp7jr112tmi1x" path="res://assets/imgs/icons/round_delete_white_24dp.png" id="7_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://vkm31n8r5nm6" path="res://assets/imgs/icons_new/center_focus_strong_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" id="7_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://ukj0f035egra" path="res://scenes/tile_detail_modal.tscn" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://c3umjoh4cdkif" path="res://scripts/shader_applier.gd" id="7_tipki"]
-[ext_resource type="Texture2D" uid="uid://df11otjf6j6k6" path="res://The Legend of Zelda Overworld (Oracle of Seasons-Style) - MisterMike_output/The Legend of Zelda Overworld (Oracle of Seasons-Style) - MisterMike_atlas.png" id="8_85g3d"]
-[ext_resource type="Texture2D" uid="uid://dbtlup36jq1v3" path="res://assets/imgs/icons/round_delete_gray_24dp.png" id="8_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://b5yu8bshimmxr" path="res://assets/imgs/icons/round_center_focus_strong_white_24dp.png" id="9_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://crwj0oubjn8mc" path="res://assets/imgs/icons/round_center_focus_strong_gray_24dp.png" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://qchlhoybp733" path="res://assets/imgs/icons_new/lock_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://cjbhp473s13de" path="res://assets/imgs/icons_new/crop_free_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" id="9_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://v08r7wktmp6s" path="res://assets/imgs/icons_new/grid_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" id="9_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://b2surqjmjihlc" path="res://assets/imgs/icons_new/play_arrow_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://bfnxgprlal2cl" path="res://assets/imgs/icons_new/pause_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg" id="11_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://rs5j3uq2q256" path="res://assets/imgs/icons_new/stop_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.svg" id="12_0ld40"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.203922, 0.207843, 0.243137, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya4ey"]
-shader = ExtResource("6_choun")
-shader_parameter/box_color = Color(0.470588, 0.47451, 0.972549, 1)
-shader_parameter/rect_pos = Vector2(0, 0)
-shader_parameter/rect_size = Vector2(0, 0)
-shader_parameter/border_thickness = 2.0
-shader_parameter/draw_grid = false
-shader_parameter/grid_size = Vector2(16, 16)
-shader_parameter/grid_color = Color(0, 0, 0, 0.658824)
-shader_parameter/grid_thickness = 1.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp3eg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
-bg_color = Color(0.470588, 0.47451, 0.972549, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6deb"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
-bg_color = Color(0.203922, 0.207843, 0.243137, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -56,8 +43,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jbj1t")
 script = ExtResource("1_sugp2")
 metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
 
 [node name="MainHboxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -69,10 +66,8 @@ grow_vertical = 2
 theme_override_constants/separation = -1
 
 [node name="SidebarBackground_Cont" type="PanelContainer" parent="MainHboxContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_85g3d")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainHboxContainer/SidebarBackground_Cont"]
 layout_mode = 2
@@ -81,19 +76,43 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MenuBar" type="MenuBar" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox/MarginContainer"]
-layout_mode = 2
-
-[node name="MenuButton" type="MenuButton" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox/MarginContainer/MenuBar"]
+[node name="File" type="MenuButton" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox"]
 custom_minimum_size = Vector2(80, 0)
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 49.0
+layout_mode = 2
 text = "File"
+switch_on_hover = true
+item_count = 2
+popup/item_0/text = "Upload Images"
+popup/item_0/id = 0
+popup/item_1/text = "Exit"
+popup/item_1/id = 1
+
+[node name="TilerSettings" type="MenuButton" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox"]
+visible = false
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Edit"
+switch_on_hover = true
+item_count = 1
+popup/item_0/text = "Load Image"
+popup/item_0/id = 0
+
+[node name="Settings" type="MenuButton" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox"]
+visible = false
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Settings"
+switch_on_hover = true
+item_count = 1
+popup/item_0/text = "Darkmode"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_0/id = 0
+
+[node name="Help" type="MenuButton" parent="MainHboxContainer/SidebarBackground_Cont/HBoxContainer/Options_VBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Tile"
 switch_on_hover = true
 item_count = 2
 popup/item_0/text = "Load Image"
@@ -115,106 +134,39 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_272bh")
 
 [node name="MainContent_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="MainContent_HBox" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 5
 
 [node name="LeftSidebarBackground_Cont" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("2_jyhfs")
 
 [node name="LeftSidebar_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont"]
 layout_mode = 2
-theme_override_constants/margin_top = 40
 
 [node name="LeftSidebar_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont"]
 layout_mode = 2
 
-[node name="LeftSidebarTitel" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
-theme_override_font_sizes/font_size = 30
-text = "TILED IMAGES"
-
-[node name="TiledImageItem_Scroll" type="ScrollContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox"]
+[node name="TabContainer" type="TabContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.38
+current_tab = 0
 
-[node name="TiledImageItem_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TiledImageItem_Scroll"]
+[node name="Settings" type="TabBar" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+metadata/_tab_index = 0
 
-[node name="TiledImagesList_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TiledImageItem_Scroll/TiledImageItem_MargCont"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 15
-
-[node name="CenterContainer_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_override_constants/separation = 20
-
-[node name="UpperCenterContainerBackground_Cont" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-theme_override_styles/panel = ExtResource("2_jyhfs")
-
-[node name="UpperCenterContainer_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="UpperCenterContainer_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont"]
-layout_mode = 2
-
-[node name="UpperCenterContainerTitel" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
-theme_override_font_sizes/font_size = 30
-text = "INPUT IMAGE"
-
-[node name="HSeparator2" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_5vw27")
-
-[node name="InputImageBackground_Cont" type="Panel" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
-clip_children = 2
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("3_tbgi4")
-
-[node name="ZoomContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/InputImageBackground_Cont" instance=ExtResource("4_tefeu")]
-unique_name_in_owner = true
-layout_mode = 1
-
-[node name="InputImageTextureRect" type="TextureRect" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/InputImageBackground_Cont/ZoomContainer"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_ya4ey")
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -222,157 +174,195 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSeparator3" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_5vw27")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox"]
-layout_mode = 2
-
-[node name="DeleteImage_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="VBoxContainer" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
+
+[node name="TileSettings" type="FoldableContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_a8y0u")
-texture_pressed = ExtResource("8_jkv2x")
-texture_hover = ExtResource("8_jkv2x")
-ignore_texture_size = true
-stretch_mode = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6deb")
+folded = true
+title = "Tile Settings"
 
-[node name="CenterImage_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="Content" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TileSize_GridCon" type="GridContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="TileSize4x4_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("9_jbj1t")
-texture_hover = ExtResource("10_muem4")
-ignore_texture_size = true
-stretch_mode = 5
+text = "4x4"
 
-[node name="VSeparator2" type="VSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
+[node name="TileSize8x8_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-theme_override_styles/separator = SubResource("StyleBoxEmpty_dp3eg")
+text = "8x8"
 
-[node name="HSlider" type="HSlider" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
+[node name="TileSize16x16_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+text = "16x16"
 
-[node name="VSeparator" type="VSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
+[node name="TileSize32x32_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-theme_override_styles/separator = SubResource("StyleBoxEmpty_0ld40")
+text = "32x32"
 
-[node name="ToggleImageScaling_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="TileSize64x64_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-mouse_default_cursor_shape = 2
-toggle_mode = true
-texture_normal = ExtResource("9_jbj1t")
-texture_hover = ExtResource("10_muem4")
-ignore_texture_size = true
-stretch_mode = 5
+text = "64x64"
 
-[node name="ToggleGrid_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="TileSize128x128_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-mouse_default_cursor_shape = 2
-toggle_mode = true
-texture_normal = ExtResource("7_a8y0u")
-texture_pressed = ExtResource("8_jkv2x")
-texture_hover = ExtResource("8_jkv2x")
-ignore_texture_size = true
-stretch_mode = 5
+text = "128x128"
 
-[node name="BottomCenterContainerBackground_Cont" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_override_styles/panel = ExtResource("2_jyhfs")
-
-[node name="BottomCenterContainerBackground_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="BottomCenterContainerBackground_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont"]
-layout_mode = 2
-alignment = 1
-
-[node name="ProgressBar" type="ProgressBar" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_85g3d")
-
-[node name="HSeparator" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxFlat_lquwl")
-
-[node name="StartTiling_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox"]
-custom_minimum_size = Vector2(300, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "start tiling"
-
-[node name="RightSidebar_Vbox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-
-[node name="UpperRightSidebar_Cont" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.25
-theme_override_styles/panel = ExtResource("2_jyhfs")
-
-[node name="UpperRightSidebar_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 40
-
-[node name="UpperRightSidebar_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont"]
-layout_mode = 2
-
-[node name="UpperRightTitel" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
-theme_override_font_sizes/font_size = 30
-text = "SETTINGS"
-
-[node name="HSeparator" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox"]
+[node name="HSeparator2" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
 
-[node name="SettingsContainer" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox"]
+[node name="ManualTileSize_HBox" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
 
-[node name="CheckOrienationButton_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+[node name="ManualTileSizeX_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/ManualTileSize_HBox"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Ignore Tiles in other Orientation"
+tooltip_text = "Select Tilesize X"
+min_value = 1.0
+max_value = 100000.0
+value = 16.0
+rounded = true
+alignment = 1
+suffix = "px"
+custom_arrow_step = 1.0
 
-[node name="SortButton_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+[node name="ManualTileSizeY_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/ManualTileSize_HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Select Tilesize Y"
+min_value = 1.0
+max_value = 100000.0
+value = 16.0
+rounded = true
+alignment = 1
+suffix = "px"
+custom_arrow_step = 1.0
+
+[node name="Offset" type="FoldableContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6deb")
+folded = true
+title = "Offset"
+
+[node name="Content" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Offset_GridCon" type="GridContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="OffsetX1_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+layout_mode = 2
+text = "X1:"
+
+[node name="OffsetX1_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000000.0
+rounded = true
+alignment = 1
+suffix = "px"
+
+[node name="OffsetY1_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+layout_mode = 2
+text = "Y1:"
+
+[node name="OffsetY1_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000000.0
+rounded = true
+alignment = 1
+suffix = "px"
+
+[node name="OffsetX2_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+layout_mode = 2
+text = "X2:"
+
+[node name="OffsetX2_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000000.0
+rounded = true
+alignment = 1
+suffix = "px"
+
+[node name="OffsetY1_Label2" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+layout_mode = 2
+text = "Y2:"
+
+[node name="OffsetY2_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000000.0
+rounded = true
+alignment = 1
+suffix = "px"
+
+[node name="ShowOffset_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content"]
+layout_mode = 2
+text = "Use Offset"
+
+[node name="ResetOffset_btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset Offset"
+
+[node name="Sorting" type="FoldableContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6deb")
+folded = true
+title = "Sorting Options"
+
+[node name="Content" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Sorting"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SortButton_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Sorting/Content"]
 layout_mode = 2
 text = "Sort unique Tiles"
 
-[node name="SortOptionButton_Opt" type="OptionButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+[node name="SortOptionButton_Opt" type="OptionButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Sorting/Content"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -390,18 +380,44 @@ popup/item_3/id = 3
 popup/item_4/text = "Cluster by Color"
 popup/item_4/id = 4
 
-[node name="ApplyShader_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+[node name="Filters" type="FoldableContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-button_pressed = true
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6deb")
+folded = true
+title = "Filters"
+
+[node name="Content" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Filters"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CheckOrienationButton_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Filters/Content"]
+layout_mode = 2
+text = "Ignore Tiles in other Orientation"
+
+[node name="Shader" type="FoldableContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+folded = true
+title = "Shader"
+
+[node name="Content" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Shader"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ApplyShader_Check" type="CheckButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Shader/Content"]
+layout_mode = 2
 text = "Apply shader to Tiles"
 
-[node name="ApplyShader_Opt" type="OptionButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
+[node name="ApplyShader_Opt" type="OptionButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Shader/Content"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 selected = 0
-item_count = 4
+item_count = 5
 popup/item_0/text = "None"
 popup/item_0/id = 0
 popup/item_1/text = "Gameboy (Green)"
@@ -410,203 +426,241 @@ popup/item_2/text = "Gameboy (Gray)"
 popup/item_2/id = 2
 popup/item_3/text = "Virtualboy"
 popup/item_3/id = 3
+popup/item_4/text = "Custom"
+popup/item_4/id = 4
 
-[node name="HSeparator3" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
-
-[node name="Offset_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Offset:"
-horizontal_alignment = 1
-
-[node name="Offset_GridCon" type="GridContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 4
-
-[node name="OffsetX1_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-layout_mode = 2
-text = "X1:"
-
-[node name="OffsetX1_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
+[node name="CustomShaderDropZone" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Shader/Content" groups=["shader_drop_target"]]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1e+06
-rounded = true
-alignment = 1
-suffix = "px"
-
-[node name="OffsetY1_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-layout_mode = 2
-text = "Y1:"
-
-[node name="OffsetY1_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1e+06
-rounded = true
-alignment = 1
-suffix = "px"
-
-[node name="OffsetX2_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-layout_mode = 2
-text = "X2:"
-
-[node name="OffsetX2_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1e+06
-rounded = true
-alignment = 1
-suffix = "px"
-
-[node name="OffsetY1_Label2" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-layout_mode = 2
-text = "Y2:"
-
-[node name="OffsetY2_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1e+06
-rounded = true
-alignment = 1
-suffix = "px"
-
-[node name="HSeparator" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
-
-[node name="TileSize_Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Tile Size:"
-horizontal_alignment = 1
-
-[node name="TileSize_GridCon" type="GridContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 3
-
-[node name="TileSize4x4_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "4x4"
-
-[node name="TileSize8x8_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "8x8"
-
-[node name="TileSize16x16_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "16x16"
-
-[node name="TileSize32x32_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "32x32"
-
-[node name="TileSize64x64_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "64x64"
-
-[node name="TileSize128x128_Btn" type="Button" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "128x128"
-
-[node name="HSeparator2" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
-
-[node name="ManualTileSize_HBox" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
-
-[node name="ManualTileSizeX_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox"]
-unique_name_in_owner = true
-layout_mode = 2
-min_value = 1.0
-max_value = 100000.0
-value = 16.0
-rounded = true
-alignment = 1
-suffix = "px"
-custom_arrow_step = 1.0
-
-[node name="ManualTileSizeY_Spin" type="SpinBox" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox"]
-unique_name_in_owner = true
-layout_mode = 2
-min_value = 1.0
-max_value = 100000.0
-value = 16.0
-rounded = true
-alignment = 1
-suffix = "px"
-custom_arrow_step = 1.0
-
-[node name="LowerRightSidebar_Cont" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox"]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("2_jyhfs")
+text = "
 
-[node name="LowerRightSidebar_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont"]
+"
+
+[node name="Presets" type="TabBar" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer"]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 40
+metadata/_tab_index = 1
 
-[node name="LowerRightSidebar_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont"]
-layout_mode = 2
-
-[node name="LeftSidebarTitel" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.968627, 0.964706, 0.976471, 1)
-theme_override_font_sizes/font_size = 30
-text = "OUTPUT"
-
-[node name="HSeparator" type="HSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxFlat_h2yge")
-
-[node name="Console_Cont" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox"]
+[node name="Panel" type="Panel" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox" groups=["image_drop_target"]]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_tefeu")
 
-[node name="ConsoleMargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox/Console_Cont"]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ConsoleText" type="RichTextLabel" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/LowerRightSidebar_Cont/LowerRightSidebar_MargCont/LowerRightSidebar_VBox/Console_Cont/ConsoleMargCont"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="LoadedImages_GridCont" type="GridContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/Panel/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="CenterContainer_VBox" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.23
+theme_override_constants/separation = 20
+
+[node name="UpperCenterContainerBackground_Cont" type="Panel" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.09
+
+[node name="MarginContainer" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="InputImagebackground" type="PanelContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer" groups=["image_drop_target"]]
 layout_mode = 2
 size_flags_vertical = 3
-text = "asd"
+
+[node name="ZoomContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/InputImagebackground" instance=ExtResource("4_tefeu")]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+
+[node name="InputImageTextureRect" type="TextureRect" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/InputImagebackground/ZoomContainer"]
+unique_name_in_owner = true
+material = ExtResource("4_a8y0u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteImage_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "Clear Shown Image"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_jbj1t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_a8y0u")
+
+[node name="CenterImage_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "Center Image"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_a8y0u")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ToggleImageScaling_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "Lock iamge to aspect ratio"
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("8_a8y0u")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_a8y0u")
+
+[node name="ToggleGrid_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "toggle grid"
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("9_jkv2x")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ShowOffset_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "toggle offset"
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("9_jbj1t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="StartTiling_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "start tiling process"
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("10_muem4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PauseTiling_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer2"]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("11_dp3eg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="StopTiling_Btn" type="TextureButton" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+tooltip_text = "stop tiling process"
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("12_0ld40")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="BottomCenterContainerBackground_Cont" type="Panel" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomCenterContainerBackground_MargCont" type="MarginContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont"]
+layout_mode = 0
+offset_right = 1455.0
+offset_bottom = 331.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont"]
+layout_mode = 2
+
+[node name="TiledImagesList_VBox" type="GridContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4
 
 [node name="TileDetailModal" parent="." instance=ExtResource("7_o6xl0")]
 visible = false
@@ -627,30 +681,53 @@ metadata/_edit_use_anchors_ = true
 [node name="SubViewport" type="SubViewport" parent="ShaderApplier"]
 render_target_update_mode = 4
 
-[node name="TextureRect" type="TextureRect" parent="ShaderApplier/SubViewport"]
+[node name="ShaderTextureRect" type="TextureRect" parent="ShaderApplier/SubViewport"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("8_85g3d")
 
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer/DeleteImage_Btn" to="." method="_on_delete_image_btn_pressed"]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer/CenterImage_Btn" to="." method="_on_center_image_btn_pressed"]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer/ToggleImageScaling_Btn" to="." method="_on_toggle_image_scaling_btn_pressed"]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/UpperCenterContainer_MargCont/UpperCenterContainer_VBox/HBoxContainer/ToggleGrid_Btn" to="." method="_on_toggle_grid_btn_pressed"]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/BottomCenterContainerBackground_Cont/BottomCenterContainerBackground_MargCont/BottomCenterContainerBackground_VBox/StartTiling_Btn" to="." method="_on_tile_button_pressed"]
-[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/CheckOrienationButton_Check" to="." method="_on_check_orienation_button_check_toggled"]
-[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/SortButton_Check" to="." method="_on_sort_button_toggled"]
-[connection signal="item_selected" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/SortOptionButton_Opt" to="." method="_on_sort_option_button_item_selected"]
-[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ApplyShader_Check" to="." method="_on_apply_shader_check_toggled"]
-[connection signal="item_selected" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ApplyShader_Opt" to="." method="_on_apply_shader_opt_item_selected"]
-[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon/OffsetX1_Spin" to="." method="_on_offset_spin_value_changed"]
-[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon/OffsetY1_Spin" to="." method="_on_offset_spin_value_changed"]
-[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon/OffsetX2_Spin" to="." method="_on_offset_spin_value_changed"]
-[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/Offset_GridCon/OffsetY2_Spin" to="." method="_on_offset_spin_value_changed"]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon/TileSize4x4_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(4, 4)]]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon/TileSize8x8_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(8, 8)]]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon/TileSize16x16_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(16, 16)]]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon/TileSize32x32_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(32, 32)]]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon/TileSize64x64_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(64, 64)]]
-[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/TileSize_GridCon/TileSize128x128_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(128, 128)]]
-[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox/ManualTileSizeX_Spin" to="." method="_on_manual_tile_size_x_value_changed"]
-[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/RightSidebar_Vbox/UpperRightSidebar_Cont/UpperRightSidebar_MargCont/UpperRightSidebar_VBox/SettingsContainer/ManualTileSize_HBox/ManualTileSizeY_Spin" to="." method="_on_manual_tile_size_y_value_changed"]
+[node name="PopUpContainer_VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = 5.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ImageFileDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open File(s)"
+initial_position = 2
+size = Vector2i(960, 540)
+file_mode = 1
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg", "*.bmp", "*.gif", "*.tga", "*.webp")
+
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon/TileSize4x4_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(4, 4)]]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon/TileSize8x8_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(8, 8)]]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon/TileSize16x16_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(16, 16)]]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon/TileSize32x32_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(32, 32)]]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon/TileSize64x64_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(64, 64)]]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/TileSize_GridCon/TileSize128x128_Btn" to="." method="_on_tile_size_btn_pressed" binds= [Vector2i(128, 128)]]
+[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/ManualTileSize_HBox/ManualTileSizeX_Spin" to="." method="_on_manual_tile_size_x_value_changed"]
+[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/TileSettings/Content/ManualTileSize_HBox/ManualTileSizeY_Spin" to="." method="_on_manual_tile_size_y_value_changed"]
+[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon/OffsetX1_Spin" to="." method="_on_offset_spin_value_changed"]
+[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon/OffsetY1_Spin" to="." method="_on_offset_spin_value_changed"]
+[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon/OffsetX2_Spin" to="." method="_on_offset_spin_value_changed"]
+[connection signal="value_changed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/Offset_GridCon/OffsetY2_Spin" to="." method="_on_offset_spin_value_changed"]
+[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/ShowOffset_Check" to="." method="_on_use_offset_check_toggled"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Offset/Content/ResetOffset_btn" to="." method="_on_reset_offset_btn_pressed"]
+[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Sorting/Content/SortButton_Check" to="." method="_on_sort_button_toggled"]
+[connection signal="item_selected" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Sorting/Content/SortOptionButton_Opt" to="." method="_on_sort_option_button_item_selected"]
+[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Filters/Content/CheckOrienationButton_Check" to="." method="_on_check_orienation_button_check_toggled"]
+[connection signal="toggled" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Shader/Content/ApplyShader_Check" to="." method="_on_apply_shader_check_toggled"]
+[connection signal="item_selected" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/LeftSidebarBackground_Cont/LeftSidebar_MargCont/LeftSidebar_VBox/TabContainer/Settings/ScrollContainer/VBoxContainer/Shader/Content/ApplyShader_Opt" to="." method="_on_apply_shader_opt_item_selected"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer/DeleteImage_Btn" to="." method="_on_delete_image_btn_pressed"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer/CenterImage_Btn" to="." method="_on_center_image_btn_pressed"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer/ToggleImageScaling_Btn" to="." method="_on_toggle_image_scaling_btn_pressed"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer/ToggleGrid_Btn" to="." method="_on_toggle_grid_btn_pressed"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer/ShowOffset_Btn" to="." method="_on_show_offset_btn_pressed"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer2/StartTiling_Btn" to="." method="_on_tile_button_pressed"]
+[connection signal="pressed" from="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer4/HBoxContainer2/StopTiling_Btn" to="." method="_on_stop_tiling_btn_pressed"]
+[connection signal="files_selected" from="ImageFileDialog" to="." method="_on_file_dialog_files_selected"]

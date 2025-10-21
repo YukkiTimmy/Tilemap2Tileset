@@ -20,7 +20,13 @@ func show_modal(_info_resource : ImageInfoResource):
 	info_resource = _info_resource
 	MAIN_SCENE = get_tree().get_root().get_node("Main")  
 
-	image_display.texture = info_resource.get_output_image_texture()
+	var texture = info_resource.get_output_image_texture()
+	image_display.texture = texture
+	
+	if texture.get_size() > image_display.size:
+		image_display.pivot_offset = texture.get_size()/2
+	else:
+		image_display.pivot_offset = image_display.size / 2
 	
 	image_information_label.text = info_resource.get_formatted_info_string()
 	
@@ -53,22 +59,43 @@ func _on_next_image_pressed() -> void:
 
 
 func _on_flip_v_button_pressed() -> void:
-	image_display.flip_v = not image_display.flip_v
-	_update_tiled_image_item_image()
+	var image = image_display.texture.get_image()
+	image.flip_y()  
+
+	var flipped_texture = ImageTexture.create_from_image(image)
+	image_display.texture = flipped_texture
+	
+	_update_tiled_image_item_image(image)
 
 func _on_flip_h_button_pressed() -> void:
-	image_display.flip_h = not image_display.flip_h
-	_update_tiled_image_item_image()
+	var image = image_display.texture.get_image()
+	image.flip_x()  
+
+	var flipped_texture = ImageTexture.create_from_image(image)
+	image_display.texture = flipped_texture
+
+	
+	_update_tiled_image_item_image(image)
 
 
 func _on_rotate_right_button_pressed() -> void:
-	image_display.rotation += deg_to_rad(90)
-	_update_tiled_image_item_image()
+	var image : Image = image_display.texture.get_image()
+	image.rotate_90(CLOCKWISE)
+
+	var rotated_texture = ImageTexture.create_from_image(image)
+	image_display.texture = rotated_texture
+
+	_update_tiled_image_item_image(image)
 
 
 func _on_rotate_left_button_pressed() -> void:
-	image_display.rotation -= deg_to_rad(90)
-	_update_tiled_image_item_image()
+	var image = image_display.texture.get_image()
+	image.rotate_90(COUNTERCLOCKWISE)
+
+	var rotated_texture = ImageTexture.create_from_image(image)
+	image_display.texture = rotated_texture
+
+	_update_tiled_image_item_image(image)
 
 
 func _on_delete_button_pressed() -> void:
@@ -85,10 +112,11 @@ func _on_delete_button_pressed() -> void:
 	old_item_shown.queue_free()
 
 
-func _update_tiled_image_item_image():
+func _update_tiled_image_item_image(image : Image):
 	if current_tile_shown and current_tile_shown.output_image_texture_rect:
-		current_tile_shown.output_image_texture_rect.flip_h = image_display.flip_h
-		current_tile_shown.output_image_texture_rect.flip_v = image_display.flip_v
+		current_tile_shown.output_image_texture_rect.texture = image_display.texture
+
+	info_resource.output_image = image
 
 
 func _on_download_button_pressed() -> void:

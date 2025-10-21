@@ -13,9 +13,13 @@ var TILE_WIDTH := 16
 var TILE_HEIGHT := 16
 var TILE_AMOUNT := 1
 
+var MAIN_SCENE : main_scene = null
+
 
 func show_modal(info_resource : ImageInfoResource) -> void:
 	self.visible = true
+	MAIN_SCENE = get_tree().get_root().get_node("Main")  
+	
 	display_image.texture = info_resource.get_output_image_texture()
 	output_filename.placeholder_text = info_resource.input_image_name
 
@@ -52,13 +56,16 @@ func _save_image_to_path(path : String, image : Image) -> void:
 	var err := image.save_png(path)
 	if err != OK:
 		push_error("Couldnt save image: " + path)
+		MAIN_SCENE.create_popup("Error while saving Image!", "Image couldn't be saved:\n" + path, main_scene.POPUP_TYPES.warning)
 	else:
 		print("Imaged save under: ", path)
+		
 
 func _create_dir_at_path(path : String, dir_name : String) -> void:
 	var dir := DirAccess.open(path)
 	if dir == null:
-		push_error("Konnte Basisverzeichnis nicht öffnen: " + path)
+		MAIN_SCENE.create_popup("Error with directory", "Couldn't open the Directorty:\n" + path, main_scene.POPUP_TYPES.warning)
+
 		return
 
 	var save_path = path + dir_name
@@ -66,7 +73,7 @@ func _create_dir_at_path(path : String, dir_name : String) -> void:
 	if not dir.dir_exists(save_path):
 		var err := dir.make_dir(save_path)
 		if err != OK:
-			push_error("Konnte Verzeichnis nicht erstellen: " + save_path)
+			MAIN_SCENE.create_popup("Error with directory", "Couldn't open the Directorty:\n" + path, main_scene.POPUP_TYPES.warning)
 			return
 	else:
 		print("Verzeichnis existiert bereits:", save_path)
@@ -75,6 +82,8 @@ func _create_dir_at_path(path : String, dir_name : String) -> void:
 func _on_save_single_image_pressed() -> void:
 	var save_path = str(output_path.text, '/', output_filename.placeholder_text, '.png')
 	_save_image_to_path(save_path, current_output_image)
+	
+	MAIN_SCENE.create_popup("Image Saved!", "Image saved in:\n " + save_path, main_scene.POPUP_TYPES.info)
 
 
 func _on_save_multiple_images_pressed() -> void:
@@ -83,7 +92,9 @@ func _on_save_multiple_images_pressed() -> void:
 	
 	_create_dir_at_path(base_path, folder_name)
 
+	@warning_ignore("integer_division")
 	var rows := int(current_output_image.get_height() / TILE_HEIGHT)
+	@warning_ignore("integer_division")
 	var cols := int(current_output_image.get_width() / TILE_WIDTH)
 
 	var count := 0
@@ -103,6 +114,8 @@ func _on_save_multiple_images_pressed() -> void:
 			_save_image_to_path(tile_save_path, tile_data)
 			
 			count += 1
+	
+	MAIN_SCENE.create_popup("Image Saved!", "Image saved in:\n " + base_path, main_scene.POPUP_TYPES.info)
 
 
 func _on_save_tile_set_pressed() -> void:
@@ -141,7 +154,9 @@ func _create_tileset_from_atlas(image: Image, tile_size: Vector2i, tile_count: i
 	atlas.texture = texture
 	atlas.texture_region_size = tile_size
 
+	@warning_ignore("integer_division")
 	var cols := image.get_width() / tile_size.x
+	@warning_ignore("integer_division")
 	var rows := image.get_height() / tile_size.y
 
 	var count := 0
@@ -160,5 +175,7 @@ func _create_tileset_from_atlas(image: Image, tile_size: Vector2i, tile_count: i
 	var ts_err := ResourceSaver.save(tileset, ProjectSettings.localize_path(tileset_save_path))
 	if ts_err != OK:
 		push_error("Fehler beim Speichern des Tilesets: " + str(ts_err))
+		MAIN_SCENE.create_popup("Error while saving Tileset!", "Tielset couldn't be saved:\n" + str(ts_err), main_scene.POPUP_TYPES.warning)
 	else:
-		print("✅ Tileset erfolgreich gespeichert unter:", tileset_save_path)
+		print("Tileset saved in:", tileset_save_path)
+		MAIN_SCENE.create_popup("Tilset Saved!", "Tileset saved in:\n " + tileset_save_path, main_scene.POPUP_TYPES.info)

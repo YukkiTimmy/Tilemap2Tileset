@@ -24,7 +24,11 @@ var end_time : float = 0
 var total_tiles_to_check : int = 0
 var current_tiles_checked : int = 0
 
+var should_stop := false
+
 func _run_threaded(tiler_settings : Dictionary) -> void:
+	should_stop = false
+	
 	start_time = Time.get_ticks_msec()
 	
 	# Set Settings
@@ -32,8 +36,6 @@ func _run_threaded(tiler_settings : Dictionary) -> void:
 	TILE_HEIGHT = tiler_settings.tile_height
 	
 	OFFSET_RECT = tiler_settings.offset_rect
-	
-	print(OFFSET_RECT)
 	
 	var input_image = tiler_settings.input_image
 	var input_image_name = tiler_settings.file_name
@@ -49,8 +51,14 @@ func _run_threaded(tiler_settings : Dictionary) -> void:
 
 	call_deferred("emit_signal", "get_total_tiles_to_check", total_tiles_to_check)
 
+	if should_stop:
+		return
+
 	# Start tiling the image
 	var output_image := _generate_unique_tile_image(input_image)
+	
+	if should_stop:
+		return
 	
 	# Create ImageInfoResource to hold important data
 	var info_resource := ImageInfoResource.new()
@@ -77,6 +85,9 @@ func _generate_unique_tile_image(input_image: Image) -> Image:
 	
 	unique_tile_counter = unique_tiles.size()
 	
+	if should_stop:
+		return Image.new()
+	
 	end_time = Time.get_ticks_msec()
 	
 	unique_tiles = _sort_unique_tiles(unique_tiles)
@@ -84,8 +95,10 @@ func _generate_unique_tile_image(input_image: Image) -> Image:
 	return _compose_output_image(unique_tiles, input_image.get_format())
 
 func _extract_unique_tiles(image: Image) -> Array:
-	var rows : int = floor(image.get_height() / TILE_HEIGHT)
-	var cols : int = floor(image.get_width() / TILE_WIDTH)
+	@warning_ignore("integer_division")
+	var rows : int = floor((image.get_height() - OFFSET_RECT.position.y - OFFSET_RECT.size.y) / TILE_HEIGHT)
+	@warning_ignore("integer_division")
+	var cols : int = floor((image.get_width() - OFFSET_RECT.position.x - OFFSET_RECT.size.x) / TILE_WIDTH)
 
 	var seen := {}  
 	var unique_tiles := [] 
@@ -95,9 +108,12 @@ func _extract_unique_tiles(image: Image) -> Array:
 
 	for row in range(rows):
 		for col in range(cols):
+			if should_stop:
+				return []
+			
 			var tile_data := _extract_tile(image, col, row)
 			
-			var base_hash = _image_hash(tile_data)
+			#var base_hash = _image_hash(tile_data)
 						
 			var hashes := _generate_all_orientation_hashes(tile_data)
 
@@ -125,7 +141,7 @@ func _extract_unique_tiles(image: Image) -> Array:
 	return unique_tiles
 
 func _extract_tile(image: Image, col: int, row: int) -> Image:
-	var pos := Vector2i(col * TILE_WIDTH, row * TILE_HEIGHT)
+	var pos := Vector2i(col * TILE_WIDTH + OFFSET_RECT.position.x, row * TILE_HEIGHT + OFFSET_RECT.position.y)
 	var size := Vector2i(TILE_WIDTH, TILE_HEIGHT)
 	var tile_data := Image.create(size.x, size.y, false, image.get_format())
 
@@ -285,3 +301,6 @@ func cluster_tiles_by_dominant_color(unique_tiles: Array) -> Array:
 
 	# Du kannst die Reihenfolge hier beliebig ändern
 	return red_tiles + green_tiles + blue_tiles
+
+func stop():
+	should_stop = true

@@ -1,10 +1,11 @@
 shader_type canvas_item;
 
-// ----- Kasten-Parameter -----
+// ----- box-Parameter -----
+uniform bool draw_box = false;
 uniform vec4 box_color : source_color = vec4(1.0, 0.0, 0.0, 1.0);
 uniform vec2 rect_pos = vec2(0.0, 0.0);
 uniform vec2 rect_size = vec2(0.0, 0.0);
-uniform float border_thickness = 2.0;
+uniform float border_thickness = 1.0;
 
 // ----- Grid-Parameter -----
 uniform bool draw_grid = false;
@@ -12,20 +13,25 @@ uniform vec2 grid_size = vec2(16.0, 16.0); // x = Breite, y = Höhe in Pixeln
 uniform vec4 grid_color : source_color = vec4(0.0, 1.0, 0.0, 0.5);
 uniform float grid_thickness = 1.0;
 
+// ----- Maus-Tile-Highlight -----
+uniform bool highlight_tile_under_mouse = false;
+uniform vec2 tile_size = vec2(16.0, 16.0);
+uniform vec2 mouse_pos = vec2(0.0, 0.0);
+uniform vec4 highlight_color : source_color = vec4(1.0, 1.0, 0.0, 1.0); // Gelb mit Transparenz
+
 void fragment() {
     vec4 tex_color = texture(TEXTURE, UV);
     vec2 tex_size = vec2(textureSize(TEXTURE, 0));
     vec2 pixel_coord = UV * tex_size;
 
-    // --- Grundfarbe aus der Textur ---
     vec4 final_color = tex_color;
 
-    // --- Kasten nur zeichnen, wenn Größe > 0 ---
-    if (rect_size.x > 0.0 && rect_size.y > 0.0) {
+    // --- Kasten zeichnen ---
+    if (draw_box) {
         float left   = rect_pos.x;
-        float right  = rect_pos.x + rect_size.x;
+        float right  = tex_size.x - rect_size.x;
         float top    = rect_pos.y;
-        float bottom = rect_pos.y + rect_size.y;
+        float bottom = tex_size.y - rect_size.y;
 
         bool in_horizontal_border =
             (pixel_coord.x >= left && pixel_coord.x <= right) &&
@@ -49,6 +55,16 @@ void fragment() {
 
         if (gx <= grid_thickness || gy <= grid_thickness) {
             final_color = mix(final_color, grid_color, grid_color.a);
+        }
+    }
+
+    // --- Tile unter Maus hervorheben ---
+    if (highlight_tile_under_mouse) {
+        ivec2 tile_mouse = ivec2(mouse_pos / tile_size);
+        ivec2 tile_here = ivec2(pixel_coord / tile_size);
+
+        if (tile_mouse == tile_here) {
+            final_color = mix(final_color, highlight_color, highlight_color.a);
         }
     }
 
