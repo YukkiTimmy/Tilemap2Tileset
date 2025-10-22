@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjeu7kpe7vi6g"]
+
+[ext_resource type="Script" uid="uid://4uiomwwh8ybw" path="res://addons/FileAccessWeb/examples/upload_image_example.gd" id="1_f62sm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h46t"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ifsm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6sdq"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqd2r"]
+bg_color = Color(0.372549, 0.372549, 0.372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0hm0"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owjfu"]
+draw_center = false
+
+[sub_resource type="ImageTexture" id="ImageTexture_yurbi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5wel"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx3xo"]
+bg_color = Color(0.196078, 0.396078, 0.721569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwgxq"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="Upload Image Example" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f62sm")
+
+[node name="Window Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3h46t")
+
+[node name="Margin Container" type="MarginContainer" parent="Window Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Content Background" type="Panel" parent="Window Background/Margin Container"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ifsm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Window Background/Margin Container/Content Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window Background/Margin Container/Content Background/MarginContainer"]
+layout_mode = 2
+
+[node name="Upload Button" type="Button" parent="Window Background/Margin Container/Content Background/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_k6sdq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqd2r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v0hm0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_owjfu")
+text = "Upload File"
+
+[node name="Canvas" type="TextureRect" parent="Window Background/Margin Container/Content Background/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("ImageTexture_yurbi")
+expand_mode = 3
+
+[node name="Progress Bar" type="ProgressBar" parent="Window Background"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 0
+offset_top = 265.0
+offset_right = 256.0
+offset_bottom = 292.0
+theme_override_styles/background = SubResource("StyleBoxFlat_t5wel")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yx3xo")
+
+[node name="Borders" type="Panel" parent="Window Background/Progress Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fwgxq")

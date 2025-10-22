@@ -25,6 +25,10 @@ var CURRENT_TILER : Tiler = null
 var tiler_thread: Thread = null
 var thread_running := false
 
+# Web Settings
+var file_access_web := FileAccessWeb.new()
+
+
 # UI: Image Preview
 @onready var zoom_container := %ZoomContainer
 @onready var image_preview := %InputImageTextureRect
@@ -75,6 +79,11 @@ func _ready() -> void:
 	menu_button_tiler_settings.get_popup().id_pressed.connect(_on_menu_button_tiler_settings_pressed)
 	menu_button_settings.get_popup().id_pressed.connect(_on_menu_button_settings_pressed)
 	menu_button_help.get_popup().id_pressed.connect(_on_menu_button_help_pressed)
+	
+	print(OS.get_name())
+	if OS.get_name() == "Web":
+		file_access_web.loaded.connect(_on_web_file_loaded)
+		file_access_web.open(".png, .jpg, .jpeg, .bmp, .gif, .tga, .webp")
 
 
 
@@ -103,6 +112,44 @@ func _on_files_dropped(files: PackedStringArray) -> void:
 
 func _on_file_dialog_files_selected(files: PackedStringArray) -> void:
 	_handle_uploaded_images(files)
+
+func _on_web_file_loaded(file_name: String, file_type: String, base64_data: String) -> void:
+	var raw_data: PackedByteArray = Marshalls.base64_to_raw(base64_data)
+	web_raw_draw(file_name, file_type, raw_data)
+	
+
+func web_raw_draw(file_name : String, type: String, data: PackedByteArray) -> void:
+	var image := Image.new()
+	var error: int = _load_web_image(image, type, data)
+	
+	var texture = null
+	if not error:
+		texture = _create_texture_from(image)
+	else:
+		push_error("Error %s id" % error)
+	
+	create_loaded_image_item(texture, image, file_name)
+	CURRENT_FILE_NAME = image.get_file().get_basename()
+	
+	set_loaded_image(image, CURRENT_FILE_NAME)
+	
+func _load_web_image(image: Image, type: String, data: PackedByteArray) -> int:
+	match type:
+		"image/png":
+			return image.load_png_from_buffer(data)
+		"image/jpeg":
+			return image.load_jpg_from_buffer(data)
+		"image/webp":
+			return image.load_webp_from_buffer(data)
+		_:
+			return Error.FAILED
+
+func _create_texture_from(image: Image) -> ImageTexture:
+	var texture = ImageTexture.new()
+	texture.set_image(image)
+	return texture
+
+	
 
 func _handle_uploaded_images(files: PackedStringArray) -> void:
 	if files.is_empty():
@@ -457,7 +504,11 @@ func _on_menu_button_file_pressed(id : int) -> void:
 	match id:
 		# Open File Dialog
 		0: 
-			image_file_dialog.popup()
+			if OS.get_name() == "Web":
+				file_access_web.open(".png, .jpg, .jpeg, .bmp, .gif, .tga, .webp")
+			else:
+				image_file_dialog.popup()
+
 		# Exit Programm	
 		1: 
 			get_tree().quit()

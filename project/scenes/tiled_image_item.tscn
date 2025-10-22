@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dm84b18ibwjoo" path="res://scripts/tiled_image_item.gd" id="1_k2abn"]
 [ext_resource type="Theme" uid="uid://1yvmk70n4wn2" path="res://assets/themes/main_dark.tres" id="1_v5iba"]
-[ext_resource type="Texture2D" uid="uid://bxl8edohoyexc" path="res://lake.png" id="3_gosbp"]
+[ext_resource type="Texture2D" uid="uid://q5y30xhu6bjj" path="res://icon.svg" id="3_v5iba"]
 [ext_resource type="Texture2D" uid="uid://cp7jr112tmi1x" path="res://assets/imgs/icons/round_delete_white_24dp.png" id="4_o5xx5"]
 [ext_resource type="Texture2D" uid="uid://b5cvrcvp2ejyl" path="res://assets/imgs/icons_new/photo_size_select_small_24dp_FFFFFF_FILL0_wght300_GRAD0_opsz24.svg" id="4_ul3sc"]
 [ext_resource type="Texture2D" uid="uid://s74ksgkbqflp" path="res://assets/imgs/icons_new/numbers_24dp_FFFFFF_FILL0_wght300_GRAD0_opsz24.svg" id="5_rnb8b"]
@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-texture = ExtResource("3_gosbp")
+texture = ExtResource("3_v5iba")
 expand_mode = 2
 stretch_mode = 3
 

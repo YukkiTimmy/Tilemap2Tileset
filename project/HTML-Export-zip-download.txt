@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+window.downloadZip = async function(fileMap) {
+	const zip = new JSZip();
+	for (const [filename, base64] of Object.entries(fileMap)) {
+		zip.file(filename, atob(base64), {binary: true});
+	}
+	const blob = await zip.generateAsync({type: 'blob'});
+	const a = document.createElement('a');
+	a.href = URL.createObjectURL(blob);
+	a.download = 'images.zip';
+	a.click();
+};
+</script>

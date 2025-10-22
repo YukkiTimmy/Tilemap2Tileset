@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://776ilwkty5jq" path="res://scripts/save_modal.gd" id="1_eowqx"]
 [ext_resource type="Theme" uid="uid://1yvmk70n4wn2" path="res://assets/themes/main_dark.tres" id="1_mmcfc"]
-[ext_resource type="Texture2D" uid="uid://bxl8edohoyexc" path="res://lake.png" id="4_eowqx"]
+[ext_resource type="Texture2D" uid="uid://q5y30xhu6bjj" path="res://icon.svg" id="3_mmcfc"]
 [ext_resource type="Texture2D" uid="uid://blautuchqxfot" path="res://assets/imgs/icons/round_close_white_24dp.png" id="5_qtdht"]
 [ext_resource type="Texture2D" uid="uid://dihg67gfkv48q" path="res://assets/imgs/icons/round_close_gray_24dp.png" id="6_wigds"]
 
@@ -85,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-texture = ExtResource("4_eowqx")
+texture = ExtResource("3_mmcfc")
 expand_mode = 2
 stretch_mode = 5
 

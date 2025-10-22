@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpin0lfjdk3g4"]
 
 [ext_resource type="Script" uid="uid://dy55nkd7je4fi" path="res://scripts/loaded_image_item.gd" id="1_1a6df"]
-[ext_resource type="Texture2D" uid="uid://cxfyek8t0dtun" path="res://The Legend of Zelda Overworld (Oracle of Seasons-Style) - MisterMike.png" id="2_1a6df"]
+[ext_resource type="Texture2D" uid="uid://q5y30xhu6bjj" path="res://icon.svg" id="2_1a6df"]
 
 [node name="LoadedImageItem" type="Control"]
 custom_minimum_size = Vector2(90, 110)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv4keuf4xqvs4"]
+
+[ext_resource type="Script" path="res://addons/FileAccessWeb/examples/upload_to_server_example.gd" id="1_0rfwi"]
+[ext_resource type="PackedScene" uid="uid://bjeu7kpe7vi6g" path="res://addons/FileAccessWeb/examples/upload_image_example.tscn" id="2_gtj23"]
+
+[node name="Upload To Server Example" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rfwi")
+
+[node name="Upload Image Example" parent="." instance=ExtResource("2_gtj23")]
+layout_mode = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

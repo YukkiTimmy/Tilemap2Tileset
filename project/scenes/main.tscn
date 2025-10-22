@@ -498,6 +498,13 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="CenterContainer" type="CenterContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/InputImagebackground"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/InputImagebackground/CenterContainer"]
+layout_mode = 2
+text = "Drop Images here"
+
 [node name="ZoomContainer" parent="MainHboxContainer/MainContentBackground_Cont/MainContent_MargCont/MainContent_HBox/CenterContainer_VBox/UpperCenterContainerBackground_Cont/MarginContainer/VBoxContainer/InputImagebackground" instance=ExtResource("4_tefeu")]
 unique_name_in_owner = true
 clip_contents = true

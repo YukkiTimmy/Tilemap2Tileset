@@ -31,7 +31,7 @@ movie_writer/movie_file="C:/Users/T11i0/Desktop/test.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/FileAccessWeb/plugin.cfg")
 
 [gui]
 
