@@ -1,36 +1,21 @@
-# Tilemap2Tileset
-Split all of your Tilemaps and Images into Tilesets or Tiles
+# TileMap2TileSet
+TileMap2TileSet is a powerful tool that lets you break down any image or tilemap into its unique tiles. Whether you're working with pixel art or game assets, you can extract every tile and export them as a Godot TileSet or a standalone image file. You can also apply custom shaders, filters, and more to fine-tune your output.
 
 by: YukkiTimmy
 version: 3.0
 
 
-# >----Explanation----<
-The program itself is pretty self explanatory,
+# How It Works
+1. Upload your images: Drag and drop files directly into the workspace or use File > Upload Images.
+2. Configure your settings: Choose tile size, rotation detection, shaders, and other extraction options.
+3. Start the extraction: Hit the play button in the center to process your images.
+4. Download your tileset: Export the result as a Godot TileSet or image file.
 
-before you can start tiling your image, you need
-to select an input image and an output folder.
+# Key Features
+- Extract tilesets or individual tiles from tilemaps and images
+- Apply built-in or custom shaders to the output tiles
+- Work with multiple images in a single workspace
+- Fine-tune extraction with settings like tile size, rotation checks, and more
 
-You also have to choose a compatible tile width an height,
-so your image has to be divisible by your tile dimensions, for example: 
-This works: 128px X 256px | width: 16px height: 32px
-This doesn't: 128px X 256px | width: 11px height: 19px
-
-With the printing mode switch, you can choose if you either want,
-every tile as an image or if you want one single tileset
-
-Then just press start!
-
-# >----Todo----<
-
-1. A spacing setting that lets you choose a spacing between every tile,
-   so that you could have a 1px thick grid
-
-2. Isometric Mode that prints out isometric tiles
-
-
-I am very thankful for all your feedback and suggestions!
-
-# >----Licens----<
-You can use the code at your heart's content, but please mention me
-in the credits or in the part of the code in a comment c:
+# Licens
+https://mit-license.org/
