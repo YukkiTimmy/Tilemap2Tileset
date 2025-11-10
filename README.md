@@ -1,6 +1,8 @@
 # TileMap2TileSet
 TileMap2TileSet is a powerful tool that lets you break down any image or tilemap into its unique tiles. Whether you're working with pixel art or game assets, you can extract every tile and export them as a Godot TileSet or a standalone image file. You can also apply custom shaders, filters, and more to fine-tune your output.
 
+Download and in Browser version: [Take me there](https://yukkitimmy.itch.io/tilemap-to-tileset-online)
+
 by: YukkiTimmy
 version: 3.0
 
